@@ -1,0 +1,33 @@
+{
+    "latestbuild": 6,
+    "Client": {
+        "jar": "https://www.dropbox.com/s/766gdtqrbhf875z/Crystal.jar?dl=1",
+        "json": "https://www.dropbox.com/s/bp6ppzu0mwamrzj/Crystal.json?dl=1"
+    },
+    "libraries": {
+        "1.8.8.jar": {
+            "path": "/versions/Crystal/lib/1.8.8.jar",
+            "link": "https://www.dropbox.com/s/ucw122ay7mgkqj4/1.8.8.jar?dl=1"
+        },
+        "javassist.jar": {
+            "path": "/versions/Crystal/lib/javassist.jar",
+            "link": "https://www.dropbox.com/s/ixncfi9dtr8rvx5/javassist.jar?dl=1"
+        },
+        "json-20140107.jar": {
+            "path": "/versions/Crystal/lib/json-20140107.jar",
+            "link": "https://www.dropbox.com/s/w38e9wq7k4b0zvy/json-20140107.jar?dl=1"
+        },
+        "lwjgl-2.9.4-nightly-20150209.jar": {
+            "path": "/versions/Crystal/lib/lwjgl-2.9.4-nightly-20150209.jar",
+            "link": "https://www.dropbox.com/s/t9293mg2rb5ryr0/lwjgl-2.9.4-nightly-20150209.jar?dl=1"
+        },
+        "netty-all-4.0.23.Final.jar": {
+            "path": "/versions/Crystal/lib/netty-all-4.0.23.Final.jar",
+            "link": "https://www.dropbox.com/s/w9ycyqan9y0rlih/netty-all-4.0.23.Final.jar?dl=1"
+        },
+        "reflections-0.9.10.jar": {
+            "path": "/versions/Crystal/lib/reflections-0.9.10.jar",
+            "link": "https://www.dropbox.com/s/c60ipre4p3wtjt8/reflections-0.9.10.jar?dl=1"
+        }
+    }
+}
