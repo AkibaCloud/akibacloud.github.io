@@ -16,7 +16,7 @@
     },
     "10": {
         "add": "Added DepthStrider(Test)\nAdded Teammate Option in KillAura\nAdded BedFucker(Test)\nAdded Remember Login data\nAdded HP Bar(Draw Info Option in KillAura)\nAdded Rename Client Name(command: renamehud)",
-        "del": "Deleted OutlineESP\nDeleted Angle Option in KillAura\nDedleted Safewalk Option in TowerWalk\nDeleted Nazi, Dab, Firion Module",
+        "del": "Deleted OutlineESP\nDeleted Angle Option in KillAura\nDeleted Safewalk Option in TowerWalk\nDeleted Nazi, Dab, Firion Module",
         "fix": "Fixed display name in IRC\nFixed Draw Friend Alias(Tags)\nFixed ClickGUI Window Movement\nFixed Mobs Option in KillAura\nFixed Draw Notification Text"
     }
 }
