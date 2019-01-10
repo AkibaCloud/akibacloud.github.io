@@ -1,0 +1,22 @@
+{
+    "7": {
+        "add": "Added draw changelog",
+        "del": "",
+        "fix": "Fixed hypixel velocity"
+    },
+    "8": {
+        "add": "",
+        "del": "",
+        "fix": "Fixed draw text with shadow(HUD, Main Menu)"
+    },
+    "9": {
+        "add": "Added edit btn in Alt Manager",
+        "del": "",
+        "fix": "Fixed random btn in Alt Manager"
+    },
+    "10": {
+        "add": "Added DepthStrider(Test)\nAdded Teammate Option in KillAura\nAdded BedFucker(Test)\nAdded Remember Login data\nAdded HP Bar(Draw Info Option in KillAura)\nAdded Rename Client Name(command: renamehud)",
+        "del": "Deleted OutlineESP\nDeleted Angle Option in KillAura\nDedleted Safewalk Option in TowerWalk\nDeleted Nazi, Dab, Firion Module",
+        "fix": "Fixed display name in IRC\nFixed Draw Friend Alias(Tags)\nFixed ClickGUI Window Movement\nFixed Mobs Option in KillAura\nFixed Draw Notification Text"
+    }
+}

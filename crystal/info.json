@@ -1,7 +1,7 @@
 {
-    "latestbuild": 6,
+    "latestbuild": 10,
     "Client": {
-        "jar": "https://www.dropbox.com/s/766gdtqrbhf875z/Crystal.jar?dl=1",
+        "jar": "https://www.dropbox.com/s/yl94ey3zx1itelw/Crystal.jar?dl=1",
         "json": "https://www.dropbox.com/s/bp6ppzu0mwamrzj/Crystal.json?dl=1"
     },
     "libraries": {
