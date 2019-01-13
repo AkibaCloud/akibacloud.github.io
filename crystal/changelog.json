@@ -20,8 +20,8 @@
         "fix": "Fixed\n - display name in IRC\n - Draw Friend Alias(Tags)\n - ClickGUI Window Movement\n - Mobs Option in KillAura\n - Draw Notification Text"
     },
     "11": {
-        "add": "Added\n - New Phase for Hypixel(Test)",
-        "del": "Deleted\n - Toggle AutoArmor, InventoryCleaner Btn & \"AutoArmor is Enabled\" Text in Inventory\n - Damage, HighJump, Regen, Zoot, FastPlace, Search, Keystrokes, MotionBlur, Tracers, AntiHunger Modules\n - Box ESP\n - SpinBot modes\n - Chat Tabs\n - TransitionDelay Value in HUD\n - IRC Menu",
-        "fix": "Fixed\n - ClickGui Text Size"
+        "add": "Added\n - Swing Arm on Place block(TowerWalk)",
+        "del": "Deleted\n - AntiHunger, Damage, FastPlace, HighJump, Regen, Zoot, Search, Tracers, Keystrokes\n - Spinbot Modes\n - Box ESP\n - IRC Menu, Chat Tabs",
+        "fix": "Fixed\n - RenameHUD reset\n - Click GUI Layer Problems\n - "
     }
 }
