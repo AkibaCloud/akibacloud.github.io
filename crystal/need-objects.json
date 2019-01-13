@@ -34,5 +34,33 @@
     "reflections-0.9.10.jar": {
         "path": "/versions/Crystal/lib/reflections-0.9.10.jar",
         "link": "https://www.dropbox.com/s/c60ipre4p3wtjt8/reflections-0.9.10.jar?dl=1"
+    },
+    "commons-codec-1.10.jar": {
+        "path": "/versions/Crystal/lib/commons-codec-1.10.jar",
+        "link": "https://www.dropbox.com/s/eagg9jdpvx7sqqr/commons-codec-1.10.jar?dl=1"
+    },
+    "jopt-simple-4.5.jar": {
+        "path": "/versions/Crystal/lib/jopt-simple-4.5.jar",
+        "link": "https://www.dropbox.com/s/12i6f5oqhebqpb3/jopt-simple-4.5.jar?dl=1"
+    },
+    "annotations-16.0.3.jar": {
+        "path": "/versions/Crystal/lib/annotations-16.0.3.jar",
+        "link": "https://www.dropbox.com/s/jg4wj2k8cht4p7g/annotations-16.0.3.jar?dl=1"
+    },
+    "jna-3.0.9.jar": {
+        "path": "/versions/Crystal/lib/jna-3.0.9.jar",
+        "link": "https://www.dropbox.com/s/pst2ugcvdvzmivk/jna-3.0.9.jar?dl=1"
+    },
+    "sqlite-jdbc.jar": {
+        "path": "/versions/Crystal/lib/sqlite-jdbc.jar",
+        "link": "https://www.dropbox.com/s/q8bpa3eijfxh96m/sqlite-jdbc.jar?dl=1"
+    },
+    "jna.jar": {
+        "path": "/versions/Crystal/lib/jna.jar",
+        "link": "https://www.dropbox.com/s/ie6851632ip8nbz/jna.jar?dl=1"
+    },
+    "jna-platform.jar": {
+        "path": "/versions/Crystal/lib/jna-platform.jar",
+        "link": "https://www.dropbox.com/s/44sdw4u4tmex0oi/jna-platform.jar?dl=1"
     }
 }
