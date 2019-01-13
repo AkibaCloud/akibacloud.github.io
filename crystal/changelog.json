@@ -22,6 +22,6 @@
     "11": {
         "add": "Added\n - Swing Arm on Place block(TowerWalk)",
         "del": "Deleted\n - AntiHunger, Damage, FastPlace, HighJump, Regen, Zoot, Search, Tracers, Keystrokes\n - Spinbot Modes\n - Box ESP\n - IRC Menu, Chat Tabs",
-        "fix": "Fixed\n - RenameHUD reset\n - Click GUI Layer Problems\n - "
+        "fix": "Fixed\n - RenameHUD reset\n - Click GUI Layer Problems"
     }
 }
