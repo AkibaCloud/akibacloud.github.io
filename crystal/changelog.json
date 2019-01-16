@@ -28,5 +28,10 @@
         "add": "Added\n - New Font in HUD, ClickGUI, MainMenu\n - 2D ESP\n - Bind Command\n - Zoom Fly x2 (Test)",
         "del": "Deleted\n - Shitty font(MainMenu)",
         "fix": "Fixed\n - SpinBot's Option Problem(ServerYaw)\n - Render Problems(Tags, ESP, StorageESP, KillAura DrawInfo)\n - Optifine Problems"
+    },
+    "13": {
+        "add": "",
+        "del": "Deleted\n - Zoom Test Fly",
+        "fix": "Fixed\n - Zoom Fly"
     }
 }
