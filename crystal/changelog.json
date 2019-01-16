@@ -22,6 +22,11 @@
     "11": {
         "add": "Added\n - Swing Arm on Place block(TowerWalk)",
         "del": "Deleted\n - AntiHunger, Damage, FastPlace, HighJump, Regen, Zoot, Search, Tracers, Keystrokes\n - Spinbot Modes\n - Box ESP\n - IRC Menu, Chat Tabs",
-        "fix": "Fixed\n - RenameHUD reset\n - Click GUI Layer Problems"
+        "fix": "Fixed\n - RenameHUD reset\n - ClickGUI Layer Problems"
+    },
+    "12": {
+        "add": "Added\n - New Font in HUD, ClickGUI, MainMenu\n - 2D ESP\n - Bind Command\n - Zoom Fly x2 (Test)",
+        "del": "Deleted\n - Shitty font(MainMenu)",
+        "fix": "Fixed\n - SpinBot's Option Problem(ServerYaw)\n - Render Problems(Tags, ESP, StorageESP, KillAura DrawInfo)\n - Optifine Problems"
     }
 }
