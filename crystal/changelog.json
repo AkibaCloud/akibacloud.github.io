@@ -33,5 +33,10 @@
         "add": "",
         "del": "Deleted\n - Zoom Test Fly\n",
         "fix": "Fixed\n - Zoom Fly"
+    },
+    "14": {
+        "add": "(  `-´ )\n( ヽηﾉ\nノ ω ヽ",
+        "del": "Deleted\n - ItemPhysics, SwordAnimation",
+        "fix": "Fixed\n - Chams\n - MainMenu Changelog Drawing problems(on ip change)\n - \".minecraft/versions/Crystal/lib\" フォルダーは必要なくなりますた、削除してもおｋだおー＾＾"
     }
 }
