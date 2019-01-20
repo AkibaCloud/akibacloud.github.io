@@ -1,0 +1,42 @@
+{
+    "7": {
+        "add": "Added\n - draw changelog",
+        "del": "",
+        "fix": "Fixed\n - hypixel velocity"
+    },
+    "8": {
+        "add": "",
+        "del": "",
+        "fix": "Fixed\n - draw text with shadow(HUD, Main Menu)"
+    },
+    "9": {
+        "add": "Added\n - edit btn in Alt Manager",
+        "del": "",
+        "fix": "Fixed\n - random btn in Alt Manager"
+    },
+    "10": {
+        "add": "Added\n - DepthStrider(Test)\n - Teammate Option in KillAura\n - BedFucker(Test)\n - Remember Login data\n - HP Bar(Draw Info Option in KillAura)\n - Rename Client Name(command: renamehud)",
+        "del": "Deleted\n - OutlineESP\n - Angle Option in KillAura\n - Safewalk Option in TowerWalk\n - Nazi, Dab, Firion Module",
+        "fix": "Fixed\n - display name in IRC\n - Draw Friend Alias(Tags)\n - ClickGUI Window Movement\n - Mobs Option in KillAura\n - Draw Notification Text"
+    },
+    "11": {
+        "add": "Added\n - Swing Arm on Place block(TowerWalk)",
+        "del": "Deleted\n - AntiHunger, Damage, FastPlace, HighJump, Regen, Zoot, Search, Tracers, Keystrokes\n - Spinbot Modes\n - Box ESP\n - IRC Menu, Chat Tabs",
+        "fix": "Fixed\n - RenameHUD reset\n - ClickGUI Layer Problems"
+    },
+    "12": {
+        "add": "Added\n - New Font in HUD, ClickGUI, MainMenu\n - 2D ESP\n - Bind Command\n - Zoom Fly x2 (Test)",
+        "del": "Deleted\n - Shitty font(MainMenu)",
+        "fix": "Fixed\n - SpinBot's Option Problem(ServerYaw)\n - Render Problems(Tags, ESP, StorageESP, KillAura DrawInfo)\n - Optifine Problems"
+    },
+    "13": {
+        "add": "",
+        "del": "Deleted\n - Zoom Test Fly\n",
+        "fix": "Fixed\n - Zoom Fly"
+    },
+    "14": {
+        "add": "",
+        "del": "Deleted\n - ItemPhysics, SwordAnimation",
+        "fix": "Fixed\n - Chams\n - MainMenu Changelog Drawing problems(on ip change)\n - no need \".minecraft/versions/Crystal/lib\" folder!"
+    }
+}
