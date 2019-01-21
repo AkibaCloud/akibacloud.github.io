@@ -37,6 +37,6 @@
     "14": {
         "add": "Added\n - Draw BorderText",
         "del": "Deleted\n - ItemPhysics, SwordAnimation",
-        "fix": "Fixed\n - Chams\n - MainMenu Changelog Drawing problems(on ip change)\n - no need \".minecraft/versions/Crystal/lib\" folder!\n - "
+        "fix": "Fixed\n - Chams\n - MainMenu Changelog Drawing problems(on ip change)\n - no need \".minecraft/versions/Crystal/lib\" folder!"
     }
 }
