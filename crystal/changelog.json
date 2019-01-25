@@ -35,8 +35,8 @@
         "fix": "Fixed\n - Zoom Fly"
     },
     "14": {
-        "add": "Added\n - Draw BorderText",
+        "add": "Added\n - Draw BorderText\n - BindMessage Command Alias \"bindcmd\"",
         "del": "Deleted\n - ItemPhysics, SwordAnimation",
-        "fix": "Fixed\n - Chams\n - MainMenu Changelog Drawing problems(on ip change)\n - no need \".minecraft/versions/Crystal/lib\" folder!"
+        "fix": "Fixed\n - Chams\n - MainMenu Changelog Drawing problems(on ip change)\n - no need \".minecraft/versions/Crystal/lib\" folder!\n - Visible Command Message\n - Option Toggle Sound Problem\n - ChestAura(on disable)"
     }
 }
