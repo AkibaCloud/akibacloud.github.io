@@ -39,7 +39,12 @@
            elem.innerText = data[latestBuild].fix;
            var elem = document.getElementById("del");
            elem.innerText = data[latestBuild].del;
+
            console.log("Latest Build: " + latestBuild);
+           console.log("========== INFO ==========");
+           console.log(document.getElementById("add").innerText);
+           console.log(document.getElementById("fix").innerText);
+           console.log(document.getElementById("del").innerText);
          } else {
          }
        }
