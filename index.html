@@ -46,12 +46,12 @@
            var data = JSON.parse(xmlhttp.responseText);
 
            var elem = document.getElementById("latest_build");
-           elem.innerText = data.latestbuild;
+           elem.innerText = "Latest Build: " + data.latestbuild;
          } else {
          }
        }
      }
-     xmlhttp.open("GET", "http://akiba.cloud/crystal/info.json");
+     xmlhttp.open("GET", "https://akiba.cloud/crystal/info.json");
      xmlhttp.send();
    }
 
@@ -62,7 +62,7 @@
        if (xmlhttp.readyState == 4) {
          if (xmlhttp.status == 200) {
            var data = JSON.parse(xmlhttp.responseText);
-           var latestBuild = document.getElementById("latest_build").innerText;
+           var latestBuild = document.getElementById("latest_build").innerText.replace("Latest Build: ", "");
 
            var elem = document.getElementById("add");
            elem.innerText = data[latestBuild].add;
@@ -75,7 +75,7 @@
          }
        }
      }
-     xmlhttp.open("GET", "http://akiba.cloud/crystal/changelog.json");
+     xmlhttp.open("GET", "https://akiba.cloud/crystal/changelog.json");
      xmlhttp.send();
    }
 
@@ -91,13 +91,11 @@
 </script>
 </head>
 <body onMouseDown="return false;" onSelectStart="return false" oncontextmenu="return false;">
-  <div style="color: #ffffff">
-    [ Crystal Client Info ]<br/>
-    Latest Build: <span id="latest_build"></span><br/><br/>
-    <span id="add"></span><br/>
-    <span id="fix"></span><br/>
-    <span id="del"></span><br/>
-  </div>
+  <div style="color: #fff">[ Crystal Client Info ]</div>
+  <span id="latest_build" style="color: #fff"></span><br/><br/>
+  <span id="add" style="color: #fff"></span><br/>
+  <span id="fix" style="color: #fff"></span><br/>
+  <span id="del" style="color: #fff"></span><br/>
 
   <div id="center">
     <div class="animated fadeInDown">
