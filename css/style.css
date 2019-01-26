@@ -1,3 +1,14 @@
+@font-face {
+  font-family: 'tahoma';
+  src: url("file:///C:/Windows/Fonts/Tahoma.ttf");
+}
+
+.info {
+	font-family: tahoma;
+	color: rgba(255, 255, 255, 255);
+	text-shadow: #000000 0px 0px 3px,   #000000 0px 0px 2px,   #000000 0px 0px 2px, #000000 0px 0px 2px,   #000000 0px 0px 2px,   #000000 0px 0px 2px;
+}
+
 actbody {
   font-family: times New Roman;
   color: #ffffff;
