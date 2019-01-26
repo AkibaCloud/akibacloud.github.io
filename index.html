@@ -48,6 +48,8 @@
 
            var elem = document.getElementById("latest_build");
            elem.innerText = "Latest Build: " + data.latestbuild;
+           var elem = document.getElementById("edition");
+           elem.innerText = "Edition: " + data.edition;
          } else {
          }
        }
@@ -110,7 +112,8 @@
   -->
   <div class="info">[ Latest Build Changelog ]</div>
 
-  <span id="latest_build" class="info"></span><br/><br/>
+  <span id="latest_build" class="info"></span><br/>
+  <span id="edition" class="info"></span><br/><br/>
   <span id="add" class="info"></span><br/>
   <span id="fix" class="info"></span><br/>
   <span id="del" class="info"></span><br/>
