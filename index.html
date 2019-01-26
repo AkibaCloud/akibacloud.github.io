@@ -33,8 +33,72 @@
   		Scroll();
   		-->
 </script>
+<script type="text/javascript">
+  window.onload = getLatestBuild();
+   window.onload = getJson();
+
+   function getLatestBuild() {
+     var xmlhttp = createXMLHttpRequest(); //IEにも対応する時
+
+     xmlhttp.onreadystatechange = function () {
+       if (xmlhttp.readyState == 4) {
+         if (xmlhttp.status == 200) {
+           var data = JSON.parse(xmlhttp.responseText);
+
+           var elem = document.getElementById("latest_build");
+           elem.innerText = data.latestbuild;
+         } else {
+         }
+       }
+     }
+     xmlhttp.open("GET", "http://akiba.cloud/crystal/info.json");
+     xmlhttp.send();
+   }
+
+   function getJson() {
+     var xmlhttp = createXMLHttpRequest();
+
+     xmlhttp.onreadystatechange = function () {
+       if (xmlhttp.readyState == 4) {
+         if (xmlhttp.status == 200) {
+           var data = JSON.parse(xmlhttp.responseText);
+           var latestBuild = document.getElementById("latest_build").innerText;
+
+           var elem = document.getElementById("add");
+           elem.innerText = data[latestBuild].add;
+           var elem = document.getElementById("fix");
+           elem.innerText = data[latestBuild].fix;
+           var elem = document.getElementById("del");
+           elem.innerText = data[latestBuild].del;
+           console.log("Latest Build: " + latestBuild);
+         } else {
+         }
+       }
+     }
+     xmlhttp.open("GET", "http://akiba.cloud/crystal/changelog.json");
+     xmlhttp.send();
+   }
+
+   function createXMLHttpRequest() {
+     if (window.XMLHttpRequest) { return new XMLHttpRequest() }
+     if (window.ActiveXObject) {
+       try { return new ActiveXObject("Msxml2.XMLHTTP.6.0") } catch (e) { }
+       try { return new ActiveXObject("Msxml2.XMLHTTP.3.0") } catch (e) { }
+       try { return new ActiveXObject("Microsoft.XMLHTTP") } catch (e) { }
+     }
+     return false;
+   }
+</script>
 </head>
 <body onMouseDown="return false;" onSelectStart="return false" oncontextmenu="return false;">
+  <div style="color: #ffffff">
+    [ Crystal Client Info ]<br/>
+    Latest Build: <span id="latest_build"></span><br/><br/>
+    <span id="add"></span><br/>
+    <span id="fix"></span><br/>
+    <span id="del"></span><br/>
+  </div>
+
   <div id="center">
     <div class="animated fadeInDown">
       <pre style="font-size: 30px">Crystal for Minecraft</pre> </i>
