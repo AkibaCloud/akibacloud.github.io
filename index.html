@@ -1,110 +1,113 @@
 <!DOCTYPE HTML>
 <html>
-<meta charset="utf-8">
+<head>
+	<meta charset="utf-8">
 
-<meta name="author" content="Drip">
-<meta name="og:type" content="website">
-<meta name="og:site_name" content="Drip">
+	<meta name="author" content="Drip">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Akiba.Cloud - Crystal Client">
+	<meta property="og:description" content="made by drip">
+	<meta property="og:url" content="https://akiba.cloud/">
 
-<meta name="twitter:title" content="Drip">
+	<meta name="twitter:title" content="Drip">
 
-<meta name="theme-color" content="#FF84FF">
-<meta name="msapplication-TileColor" content="#FF84FF">
+	<meta name="theme-color" content="#FF84FF">
+	<meta name="msapplication-TileColor" content="#FF84FF">
 
-<link rel="shortcut icon" href="favicon.ico" />
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/animate.css">
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/animate.css">
 
-<script src="js/jquery.js"></script>
-<script src="js/marquee.js"></script>
-<script src="js/main.js"></script>
+	<script src="js/jquery.js"></script>
+	<script src="js/marquee.js"></script>
+	<script src="js/main.js"></script>
 
-<script type="text/javascript">
-   var space = " ";
-   var speed = "200";
-   var pos = 0;
-   var msg = "crystal by drip  -    ";
-   function Scroll()
-   {
-   document.title = msg.substring(pos, msg.length) + space + msg.substring(0,pos);
-   pos++;
-   if (pos > msg.length) pos = 0;
-   window.setTimeout("Scroll()", speed);
-   }
-   Scroll();
-</script>
+	<script type="text/javascript">
+		var space = " ";
+		var speed = "200";
+		var pos = 0;
+		var msg = "crystal by drip  -    ";
+		function Scroll()
+		{
+		document.title = msg.substring(pos, msg.length) + space + msg.substring(0,pos);
+		pos++;
+		if (pos > msg.length) pos = 0;
+		window.setTimeout("Scroll()", speed);
+		}
+		Scroll();
+	</script>
 
-<script type="text/javascript">
-   window.onload = getLatestBuild(), getJson();
+	<script type="text/javascript">
+		window.onload = getLatestBuild(), getJson();
 
-   function getLatestBuild() {
-     var xmlhttp = createXMLHttpRequest(); //IEにも対応する時
+		function getLatestBuild() {
+		  var xmlhttp = createXMLHttpRequest(); //IEにも対応する時
 
-     xmlhttp.onreadystatechange = function () {
-       if (xmlhttp.readyState == 4) {
-         if (xmlhttp.status == 200) {
-           var data = JSON.parse(xmlhttp.responseText);
+		  xmlhttp.onreadystatechange = function () {
+			 if (xmlhttp.readyState == 4) {
+				if (xmlhttp.status == 200) {
+				  var data = JSON.parse(xmlhttp.responseText);
 
-           var elem = document.getElementById("latest_build");
-           elem.innerText = "Latest Build: " + data.latestbuild;
-           var elem = document.getElementById("edition");
-           elem.innerText = "Edition: " + data.edition;
-           console.log(document.getElementById("latest_build").innerText + ", " + document.getElementById("edition").innerText);
-         } else {
-         }
-       }
-     }
-     xmlhttp.open("GET", "https://akiba.cloud/crystal/info.json");
-     xmlhttp.send();
-   }
+				  var elem = document.getElementById("latest_build");
+				  elem.innerText = "Latest Build: " + data.latestbuild;
+				  var elem = document.getElementById("edition");
+				  elem.innerText = "Edition: " + data.edition;
+				  console.log(document.getElementById("latest_build").innerText + ", " + document.getElementById("edition").innerText);
+				} else {
+				}
+			 }
+		  }
+		  xmlhttp.open("GET", "https://akiba.cloud/crystal/info.json");
+		  xmlhttp.send();
+		}
 
-   function getJson() {
-     var xmlhttp = createXMLHttpRequest();
+		function getJson() {
+		  var xmlhttp = createXMLHttpRequest();
 
-     xmlhttp.onreadystatechange = function () {
-       if (xmlhttp.readyState == 4) {
-         if (xmlhttp.status == 200) {
-           var data = JSON.parse(xmlhttp.responseText);
-           var latestBuild = document.getElementById("latest_build").innerText.replace("Latest Build: ", "");
+		  xmlhttp.onreadystatechange = function () {
+			 if (xmlhttp.readyState == 4) {
+				if (xmlhttp.status == 200) {
+				  var data = JSON.parse(xmlhttp.responseText);
+				  var latestBuild = document.getElementById("latest_build").innerText.replace("Latest Build: ", "");
 
-           var elem = document.getElementById("add");
-           elem.innerText = data[latestBuild].add;
-           var elem = document.getElementById("fix");
-           elem.innerText = data[latestBuild].fix;
-           var elem = document.getElementById("del");
-           elem.innerText = data[latestBuild].del;
+				  var elem = document.getElementById("add");
+				  elem.innerText = data[latestBuild].add;
+				  var elem = document.getElementById("fix");
+				  elem.innerText = data[latestBuild].fix;
+				  var elem = document.getElementById("del");
+				  elem.innerText = data[latestBuild].del;
 
-           console.log("==================== INFO ===================="); <!-- イコール20個 -->
-           console.log(document.getElementById("add").innerText);
-           console.log(document.getElementById("fix").innerText);
-           console.log(document.getElementById("del").innerText);
-         } else {
-         }
-       }
-     }
-     xmlhttp.open("GET", "https://akiba.cloud/crystal/changelog.json");
-     xmlhttp.send();
-   }
+				  console.log("==================== INFO ===================="); <!-- イコール20個 -->
+				  console.log(document.getElementById("add").innerText);
+				  console.log(document.getElementById("fix").innerText);
+				  console.log(document.getElementById("del").innerText);
+				} else {
+				}
+			 }
+		  }
+		  xmlhttp.open("GET", "https://akiba.cloud/crystal/changelog.json");
+		  xmlhttp.send();
+		}
 
-   function createXMLHttpRequest() {
-     if (window.XMLHttpRequest) { return new XMLHttpRequest() }
-     if (window.ActiveXObject) {
-       try { return new ActiveXObject("Msxml2.XMLHTTP.6.0") } catch (e) { }
-       try { return new ActiveXObject("Msxml2.XMLHTTP.3.0") } catch (e) { }
-       try { return new ActiveXObject("Microsoft.XMLHTTP") } catch (e) { }
-     }
-     return false;
-   }
-</script>
+		function createXMLHttpRequest() {
+		  if (window.XMLHttpRequest) { return new XMLHttpRequest() }
+		  if (window.ActiveXObject) {
+			 try { return new ActiveXObject("Msxml2.XMLHTTP.6.0") } catch (e) { }
+			 try { return new ActiveXObject("Msxml2.XMLHTTP.3.0") } catch (e) { }
+			 try { return new ActiveXObject("Microsoft.XMLHTTP") } catch (e) { }
+		  }
+		  return false;
+		}
+	</script>
 
-<script type="text/javascript">
-    document.ondragstart = function(){return false;};
-</script>
-
+	<script type="text/javascript">
+		 document.ondragstart = function(){return false;};
+	</script>
 </head>
+
 <body style="padding-top: 3%;">
   <!--
-　　　　　　　　　　     ＿＿＿_
+　　　　　　　　　　	  ＿＿＿_
   　 .ｎi 7　　　 　 ／ノ　　　ヽ＼ 　　何見てんだよバーカ
   l^l | | ｌ ,/) 　 ／ ／ﾟヽ　 ／ﾟヾ＼　　　　　 .ｎ
   ', U ! ﾚ' / ／　　　⌒　　　⌒　　＼　　 l^l.| | /）
@@ -124,13 +127,13 @@
   <span id="del" class="info"></span><br/>
 
   <div id="center">
-    <div class="animated fadeInDown">
-      <pre style="font-size: 30px">Crystal for Minecraft</pre> </i>
-    </div>
-    <div class="animated fadeIn">
-      <pre><center><span class="rainbow">private client</span></center></pre> </div>
-    <div class="animated fadeInUp">
-      <pre>
+	 <div class="animated fadeInDown">
+		<pre style="font-size: 30px">Crystal for Minecraft</pre> </i>
+	 </div>
+	 <div class="animated fadeIn">
+		<pre><center><span class="rainbow">private client</span></center></pre> </div>
+	 <div class="animated fadeInUp">
+		<pre>
 	</div>
 	<style>
 		.clockStyle {
