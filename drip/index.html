@@ -19,11 +19,17 @@
 	</script>
 
 	<script type="text/javascript">
-		document.addEventListener("DOMContentLoaded", function() {
+		function switchVideo() {
 			var items = ["https://www.dropbox.com/s/6dxwvqbzpz42kht/rakisuta.mp4?dl=1", "https://www.dropbox.com/s/xyy0xu4hgazsugz/rakisuta-2.mp4?dl=1"];
 			var video = items[ Math.floor(Math.random() * (items.length)) ];
 			document.getElementById("video-src").src = video;
 			console.log("video: " + video);
+		};
+	</script>
+
+	<script type="text/javascript">
+		document.addEventListener("DOMContentLoaded", function() {
+			switchVideo();
 
 			if (localStorage.getItem("Volume") !== null && localStorage.getItem("Volume") !== "null") {
 				var vol = parseFloat(localStorage.getItem("Volume"));
@@ -40,7 +46,7 @@
 	</script>
 
 	<script type="text/javascript">
-		function changeVolume(value){
+		function changeVolume(value) {
 			SetVolume(value);
 			document.getElementById("volume").innerText = "volume: " + value + '%';
 			localStorage.setItem("Volume", document.getElementById("volume").innerText.replace("volume: ", "").replace("%", ""));
@@ -48,7 +54,7 @@
 	</script>
 
 	<script type="text/javascript">
-		function toggle(){
+		function toggle() {
 			var btn = document.getElementById("toggle");
 			// console.log(btn.innerText);
 			if (btn.innerText === "play") {
