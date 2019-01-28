@@ -24,12 +24,20 @@
 			var video = items[ Math.floor(Math.random() * (items.length)) ];
 			document.getElementById("video-src").src = video;
 			console.log("video: " + video);
+
+			if (localStorage.getItem("Volume") === "null") {
+				document.getElementById("input").value = localStorage.getItem("Volume");
+				changeVolume(localStorage.getItem("Volume"));
+				SetVolume(parseFloat(localStorage.getItem("Volume")));
+			}
 		});
 	</script>
 
 	<script type="text/javascript">
-		function setVolume(value){
-			SetVolume(value/10); document.getElementById("volume").innerText = "volume: " + value + '%';
+		function changeVolume(value){
+			SetVolume(value);
+			document.getElementById("volume").innerText = "volume: " + value + '%';
+			localStorage.setItem("Volume", document.getElementById("volume").innerText.replace("volume: ", "").replace("%", ""));
 		};
 	</script>
 
@@ -49,7 +57,9 @@
 
 	<script type="text/javascript">
 		window.onload = function(){
-			SetVolume(1);
+			if (localStorage.getItem("Volume") === "null") {
+				changeVolume(10);
+			}
 
 			var vid = document.getElementById("video");
 			vid.addEventListener("playing", function(){
@@ -103,10 +113,10 @@
   	<div class="info">[lucky☆star player]</div>
   	<span class="info"><a href="#" id="toggle" onclick="toggle();">pause</a></span></br>
   	<span id="volume" class="info">volume: 10%</span>
-  	<input type="range" min="0" max="100" step="1" value="10" oninput="setVolume(this.value);" onchange="setVolume(this.value);"
+  	<input id="input" type="range" min="0" max="100" step="1" value="10" oninput="changeVolume(this.value);" onchange="changeVolume(this.value);"
 		style="left: 0.5%; margin-top: 2%; margin-bottom: 2%; width: 6.5%;"></input>
 
-	<video id="video" autoplay loop playsinline>
+	<video id="video" loop autoplay id="videomain">
 	<source id="video-src" src="" type="video/mp4">
 	</video>
 	<div class="animated fadeInDown">
