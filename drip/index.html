@@ -12,13 +12,28 @@
 	<script src="../js/jquery.js"></script>
 	<script src="../js/marquee.js"></script>
 	<script src="../js/main.js"></script>
+	<script src="../js/disabler.js"></script>
 
 	<script type="text/javascript">
 		document.ondragstart = function(){return false;};
 	</script>
 
 	<script type="text/javascript">
-		window.onload = function(){SetVolume(30);};
+		window.onload = function(){
+			var v = document.getElementById("video");
+			v.addEventListener("playing", function(){
+				SetVolume(1);
+				console.log("vid playing");
+			}, false);
+
+			v.addEventListener("ended", function(){
+				console.log("vid ended");
+			}, false);
+
+			v.addEventListener("loadedmetadata", function(){
+				console.log("vid loaded!");
+			}, false);
+		};
 	</script>
 
 </head>
@@ -36,15 +51,22 @@
 	<div class="info">Drip - <a href="../">akiba.cloud</a></div><br>
 
 	<span class="info">[profiles] <br/>
-	<a href="https://steamcommunity.com/id/S4WA/" target="_blank">steam</a> <br>
-	youtube [<a href="https://www.youtube.com/channel/UCJscE_cgstFGDQO6TIVEaxA" target="_blank">1</a>] [<a href="https://www.youtube.com/channel/UCC-4hzxcpCX7qr-wLeQmJSQ" target="_blank">2</a>] <br>
-	<a href="https://github.com/S4WA" target="_blank">github</a> <br>
-	<a href="https://twitter.com/AkibaKaede" target="_blank">twitter</a>
-	</span>
+		<a href="https://steamcommunity.com/id/S4WA/" target="_blank">steam</a> <br>
+		youtube [<a href="https://www.youtube.com/channel/UCJscE_cgstFGDQO6TIVEaxA" target="_blank">1</a>] [<a href="https://www.youtube.com/channel/UCC-4hzxcpCX7qr-wLeQmJSQ" target="_blank">2</a>] <br>
+		<a href="https://github.com/S4WA" target="_blank">github</a> <br>
+		<a href="https://twitter.com/AkibaKaede" target="_blank">twitter</a>
+	</span><br/><br/>
 
-	<input type="range" min="0" max="100" step="1" oninput="SetVolume(this.value)" onchange="SetVolume(this.value)"></input>
+  	<div class="info">[lucky☆star player]</div>
+  	<span class="info"><a href="#" id="toggle"
+  		onclick="if (document.getElementById('toggle').innerText === 'play') { video.play(); document.getElementById('toggle').innerText = 'pause'; } else { video.pause(); document.getElementById('toggle').innerText = 'play'; }">pause</a></span></br>
+  	<span id="volume" class="info">volume: 10%</span>
+	<input type="range" min="0" max="100" step="1" value="10"
+		oninput="SetVolume(this.value/10); document.getElementById('volume').innerText = 'volume: ' + this.value + '%';"
+		onchange="SetVolume(this.value/10); document.getElementById('volume').innerText = 'volume: ' + this.value + '%';"
+		style="left: 0.5%; margin-top: 2%; margin-bottom: 2%; width: 6.5%;"></input>
 
-	<video id="video" autoplay loop>
+	<video id="video" autoplay loop playsinline>
 	<source src="https://www.dropbox.com/s/6dxwvqbzpz42kht/rakisuta.mp4?dl=1" type="video/mp4">
 	</video>
 	<div class="animated fadeInDown">
