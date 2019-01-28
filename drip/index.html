@@ -25,10 +25,16 @@
 			document.getElementById("video-src").src = video;
 			console.log("video: " + video);
 
-			if (localStorage.getItem("Volume") === "null") {
-				document.getElementById("input").value = localStorage.getItem("Volume");
-				changeVolume(localStorage.getItem("Volume"));
-				SetVolume(parseFloat(localStorage.getItem("Volume")));
+			if (localStorage.getItem("Volume") !== null && localStorage.getItem("Volume") !== "null") {
+				var vol = parseFloat(localStorage.getItem("Volume"));
+				document.getElementById("input").value = vol;
+				changeVolume(vol);
+				SetVolume(vol);
+			} else {
+				SetVolume(0.1);
+				localStorage.setItem("Volume", 10);
+				document.getElementById("input").value = 10;
+				document.getElementById("volume").innerText = "volume: 10%";
 			}
 		});
 	</script>
@@ -57,10 +63,6 @@
 
 	<script type="text/javascript">
 		window.onload = function(){
-			if (localStorage.getItem("Volume") === "null") {
-				changeVolume(10);
-			}
-
 			var vid = document.getElementById("video");
 			vid.addEventListener("playing", function(){
 				console.log("video: playing");
