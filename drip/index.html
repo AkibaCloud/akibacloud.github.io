@@ -119,12 +119,12 @@
 	</span><br/><br/>
 
   	<div class="info">[lucky☆star player]</div>
-  	<span class="info"><a href="#" id="toggle" onclick="toggle();">pause</a></span></br>
+  	<span class="info"><a href="#" id="toggle" onclick="toggle();">play</a></span></br>
   	<span id="volume" class="info">volume: 10%</span>
   	<input id="input" type="range" min="0" max="100" step="1" value="10" oninput="changeVolume(this.value);" onchange="changeVolume(this.value);"
 		style="left: 0.5%; margin-top: 2%; margin-bottom: 2%; width: 6.5%;"></input>
 
-	<video id="video" loop autoplay id="videomain">
+	<video id="video" rel="preload" loop autoplay id="videomain">
 	<source id="video-src" src="" type="video/mp4">
 	</video>
 	<div class="animated fadeInDown">
