@@ -42,17 +42,23 @@
 		window.onload = function(){
 			SetVolume(1);
 
-			var v = document.getElementById("video");
-			v.addEventListener("playing", function(){
-				console.log("vid playing");
+			var vid = document.getElementById("video");
+			vid.addEventListener("playing", function(){
+				console.log("video: playing");
 			}, false);
 
-			v.addEventListener("ended", function(){
-				console.log("vid ended");
+			vid.addEventListener("pause", function(){
+				console.log("video: paused");
 			}, false);
 
-			v.addEventListener("loadedmetadata", function(){
-				console.log("vid loaded!");
+			vid.addEventListener("loadedmetadata", function(){
+				console.log("video: loaded!");
+			}, false);
+
+			vid.addEventListener("canplaythrough", function(){
+				console.log("video: suro-!");
+				toggle();
+				toggle();
 			}, false);
 		};
 	</script>
