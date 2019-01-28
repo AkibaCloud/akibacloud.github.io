@@ -17,6 +17,10 @@
 		document.ondragstart = function(){return false;};
 	</script>
 
+	<script type="text/javascript">
+		window.onload = function(){SetVolume(30);};
+	</script>
+
 </head>
 <body style="padding-top: 3%;">
   <!--
@@ -38,7 +42,11 @@
 	<a href="https://twitter.com/AkibaKaede" target="_blank">twitter</a>
 	</span>
 
-	<img src="../bg.jpg" class="background">
+	<input type="range" min="0" max="100" step="1" oninput="SetVolume(this.value)" onchange="SetVolume(this.value)"></input>
+
+	<video id="video" autoplay loop>
+	<source src="https://www.dropbox.com/s/6dxwvqbzpz42kht/rakisuta.mp4?dl=1" type="video/mp4">
+	</video>
 	<div class="animated fadeInDown">
 	<footer style="float: right"></footer>
 	</div>
