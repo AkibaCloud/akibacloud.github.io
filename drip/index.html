@@ -20,9 +20,10 @@
 
 	<script type="text/javascript">
 		window.onload = function(){
+			SetVolume(1);
+
 			var v = document.getElementById("video");
 			v.addEventListener("playing", function(){
-				SetVolume(1);
 				console.log("vid playing");
 			}, false);
 
