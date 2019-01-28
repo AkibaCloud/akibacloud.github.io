@@ -57,7 +57,14 @@
 
 			vid.addEventListener("canplaythrough", function(){
 				console.log("video: suro-!");
-				toggle();
+
+				var btn = document.getElementById("toggle");
+				if (btn.innerText === "play") {
+					btn.innerText = "pause";
+				} else {
+					btn.innerText = "play";
+				}
+
 				toggle();
 			}, false);
 		};
