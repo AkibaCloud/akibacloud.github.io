@@ -19,6 +19,26 @@
 	</script>
 
 	<script type="text/javascript">
+		function setVolume(value){
+			SetVolume(value/10); document.getElementById("volume").innerText = "volume: " + value + '%';
+		};
+	</script>
+
+	<script type="text/javascript">
+		function toggle(){
+			var btn = document.getElementById("toggle");
+			// console.log(btn.innerText);
+			if (btn.innerText === "play") {
+				video.play();
+				btn.innerText = "pause";
+			} else {
+				video.pause();
+				btn.innerText = "play";
+			}
+		};
+	</script>
+
+	<script type="text/javascript">
 		window.onload = function(){
 			SetVolume(1);
 
@@ -36,8 +56,8 @@
 			}, false);
 		};
 	</script>
-
 </head>
+
 <body style="padding-top: 3%;">
   <!--
 　　　　　　　　　　	 ＿＿＿_
@@ -59,12 +79,9 @@
 	</span><br/><br/>
 
   	<div class="info">[lucky☆star player]</div>
-  	<span class="info"><a href="#" id="toggle"
-  		onclick="if (document.getElementById('toggle').innerText === 'play') { video.play(); document.getElementById('toggle').innerText = 'pause'; } else { video.pause(); document.getElementById('toggle').innerText = 'play'; }">pause</a></span></br>
+  	<span class="info"><a href="#" id="toggle" onclick="toggle();">pause</a></span></br>
   	<span id="volume" class="info">volume: 10%</span>
-	<input type="range" min="0" max="100" step="1" value="10"
-		oninput="SetVolume(this.value/10); document.getElementById('volume').innerText = 'volume: ' + this.value + '%';"
-		onchange="SetVolume(this.value/10); document.getElementById('volume').innerText = 'volume: ' + this.value + '%';"
+  	<input type="range" min="0" max="100" step="1" value="10" oninput="setVolume(this.value);" onchange="setVolume(this.value);"
 		style="left: 0.5%; margin-top: 2%; margin-bottom: 2%; width: 6.5%;"></input>
 
 	<video id="video" autoplay loop playsinline>
