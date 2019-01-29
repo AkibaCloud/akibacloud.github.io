@@ -20,7 +20,7 @@
 
 	<script type="text/javascript">
 		function switchVideo() {
-			var items = ["https://www.dropbox.com/s/6dxwvqbzpz42kht/rakisuta.mp4?dl=1", "https://www.dropbox.com/s/xyy0xu4hgazsugz/rakisuta-2.mp4?dl=1"];
+			var items = ["https://www.dropbox.com/s/6dxwvqbzpz42kht/rakisuta.mp4?dl=1", "https://www.dropbox.com/s/xyy0xu4hgazsugz/rakisuta-2.mp4?dl=1", "https://www.dropbox.com/s/4d8vjhlq1shngqq/dancing.mp4?dl=1"];
 			var video = items[ Math.floor(Math.random() * (items.length)) ];
 			document.getElementById("video-src").src = video;
 			console.log("video: " + video);
@@ -118,7 +118,7 @@
 		<a href="https://twitter.com/AkibaKaede" target="_blank">twitter</a>
 	</span><br/><br/>
 
-  	<div class="info">[lucky☆star player]</div>
+  	<div class="info">[video player]</div>
   	<span class="info"><a href="#" id="toggle" onclick="toggle();">play</a></span></br>
   	<span id="volume" class="info">volume: 10%</span>
   	<input id="input" type="range" min="0" max="100" step="1" value="10" oninput="changeVolume(this.value);" onchange="changeVolume(this.value);"
