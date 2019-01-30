@@ -27,6 +27,7 @@
 			} else {
 				video = items[ Math.floor(Math.random() * (items.length)) ]
 			}
+			document.getElementById("site-info").innerText = document.getElementById("site-info").innerText.replace("%replace%", items.length-1);
 			document.getElementById("video-src").src = video;
 			console.log("video: " + video);
 		};
@@ -159,8 +160,8 @@
 	</span>
 
 	<div class="info">[info]</div>
-	<span class="info">
-		- "/drip?id=0~3" to select vid with number</br>
+	<span id="site-info" class="info">
+		- "/drip?id=0~%replace%" to select vid with number</br>
 		- volume will save to <a href="javascript:popup('https://raw.githubusercontent.com/S4WA/files/master/untitled.png', 'image', '150', '200')" target="_blank" title="popup">local storage</a>
 	</span>
 
