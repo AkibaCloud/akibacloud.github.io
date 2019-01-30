@@ -106,36 +106,12 @@
 	</script>
 
 	<script>
-		/*window.onload = function() {
-			var arg = getArg("s");
-			if (arg !== null) {
-				
-				var xmlhttp = createXMLHttpRequest();
-
-				xmlhttp.onreadystatechange = function () {
-					if (xmlhttp.readyState == 4) {
-						if (xmlhttp.status == 200) {
-							var data = JSON.parse(xmlhttp.responseText), url = data[arg];
-
-							console.log("shorten: " + url);
-							location.href = url;
-						} else {
-						}
-					}
-				}
-				xmlhttp.open("GET", "https://akiba.cloud/shorten.json");
-				xmlhttp.send();
-			}
-		}*/
-	</script>
-
-	<script>
-		window.onload = function() {
+		document.addEventListener("DOMContentLoaded", function() {
 			var arg = getArg("post");
 			if (arg !== null) {
 				post(arg);
 			}
-		}
+		});
 
 		function post(link) {
 			if (link !== null) {
@@ -155,7 +131,7 @@
 				results = regex.exec(url);
 			if (!results) return null;
 			if (!results[2]) return "";
-			console.log("argument: "+ decodeURIComponent(results[2].replace(/\+/g, " ")));
+			// console.log("argument: "+ decodeURIComponent(results[2].replace(/\+/g, " ")));
 			return decodeURIComponent(results[2].replace(/\+/g, " "));
 		}
 	</script>
@@ -193,12 +169,12 @@
 			})
 		};
 
-		window.onload = function() {
+		document.addEventListener("DOMContentLoaded", function() {
 			var arg = getArg("s");
 			if (arg !== null) {
 				redirect(arg);
 			}
-		}
+		});
 	</script>
 </head>
 
@@ -231,7 +207,8 @@
 	<div class="info">[ shorten url ]</div>
 	<span class="info">create an issue on the <a href="https://github.com/AkibaCloud/db" target="_blank">akibacloud/db</a> repository. <br/>
 		the title of the issue should be the URL you want to redirect to.<br/>
-		"?post=https://link.cn" to post url, "?s=n" to redirect.(Note n, the issue's number.)</span>
+		"?post=https://link.cn" to post url, <br/>
+		"?s=n" to redirect.(Note n, the issue's number.)</span>
 
 	<div id="center">
 		<div class="animated fadeInDown">
