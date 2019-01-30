@@ -40,6 +40,7 @@
 
 	<script type="text/javascript">
 		window.onload = getLatestBuild(), getJson();
+		var latestBuild;
 
 		function getLatestBuild() {
 			var xmlhttp = createXMLHttpRequest(); //IEにも対応する時
@@ -51,6 +52,7 @@
 
 						var elem = document.getElementById("latest_build");
 						elem.innerText = "Latest Build: " + data.latestbuild;
+						latestBuild = data.latestbuild;
 						var elem = document.getElementById("edition");
 						elem.innerText = "Edition: " + data.edition;
 						console.log(document.getElementById("latest_build").innerText + ", " + document.getElementById("edition").innerText);
@@ -69,7 +71,6 @@
 				if (xmlhttp.readyState == 4) {
 					if (xmlhttp.status == 200) {
 						var data = JSON.parse(xmlhttp.responseText);
-						var latestBuild = document.getElementById("latest_build").innerText.replace("Latest Build: ", "");
 
 						var elem = document.getElementById("add");
 						elem.innerText = data[latestBuild].add;
