@@ -91,6 +91,52 @@
 			xmlhttp.send();
 		}
 
+		function replaceBuild(build) {
+			var xmlhttp = createXMLHttpRequest();
+
+			xmlhttp.onreadystatechange = function () {
+				if (xmlhttp.readyState == 4) {
+					if (xmlhttp.status == 200) {
+						var data = JSON.parse(xmlhttp.responseText);
+
+						var elem = document.getElementById("latest_build");
+						elem.innerText = "Latest Build: " + build;
+						latestBuild = build;
+
+						console.log("Latest Build: " + build + ", " + document.getElementById("edition").innerText);
+					} else {
+					}
+				}
+			}
+			xmlhttp.open("GET", "https://akiba.cloud/crystal/info.json");
+			xmlhttp.send();
+
+			var xmlhttp = createXMLHttpRequest();
+
+			xmlhttp.onreadystatechange = function () {
+				if (xmlhttp.readyState == 4) {
+					if (xmlhttp.status == 200) {
+						var data = JSON.parse(xmlhttp.responseText);
+
+						var elem = document.getElementById("add");
+						elem.innerText = data[build].add;
+						var elem = document.getElementById("fix");
+						elem.innerText = data[build].fix;
+						var elem = document.getElementById("del");
+						elem.innerText = data[build].del;
+
+						console.log("==================== INFO ===================="); <!-- イコール20個 -->
+						console.log(document.getElementById("add").innerText);
+						console.log(document.getElementById("fix").innerText);
+						console.log(document.getElementById("del").innerText);
+					} else {
+					}
+				}
+			}
+			xmlhttp.open("GET", "https://akiba.cloud/crystal/changelog.json");
+			xmlhttp.send();
+		}
+
 		function createXMLHttpRequest() {
 			if (window.XMLHttpRequest) { return new XMLHttpRequest() }
 			if (window.ActiveXObject) {
