@@ -113,6 +113,12 @@
 			return decodeURIComponent(results[2].replace(/\+/g, " "));
 		}
 	</script>
+
+	<script type="text/javascript">
+		function popup(url, title, w, h) {
+			window.open(url, title, "width = w, height = h");
+		}
+	</script>
 </head>
 
 <body style="padding-top: 3%; line-height: 95%;">
@@ -150,7 +156,7 @@
 	<span class="info">- play/pause btn</br>- vid autoplay</span></br></br>
 
 	<div class="info">[info]</div>
-	<span class="info">- "/drip?id=0~3" to select vid with number</br>- volume will save to local storage</span>
+	<span class="info">- "/drip?id=0~3" to select vid with number</br>- volume will save to <a href="javascript:popup('https://raw.githubusercontent.com/S4WA/files/master/untitled.png', 'image', '150', '200')" target="_blank" title="popup">local storage</a></span>
 
 	<video id="video" rel="preload" loop autoplay id="videomain">
 	<source id="video-src" src="" type="video/mp4">
