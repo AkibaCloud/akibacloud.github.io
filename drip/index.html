@@ -21,7 +21,12 @@
 	<script type="text/javascript">
 		function switchVideo() {
 			var items = ["https://www.dropbox.com/s/6dxwvqbzpz42kht/rakisuta.mp4?dl=1", "https://www.dropbox.com/s/xyy0xu4hgazsugz/rakisuta-2.mp4?dl=1", "https://www.dropbox.com/s/esjmu9wwlw8vaz5/dancing-2.mp4?dl=1", "https://www.dropbox.com/s/4d8vjhlq1shngqq/dancing.mp4?dl=1"];
-			var video = items[ Math.floor(Math.random() * (items.length)) ];
+			var video;
+			if (getParam("id") !== null) {
+				video = items[getParam("id")];
+			} else {
+				video = items[ Math.floor(Math.random() * (items.length)) ]
+			}
 			document.getElementById("video-src").src = video;
 			console.log("video: " + video);
 		};
@@ -96,40 +101,35 @@
 			}, false);
 		};
 	</script>
+
+	<script>
+		function getParam(name, url) {
+			if (!url) url = window.location.href;
+			name = name.replace(/[\[\]]/g, "\\$&");
+			var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+				results = regex.exec(url);
+			if (!results) return null;
+			if (!results[2]) return '';
+			return decodeURIComponent(results[2].replace(/\+/g, " "));
+		}
+	</script>
 </head>
 
 <body style="padding-top: 3%;">
 	<!--
-　 　 　 　 　 　＿＿＿ 
-　　　　　　　／　　 　 　＼　 
-　　　　 　／ ノ　'' ⌒　 　. ＼ 
-　　　　／ （ ●） （ ●)　　　　＼ 
-　　 　 |::::⌒,　'　　　⌒:::::　　 　 |　
-　 　　 ＼　　`ｰ=-'　　　　　　／ 
-　　　　ノ　　　　　　 　　　　　＼ 
-　 ／´　　　　　　　　　　　　 　　ヽ 
-
-　　　　　 　　　＿＿＿_ 
-　　　　　　 ／　　　　　＼ 
-　　　　 　／　　　_ノ　'' ⌒＼ 
-　　　　／ 　　　（● ） （● ) ＼　　　
-　　　　|　 　　:::::⌒,　　ゝ　⌒::::| 
-　 　　 ＼　　　　 　`ｰ=-'　　／ 
-　　　　ノ　　　　　　　　　　　＼ 
-　 ／´　　　　　　　　　　　　 　　ヽ 
-
-　　 　 　　　　＿＿＿_ 
-　　　 　　　／_ノ　'' ⌒＼ 
-　　　　　／ （ ● ） （● )＼　　　　 
-　　　 ／:::::::⌒,　　ゝ　⌒::::: ＼　　
-　　　 |　　　　　`ｰ=-'　　　　　|　　 
-　　　 ＼　　　　 　　　　　 　／ 
-　　　　ノ　　　　　　　　　　 　＼ 
-　 ／´　　　　　　　　　　　　 　　ヽ 
-　|　　　　ｌ　　　　　　　　　　　　　　＼ 
-　ヽ　　　 -一''''''"～～｀`'ー--､　　　-一'''''''ー-､. 
-　　ヽ ＿＿＿＿(⌒)(⌒)⌒)　)　　(⌒＿(⌒)⌒)⌒))
-
+＼　　　　　　　　　　　　　　／
+　＼　　　　　　　　　　　／
+　　＼　　　　　　　　　／
+　　　＼　　　　　　　／
+　　　　　＼( ^o^)／　　　うわああああああああああああああ！！！！！！！！！！
+　　　　　　│　　│
+　　　　　　│　　│　　　　～○～○～○～○～○～○～○
+　　　　　　│　　│　　～○～○～○～○～○～○～○～○～○
+　　　　　　(　 ω⊃～○～○～○～○～○～○～○～○～○～○～○
+　　　　　　／　　＼　～○～○～○～○～○～○～○～○～○～○
+　　　　　／　　　　＼　　　～○～○～○～○～○～○～○～○
+　　　　／　　　　　　＼
+　　　／　　　　　　　　＼
 	-->
 	<div class="info">Drip - <a href="../">akiba.cloud</a></div><br>
 
