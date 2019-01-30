@@ -42,67 +42,101 @@
 		window.onload = getLatestBuild(), getJson();
 
 		function getLatestBuild() {
-		  var xmlhttp = createXMLHttpRequest(); //IEにも対応する時
+			var xmlhttp = createXMLHttpRequest(); //IEにも対応する時
 
-		  xmlhttp.onreadystatechange = function () {
-			 if (xmlhttp.readyState == 4) {
-				if (xmlhttp.status == 200) {
-				  var data = JSON.parse(xmlhttp.responseText);
+			xmlhttp.onreadystatechange = function () {
+				if (xmlhttp.readyState == 4) {
+					if (xmlhttp.status == 200) {
+						var data = JSON.parse(xmlhttp.responseText);
 
-				  var elem = document.getElementById("latest_build");
-				  elem.innerText = "Latest Build: " + data.latestbuild;
-				  var elem = document.getElementById("edition");
-				  elem.innerText = "Edition: " + data.edition;
-				  console.log(document.getElementById("latest_build").innerText + ", " + document.getElementById("edition").innerText);
-				} else {
+						var elem = document.getElementById("latest_build");
+						elem.innerText = "Latest Build: " + data.latestbuild;
+						var elem = document.getElementById("edition");
+						elem.innerText = "Edition: " + data.edition;
+						console.log(document.getElementById("latest_build").innerText + ", " + document.getElementById("edition").innerText);
+					} else {
+					}
 				}
-			 }
-		  }
-		  xmlhttp.open("GET", "https://akiba.cloud/crystal/info.json");
-		  xmlhttp.send();
+			}
+			xmlhttp.open("GET", "https://akiba.cloud/crystal/info.json");
+			xmlhttp.send();
 		}
 
 		function getJson() {
-		  var xmlhttp = createXMLHttpRequest();
+			var xmlhttp = createXMLHttpRequest();
 
-		  xmlhttp.onreadystatechange = function () {
-			 if (xmlhttp.readyState == 4) {
-				if (xmlhttp.status == 200) {
-				  var data = JSON.parse(xmlhttp.responseText);
-				  var latestBuild = document.getElementById("latest_build").innerText.replace("Latest Build: ", "");
+			xmlhttp.onreadystatechange = function () {
+				if (xmlhttp.readyState == 4) {
+					if (xmlhttp.status == 200) {
+						var data = JSON.parse(xmlhttp.responseText);
+						var latestBuild = document.getElementById("latest_build").innerText.replace("Latest Build: ", "");
 
-				  var elem = document.getElementById("add");
-				  elem.innerText = data[latestBuild].add;
-				  var elem = document.getElementById("fix");
-				  elem.innerText = data[latestBuild].fix;
-				  var elem = document.getElementById("del");
-				  elem.innerText = data[latestBuild].del;
+						var elem = document.getElementById("add");
+						elem.innerText = data[latestBuild].add;
+						var elem = document.getElementById("fix");
+						elem.innerText = data[latestBuild].fix;
+						var elem = document.getElementById("del");
+						elem.innerText = data[latestBuild].del;
 
-				  console.log("==================== INFO ===================="); <!-- イコール20個 -->
-				  console.log(document.getElementById("add").innerText);
-				  console.log(document.getElementById("fix").innerText);
-				  console.log(document.getElementById("del").innerText);
-				} else {
+						console.log("==================== INFO ===================="); <!-- イコール20個 -->
+						console.log(document.getElementById("add").innerText);
+						console.log(document.getElementById("fix").innerText);
+						console.log(document.getElementById("del").innerText);
+					} else {
+					}
 				}
-			 }
-		  }
-		  xmlhttp.open("GET", "https://akiba.cloud/crystal/changelog.json");
-		  xmlhttp.send();
+			}
+			xmlhttp.open("GET", "https://akiba.cloud/crystal/changelog.json");
+			xmlhttp.send();
 		}
 
 		function createXMLHttpRequest() {
-		  if (window.XMLHttpRequest) { return new XMLHttpRequest() }
-		  if (window.ActiveXObject) {
+			if (window.XMLHttpRequest) { return new XMLHttpRequest() }
+			if (window.ActiveXObject) {
 			 try { return new ActiveXObject("Msxml2.XMLHTTP.6.0") } catch (e) { }
 			 try { return new ActiveXObject("Msxml2.XMLHTTP.3.0") } catch (e) { }
 			 try { return new ActiveXObject("Microsoft.XMLHTTP") } catch (e) { }
-		  }
-		  return false;
+			}
+			return false;
 		}
 	</script>
 
 	<script type="text/javascript">
 		 document.ondragstart = function(){return false;};
+	</script>
+
+	<script>
+		window.onload = function() {
+			var arg = getArg("s");
+			if (arg !== null) {
+				
+				var xmlhttp = createXMLHttpRequest();
+
+				xmlhttp.onreadystatechange = function () {
+					if (xmlhttp.readyState == 4) {
+						if (xmlhttp.status == 200) {
+							var data = JSON.parse(xmlhttp.responseText), url = data[arg];
+
+							console.log("shorten: " + url);
+							location.href = url;
+						} else {
+						}
+					}
+				}
+				xmlhttp.open("GET", "https://akiba.cloud/shorten.json");
+				xmlhttp.send();
+			}
+		} 
+
+		function getArg(name, url) {
+			if (!url) url = window.location.href;
+			name = name.replace(/[\[\]]/g, "\\$&");
+			var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+				results = regex.exec(url);
+			if (!results) return null;
+			if (!results[2]) return '';
+			return decodeURIComponent(results[2].replace(/\+/g, " "));
+		}
 	</script>
 </head>
 
