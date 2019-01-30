@@ -20,7 +20,7 @@
 
 	<script type="text/javascript">
 		function switchVideo() {
-			var items = ["https://www.dropbox.com/s/6dxwvqbzpz42kht/rakisuta.mp4?dl=1", "https://www.dropbox.com/s/xyy0xu4hgazsugz/rakisuta-2.mp4?dl=1", "https://www.dropbox.com/s/esjmu9wwlw8vaz5/dancing-2.mp4?dl=1", "https://www.dropbox.com/s/4d8vjhlq1shngqq/dancing.mp4?dl=1"],
+			var items = ["https://www.dropbox.com/s/6dxwvqbzpz42kht/rakisuta.mp4?dl=1", "https://www.dropbox.com/s/xyy0xu4hgazsugz/rakisuta-2.mp4?dl=1", "https://www.dropbox.com/s/esjmu9wwlw8vaz5/dancing-2.mp4?dl=1", "https://www.dropbox.com/s/4d8vjhlq1shngqq/dancing.mp4?dl=1", "https://www.dropbox.com/s/sqrqithy4cdhkxw/dancing-3.mp4?dl=1"],
 				video, videoid = getArg("id");
 			if (videoid !== null && videoid <= items.length) {
 				video = items[ videoid ];
@@ -29,6 +29,8 @@
 			}
 			document.getElementById("site-info").innerText = document.getElementById("site-info").innerText.replace("%replace%", items.length-1);
 			document.getElementById("video-src").src = video;
+
+			if (videoid >= items.length) console.log(videoid + " is not exist!");
 			console.log("video: " + video);
 		};
 	</script>
