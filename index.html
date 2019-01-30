@@ -139,7 +139,7 @@
 
 	<script>
 		var issuesUrl = "https://api.github.com/repos/AkibaCloud/db/issues";
-		var blacklist = [3, 4, 5];
+		var blacklist = ["3", "4", "5"];
 
 		function getJson(url, cb) {
 			var r = new XMLHttpRequest();
@@ -175,7 +175,7 @@
 		document.addEventListener("DOMContentLoaded", function() {
 			var arg = getArg("s");
 			if (arg !== null) {
-				if (blacklist.indexOf(arg)) {
+				if (blacklist.indexOf(arg) >= 0) {
 					console.log("issue id " + arg + " is blacklisted.");
 				} else {
 					redirect(arg);
