@@ -117,7 +117,7 @@
 		function post(link) {
 			if (link !== null) {
 				var title = encodeURIComponent(link),
-					body = encodeURIComponent("short url"),
+					body = encodeURIComponent("short url, check at here: https://akiba.cloud/list"),
 					url = "https://github.com/AkibaCloud/db/issues/new?title=" + title + "&body=" + body;
 				window.open(url, '_blank');
 			}
@@ -209,7 +209,8 @@
 	<span id="del" class="info"></span><br/><br/>
 
 	<div class="info">[ shorten url ]</div>
-	<span class="info">create an issue on the <a href="https://github.com/AkibaCloud/db" target="_blank">akibacloud/db</a> repository. <br/>
+	<span class="info">
+		create an issue on the <a href="https://github.com/AkibaCloud/db" target="_blank">akibacloud/db</a> repository. <br/>
 		the title of the issue should be the URL you want to redirect to.<br/>
 		"?post=https://link.cn" to post url, <br/>
 		"?s=n" to redirect.(Note n, the issue's number)<br/>
