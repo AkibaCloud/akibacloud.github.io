@@ -40,13 +40,12 @@
 				var ul = document.getElementById('existing');
 				var i;
 				for(i = 0; i < json.length; i++) {
-					var number = json[i].number;
-					var url = fixUrl(json[i].title);
-					var short = "akiba.cloud/?s=" + number;
-					var li = document.createElement('li');
-					var a = document.createElement('a');
+					var number = json[i].number, url = fixUrl(json[i].title), short = "akiba.cloud/?s=" + number, 
+						li = document.createElement('li'), a = document.createElement('a');
 					a.href = "https://" + short;
+					a.target = "_blank";
 					a.textContent = " - " + short + " -> " + url;
+
 					li.appendChild(a);
 					ul.appendChild(li);
 				}
@@ -101,7 +100,7 @@
 　　　／　　　　　　　　＼
 	-->
 	<div class="info">existing urls - <a href="../">akiba.cloud</a></div>
-	<ul class="info" id="existing" style="list-style: none; padding-left: 0;"></ul>
+	<ul class="info" id="existing" style="list-style: none; padding-left: 0;">[list]</ul>
 	<img src="../bg.jpg" class="background">
 </body>
 </html>
