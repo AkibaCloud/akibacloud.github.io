@@ -13,7 +13,9 @@
 	<script src="../js/yeet/jquery.js"></script>
 	<script src="../js/yeet/marquee.js"></script>
 	<script src="../js/yeet/main.js"></script>
+	<!--
 	<script src="../js/yeet/disabler.js"></script>
+	-->
 
 	<script type="text/javascript">
 		document.ondragstart = function(){return false;};
@@ -72,14 +74,42 @@
 	</script>
 
 	<script type="text/javascript">
+		window.onload = function(){
+			var vid = document.getElementById("video"), btn = document.getElementById("toggle");
+			vid.addEventListener("playing", function(){
+				console.log("video: playing");
+				btn.innerText = "pause";
+			}, false);
+
+			vid.addEventListener("pause", function(){
+				console.log("video: paused");
+				btn.innerText = "play";
+			}, false);
+
+			vid.addEventListener("loadedmetadata", function(){
+				console.log("video: loaded!");
+			}, false);
+
+			vid.addEventListener("canplaythrough", function(){
+				console.log("video: suro-!");
+				/*if (btn.innerText === "play") {
+					btn.innerText = "pause";
+				} else {
+					btn.innerText = "play";
+				}*/
+
+				//toggle();
+			}, false);
+		};
+	</script>
+
+	<script> // Utils
 		function changeVolume(value) {
 			SetVolume(value);
 			document.getElementById("volume").innerText = "volume: " + value + '%';
 			localStorage.setItem("Volume", document.getElementById("volume").innerText.replace("volume: ", "").replace("%", ""));
 		};
-	</script>
 
-	<script type="text/javascript">
 		function toggle() {
 			var btn = document.getElementById("toggle");
 			// console.log(btn.innerText);
@@ -91,39 +121,7 @@
 				btn.innerText = "play";
 			}
 		};
-	</script>
 
-	<script type="text/javascript">
-		window.onload = function(){
-			var vid = document.getElementById("video");
-			vid.addEventListener("playing", function(){
-				console.log("video: playing");
-			}, false);
-
-			vid.addEventListener("pause", function(){
-				console.log("video: paused");
-			}, false);
-
-			vid.addEventListener("loadedmetadata", function(){
-				console.log("video: loaded!");
-			}, false);
-
-			vid.addEventListener("canplaythrough", function(){
-				console.log("video: suro-!");
-
-				/*var btn = document.getElementById("toggle");
-				if (btn.innerText === "play") {
-					btn.innerText = "pause";
-				} else {
-					btn.innerText = "play";
-				}*/
-
-				//toggle();
-			}, false);
-		};
-	</script>
-
-	<script>
 		function getArg(name, url) {
 			if (!url) url = window.location.href;
 			name = name.replace(/[\[\]]/g, "\\$&");
@@ -133,11 +131,9 @@
 			if (!results[2]) return '';
 			return decodeURIComponent(results[2].replace(/\+/g, " "));
 		}
-	</script>
 
-	<script type="text/javascript">
-		function popup(url, w, h) {
-			window.open(url, "popup", "width = w, height = h");
+		function popup(url) {
+			window.open(url, "popup", "width = auto, height = auto");
 		}
 	</script>
 </head>
@@ -188,8 +184,10 @@
 			<span id="volume" class="info">volume: 10%</span>
 		</li>
 		<li>
-		 	<input id="input" type="range" min="0" max="100" step="1" value="10" oninput="changeVolume(this.value);" onchange="changeVolume(this.value);"
-		 		style="left: 0.5%; margin-top: 0.1%; margin-bottom: 0; width: 6.5%;"></input><br/>
+			<input id="input" type="range" min="0" max="100" step="1" value="10"
+				oninput="changeVolume(this.value);" onchange="changeVolume(this.value);"
+				style="left: 0.4%; margin-top: 0.1%; margin-bottom: 0; width: 6.5%; ">
+			</input><br/>
 		</li>
 	</ul>
 
@@ -231,7 +229,10 @@
 			play/pause btn
 		</li>
 		<li>
-			vid autoplay
+			vid autoplay <a href="https://developers.google.com/web/updates/2017/09/autoplay-policy-changes" target="_blank" title="popup">❏</a>
+		</li>
+		<li>
+			slip height on scroll(input type range)
 		</li>
 	</ul>
 
@@ -242,7 +243,7 @@
 		</li>
 		<li>
 			<span class="info">
-				volume will save to <a href="javascript:popup('https://raw.githubusercontent.com/S4WA/files/master/untitled.png', 'image', '150', '200')" target="_blank" title="popup">local storage.</a>
+				volume will save to <a href="javascript:popup('https://raw.githubusercontent.com/S4WA/files/master/untitled.png')" title="popup">local storage.</a>
 			</span>
 		</li>
 	</ul>
