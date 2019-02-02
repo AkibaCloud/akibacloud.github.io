@@ -225,6 +225,7 @@
 				if (blacklist.indexOf(arg) >= 0) {
 					console.log("issue id " + arg + " is blacklisted.");
 				} else {
+					document.body.innerHTML = "<h1 id='redirect' style='font-size: 1000%; text-align: justify; text-justify: inter-ideograph;'>リダイレクト</h1>";
 					redirect(arg);
 				}
 			}
