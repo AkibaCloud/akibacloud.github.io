@@ -40,7 +40,7 @@
 			document.getElementById("video-src").src = video;
 
 			if (videoid >= items.length) console.log(videoid + " is not exist!");
-			console.log("video: " + video);
+			// console.log("video: " + video);
 		};
 
 		function drawid() {
@@ -77,21 +77,22 @@
 		window.onload = function(){
 			var vid = document.getElementById("video"), btn = document.getElementById("toggle");
 			vid.addEventListener("playing", function(){
-				console.log("video: playing");
+				// console.log("video: playing");
 				btn.innerText = "pause";
 			}, false);
 
 			vid.addEventListener("pause", function(){
-				console.log("video: paused");
+				// console.log("video: paused");
 				btn.innerText = "play";
 			}, false);
 
 			vid.addEventListener("loadedmetadata", function(){
-				console.log("video: loaded!");
+				// console.log("video: loaded!");
 			}, false);
 
 			vid.addEventListener("canplaythrough", function(){
-				console.log("video: suro-!");
+				// console.log("video: suro-!");
+
 				/*if (btn.innerText === "play") {
 					btn.innerText = "pause";
 				} else {
@@ -128,13 +129,10 @@
 
 		function toggle() {
 			var btn = document.getElementById("toggle");
-			// console.log(btn.innerText);
 			if (btn.innerText === "play") {
 				video.play();
-				btn.innerText = "pause";
 			} else {
 				video.pause();
-				btn.innerText = "play";
 			}
 		};
 
