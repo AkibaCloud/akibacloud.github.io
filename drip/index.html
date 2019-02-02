@@ -9,6 +9,7 @@
 	<link rel="shortcut icon" href="../favicon.ico" />
 	<link rel="stylesheet" href="../css/style.css">
 	<link rel="stylesheet" href="../css/animate.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
 	<script src="../js/yeet/jquery.js"></script>
 	<script src="../js/yeet/marquee.js"></script>
@@ -63,10 +64,11 @@
 				changeVolume(vol);
 				SetVolume(vol);
 			} else {
-				SetVolume(10);
-				localStorage.setItem("Volume", 10);
-				document.getElementById("input").value = 10;
-				document.getElementById("volume").innerText = "volume: 10%";
+				SetVolume(0);
+				localStorage.setItem("Volume", 0);
+				document.getElementById("input").value = 0;
+				document.getElementById("volume").innerText = "volume: 0%";
+				video.muted = true;
 			}
 		});
 	</script>
@@ -106,7 +108,23 @@
 			SetVolume(value);
 			document.getElementById("volume").innerText = "volume: " + value + '%';
 			localStorage.setItem("Volume", document.getElementById("volume").innerText.replace("volume: ", "").replace("%", ""));
+			changeMuteicon(value);
 		};
+
+		function changeMuteicon(value) {
+			var icon = document.getElementById("mute"), int = Number(value);
+			if (int === 0 || video.muted === true) {
+				icon.className = "fas fa-volume-mute";
+			} else if (int < 0) {
+				video.muted = false;
+			} else if (int < 30) {
+				icon.className = "fas fa-volume-down";
+				video.muted = false;
+			} else {
+				icon.className = "fas fa-volume-up";
+				video.muted = false;
+			}
+		}
 
 		function toggle() {
 			var btn = document.getElementById("toggle");
@@ -118,6 +136,11 @@
 				video.pause();
 				btn.innerText = "play";
 			}
+		};
+
+		function muteToggle() {
+			video.muted = !video.muted;
+			changeMuteicon(Number(localStorage.getItem("Volume")));
 		};
 
 		function getArg(name, url) {
@@ -173,16 +196,17 @@
 	<ul class="info">
 		[video player]
 		<li>
-			<span class="info"><a href="#" id="toggle" onclick="toggle();return false;">play</a></span>
+			<a href="#" id="toggle" onclick="toggle();return false;">play</a>
 		</li>
 		<li>
-			<span id="videoid" class="info">id: </span>
+			<span id="videoid">id: </span>
 		</li>
 		<li>
-			<span id="volume" class="info">volume: 10%</span>
+			<a href="#" onclick="muteToggle();return false;"><i id="mute" class="fas fa-volume-mute"></i></a>
+			<span id="volume">volume: 0%</span>
 		</li>
 		<li>
-			<input id="input" type="range" min="0" max="100" step="1" value="10"
+			<input id="input" type="range" min="0" max="100" step="1" value="0"
 				oninput="changeVolume(this.value);" onchange="changeVolume(this.value);"
 				style="left: 0.4%; margin-top: 0.1%; margin-bottom: 0; width: 6.5%; ">
 			</input><br/>
