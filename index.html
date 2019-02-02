@@ -40,102 +40,80 @@
 	</script>
 
 	<script type="text/javascript">
-		window.onload = getLatestBuild(), getJson();
-		var latestBuild;
-
-		function getLatestBuild() {
+		window.onload = function() {
 			var xmlhttp = createXMLHttpRequest(); //IEにも対応する時
 
 			xmlhttp.onreadystatechange = function () {
 				if (xmlhttp.readyState == 4) {
 					if (xmlhttp.status == 200) {
 						var data = JSON.parse(xmlhttp.responseText);
-
-						var elem = document.getElementById("latest_build");
-						elem.innerText = "Latest Build: " + data.latestbuild;
-						latestBuild = data.latestbuild;
-						var elem = document.getElementById("edition");
-						elem.innerText = "Edition: " + data.edition;
-						console.log(document.getElementById("latest_build").innerText + ", " + document.getElementById("edition").innerText);
+						replaceBuild(data.latestbuild);
 					} else {
 					}
 				}
 			}
 			xmlhttp.open("GET", "https://akiba.cloud/crystal/info.json");
 			xmlhttp.send();
-		}
-
-		function getJson() {
-			var xmlhttp = createXMLHttpRequest();
-
-			xmlhttp.onreadystatechange = function () {
-				if (xmlhttp.readyState == 4) {
-					if (xmlhttp.status == 200) {
-						var data = JSON.parse(xmlhttp.responseText);
-
-						var elem = document.getElementById("add");
-						elem.innerText = data[latestBuild].add;
-						var elem = document.getElementById("fix");
-						elem.innerText = data[latestBuild].fix;
-						var elem = document.getElementById("del");
-						elem.innerText = data[latestBuild].del;
-
-						console.log("==================== INFO ===================="); <!-- イコール20個 -->
-						console.log(document.getElementById("add").innerText);
-						console.log(document.getElementById("fix").innerText);
-						console.log(document.getElementById("del").innerText);
-					} else {
-					}
-				}
-			}
-			xmlhttp.open("GET", "https://akiba.cloud/crystal/changelog.json");
-			xmlhttp.send();
-		}
+		};
 
 		function replaceBuild(build) {
-			var xmlhttp = createXMLHttpRequest();
+			let promise = new Promise((resolve, reject) => { // #1
+				var xmlhttp = createXMLHttpRequest();
 
-			xmlhttp.onreadystatechange = function () {
-				if (xmlhttp.readyState == 4) {
-					if (xmlhttp.status == 200) {
-						var data = JSON.parse(xmlhttp.responseText);
+				xmlhttp.onreadystatechange = function () {
+					if (xmlhttp.readyState == 4) {
+						if (xmlhttp.status == 200) {
+							var data = JSON.parse(xmlhttp.responseText);
 
-						var elem = document.getElementById("latest_build");
-						elem.innerText = "Latest Build: " + build;
-						latestBuild = build;
+							var elem = document.getElementById("latest_build");
+							elem.innerText = "Latest Build: " + build;
+							var elem = document.getElementById("edition");
+							elem.innerText = "Edition: " + data.edition;
+							latestBuild = build;
 
-						console.log("Latest Build: " + build + ", " + document.getElementById("edition").innerText);
-					} else {
+							console.log("Latest Build: " + build + ", " + document.getElementById("edition").innerText);
+						} else {
+						}
 					}
 				}
-			}
-			xmlhttp.open("GET", "https://akiba.cloud/crystal/info.json");
-			xmlhttp.send();
+				xmlhttp.open("GET", "https://akiba.cloud/crystal/info.json");
+				xmlhttp.send();
+				resolve("test");
+			})
 
-			var xmlhttp = createXMLHttpRequest();
+			promise.then((msg) => { // #2
+				var xmlhttp = createXMLHttpRequest();
 
-			xmlhttp.onreadystatechange = function () {
-				if (xmlhttp.readyState == 4) {
-					if (xmlhttp.status == 200) {
-						var data = JSON.parse(xmlhttp.responseText);
+				xmlhttp.onreadystatechange = function () {
+					if (xmlhttp.readyState == 4) {
+						if (xmlhttp.status == 200) {
+							var data = JSON.parse(xmlhttp.responseText);
 
-						var elem = document.getElementById("add");
-						elem.innerText = data[build].add;
-						var elem = document.getElementById("fix");
-						elem.innerText = data[build].fix;
-						var elem = document.getElementById("del");
-						elem.innerText = data[build].del;
+							var elem = document.getElementById("add");
+							elem.innerText = data[build].add;
+							var elem = document.getElementById("fix");
+							elem.innerText = data[build].fix;
+							var elem = document.getElementById("del");
+							elem.innerText = data[build].del;
 
-						console.log("==================== INFO ===================="); <!-- イコール20個 -->
-						console.log(document.getElementById("add").innerText);
-						console.log(document.getElementById("fix").innerText);
-						console.log(document.getElementById("del").innerText);
-					} else {
+							console.log("==================== INFO ===================="); <!-- イコール20個 -->
+							console.log(document.getElementById("add").innerText);
+							console.log(document.getElementById("fix").innerText);
+							console.log(document.getElementById("del").innerText);
+						} else {
+						}
 					}
 				}
-			}
-			xmlhttp.open("GET", "https://akiba.cloud/crystal/changelog.json");
-			xmlhttp.send();
+				xmlhttp.open("GET", "https://akiba.cloud/crystal/changelog.json");
+				xmlhttp.send();
+			}).then((msg) => { // #3
+				var doc = document.getElementById("nigger");
+				if (doc !== "<br><br>") {
+					doc.innerHTML = "<br/>"
+				}
+			}).catch(() => { // エラーハンドリング
+				console.error('Something wrong!')
+			})
 		}
 
 		function createXMLHttpRequest() {
@@ -225,8 +203,10 @@
 				if (blacklist.indexOf(arg) >= 0) {
 					console.log("issue id " + arg + " is blacklisted.");
 				} else {
-					document.body.innerHTML = "<h1 id='redirect' style='font-size: 1000%; text-align: justify; text-justify: inter-ideograph;'>リダイレクト</h1>";
-					redirect(arg);
+					document.body.innerHTML = "<center><h1 id='redirect' style='font-size: 1000%;'>リダイレクト</h1></center>";
+					setTimeout(() => {
+						redirect(arg)
+					}, 1000);
 				}
 			}
 		});
@@ -260,14 +240,15 @@
 	</ul>
 
 	<ul class="info">
-		[Latest Build Changelog]
+		[latest build changelog]
+		<li>
+			<a href="https://github.com/AkibaCloud/Updater/releases" target="_blank">client updater</a>
+		</li>
 		<li>
 			<span id="latest_build" class="info"></span>
 			<span id="edition" class="info"></span>
 		</li>
-		<li>
-			<a href="https://github.com/AkibaCloud/Updater/releases" target="_blank">updater</a><br/><br/>
-		</li>
+		<li id="nigger"></li>
 		<li>
 			<span id="add" class="info"></span>
 		</li>
