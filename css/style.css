@@ -16,6 +16,10 @@ actbody {
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 255);
 }
 
+s {
+  cursor: pointer;
+}
+
 .background {
   position: fixed;
   top: 50%;
