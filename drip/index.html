@@ -67,7 +67,7 @@
 				SetVolume(0);
 				localStorage.setItem("Volume", 0);
 				document.getElementById("input").value = 0;
-				document.getElementById("volume").innerText = "volume: 0%";
+				document.getElementById("volume").innerText = "volume: 0%(muted)";
 				video.muted = true;
 			}
 		});
@@ -106,9 +106,11 @@
 
 	<script> // Utils
 		function changeVolume(value) {
+			var vol = document.getElementById("volume");
+
 			SetVolume(value);
-			document.getElementById("volume").innerText = "volume: " + value + '%';
-			localStorage.setItem("Volume", document.getElementById("volume").innerText.replace("volume: ", "").replace("%", ""));
+			vol.innerText = "volume: " + value + '%' + (video.muted ? "(muted)" : "");
+			localStorage.setItem("Volume", vol.innerText.replace("volume: ", "").replace("%", "").replace("(muted)", ""));
 			changeMuteicon(value);
 		};
 
@@ -139,6 +141,9 @@
 		function muteToggle() {
 			video.muted = !video.muted;
 			changeMuteicon(Number(localStorage.getItem("Volume")));
+
+			var vol = document.getElementById("volume");
+			vol.innerText = video.muted ? vol.innerText + "(muted)" : vol.innerText.replace("(muted)", "");
 		};
 
 		function getArg(name, url) {
