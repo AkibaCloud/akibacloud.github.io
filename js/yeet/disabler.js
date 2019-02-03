@@ -1,3 +1,9 @@
+document.ondragstart = function() {
+  // console.log(toString.call(event.path[0]));
+  if (event.path[0] instanceof HTMLImageElement) {
+    return false;
+  }
+};
 
 document.onkeypress = function (event) {
   event = (event || window.event);
