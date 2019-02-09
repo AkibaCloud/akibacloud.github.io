@@ -41,7 +41,8 @@
 				var i;
 				for(i = 0; i < json.length; i++) {
 					var number = json[i].number, url = fixUrl(json[i].title), short = "akiba.cloud/?s=" + number, 
-						date = json[i].created_at, li = document.createElement('li'), a = document.createElement('a');
+						date = json[i].created_at, li = document.createElement('li'),
+						a = document.createElement('a');
 					a.href = "https://" + short;
 					a.target = "_blank";
 					a.textContent = " - [" + date + "] " + short + " -> " + url;
