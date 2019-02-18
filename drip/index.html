@@ -105,7 +105,7 @@
 			var vol = document.getElementById("volume");
 
 			SetVolume(value);
-			vol.innerText = "volume: " + value + '%' + (video.muted ? "(muted)" : "");
+			vol.innerText = "volume: " + value + "%" + (video.muted ? "(muted)" : "");
 			localStorage.setItem("Volume", vol.innerText.replace("volume: ", "").replace("%", "").replace("(muted)", ""));
 			changeMuteicon(value);
 		};
@@ -126,8 +126,7 @@
 		}
 
 		function toggle() {
-			var btn = document.getElementById("toggle");
-			if (btn.innerText === "play") {
+			if (video.paused) {
 				video.play();
 			} else {
 				video.pause();
