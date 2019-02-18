@@ -100,7 +100,7 @@
 		};
 	</script>
 
-	<script> // Utils
+	<script type="text/javascript"> // Utils
 		function changeVolume(value) {
 			var vol = document.getElementById("volume");
 
@@ -156,6 +156,13 @@
 			window.open(url, "popup", "width = auto, height = auto");
 		}
 	</script>
+
+	<script type="text/javascript">
+		window.onload = function() {
+			var doc = document.getElementsByClassName("showonhover");
+			for (var i = 0; i < doc.length; i++) doc[i].title = doc[i].innerText;
+		};
+	</script>
 </head>
 
 <body style="padding-top: 3%; line-height: 95%;">
@@ -191,7 +198,7 @@
 			<a href="https://twitter.com/AkibaKaede" target="_blank">twitter</a>
 		</li>
 		<li>
-			<a href="https://s4wa.hatenadiary.jp/" target="_blank"><s onmouseover="this.title = this.innerText;">blog</s></a>
+			<a href="https://s4wa.hatenadiary.jp/" target="_blank"><s class="showonhover">blog</s></a>
 		</li>
 	</ul>
 
@@ -259,7 +266,7 @@
 	<ul class="info">
 		[web issue]
 		<li>
-			<s onmouseover="this.title = this.innerText;">play/pause btn</s>
+			<s class="showonhover">play/pause btn</s>
 		</li>
 		<li>
 			vid autoplay(on chrome) <a href="https://developers.google.com/web/updates/2017/09/autoplay-policy-changes" target="_blank"><i class="fas fa-link"></i></a>
