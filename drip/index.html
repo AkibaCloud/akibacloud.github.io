@@ -70,23 +70,23 @@
 	</script>
 
 	<script type="text/javascript">
-		window.onload = function(){
-			var vid = document.getElementById("video"), btn = document.getElementById("toggle");
-			vid.addEventListener("playing", function(){
+		document.addEventListener("DOMContentLoaded", function() {
+			var btn = document.getElementById("toggle");
+			video.addEventListener("playing", function() {
 				// console.log("video: playing");
 				btn.innerText = "pause";
 			}, false);
 
-			vid.addEventListener("pause", function(){
+			video.addEventListener("pause", function() {
 				// console.log("video: paused");
 				btn.innerText = "play";
 			}, false);
 
-			vid.addEventListener("loadedmetadata", function(){
+			video.addEventListener("loadedmetadata", function() {
 				// console.log("video: loaded!");
 			}, false);
 
-			vid.addEventListener("canplaythrough", function(){
+			video.addEventListener("canplaythrough", function() {
 				// console.log("video: suro-!");
 
 				/*if (btn.innerText === "play") {
@@ -97,7 +97,7 @@
 
 				//toggle();
 			}, false);
-		};
+		});
 	</script>
 
 	<script type="text/javascript"> // Utils
