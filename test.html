@@ -1,77 +1,19 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
- <script type="text/javascript">
-   window.onload = getLatestBuild();
-   window.onload = getJson();
+<script>
+	var json = {"test": "owo"};
 
-   function getLatestBuild() {
-     var xmlhttp = createXMLHttpRequest(); //IEにも対応する時
+	document.addEventListener("DOMContentLoaded", function() {
+		document.getElementById("json").innerText = JSON.stringify(json);
+	});
 
-     xmlhttp.onreadystatechange = function () {
-       if (xmlhttp.readyState == 4) {
-         if (xmlhttp.status == 200) {
-           var data = JSON.parse(xmlhttp.responseText);
-
-           var elem = document.getElementById("latest_build");
-           elem.innerText = "Latest Build: " + data.latestbuild;
-         } else {
-         }
-       }
-     }
-     xmlhttp.open("GET", "https://akiba.cloud/crystal/info.json");
-     xmlhttp.send();
-   }
-
-   function getJson() {
-     var xmlhttp = createXMLHttpRequest();
-
-     xmlhttp.onreadystatechange = function () {
-       if (xmlhttp.readyState == 4) {
-         if (xmlhttp.status == 200) {
-           var data = JSON.parse(xmlhttp.responseText);
-           var latestBuild = document.getElementById("latest_build").innerText.replace("Latest Build: ", "");
-
-           var elem = document.getElementById("add");
-           elem.innerText = data[latestBuild].add;
-           var elem = document.getElementById("fix");
-           elem.innerText = data[latestBuild].fix;
-           var elem = document.getElementById("del");
-           elem.innerText = data[latestBuild].del;
-
-           console.log("Latest Build: " + latestBuild);
-           console.log("========== INFO ==========");
-           console.log(document.getElementById("add").innerText);
-           console.log(document.getElementById("fix").innerText);
-           console.log(document.getElementById("del").innerText);
-         } else {
-         }
-       }
-     }
-     xmlhttp.open("GET", "https://akiba.cloud/crystal/changelog.json");
-     xmlhttp.send();
-   }
-
-   function createXMLHttpRequest() {
-     if (window.XMLHttpRequest) { return new XMLHttpRequest() }
-     if (window.ActiveXObject) {
-       try { return new ActiveXObject("Msxml2.XMLHTTP.6.0") } catch (e) { }
-       try { return new ActiveXObject("Msxml2.XMLHTTP.3.0") } catch (e) { }
-       try { return new ActiveXObject("Microsoft.XMLHTTP") } catch (e) { }
-     }
-     return false;
-   }
-
-  </script>
-
+	function load() {
+		console.log(JSON.parse(document.getElementById("json").innerText));
+	}
+</script>
 </head>
 <body>
-  <div>[ Crystal Client Info ]</div>
-  <span id="latest_build"></span><br/><br/>
-  <span id="add"></span><br/>
-  <span id="fix"></span><br/>
-  <span id="del"></span><br/>
-
+	<span id="json"></span>
 </body>
 </html>
