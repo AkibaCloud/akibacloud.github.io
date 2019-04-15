@@ -1,0 +1,314 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="author" content="Drip">
+	<title>Drip</title>
+	<!-- 産まれ変わったらグミか龍角散のどあめになりたい -->
+
+	<link rel="shortcut icon" href="../favicon.ico" />
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="../css/animate.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+	<script src="../js/yeet/jquery.js"></script>
+	<script src="../js/yeet/marquee.js"></script>
+	<script src="../js/yeet/main.js"></script>
+	<script src="../js/yeet/disabler.js"></script>
+
+	<script type="text/javascript">
+		var items = [
+			"https://www.dropbox.com/s/6dxwvqbzpz42kht/rakisuta.mp4?dl=1", "https://www.dropbox.com/s/xyy0xu4hgazsugz/rakisuta-2.mp4?dl=1",
+			"https://www.dropbox.com/s/esjmu9wwlw8vaz5/dancing-2.mp4?dl=1", "https://www.dropbox.com/s/4d8vjhlq1shngqq/dancing.mp4?dl=1",
+			"https://www.dropbox.com/s/sqrqithy4cdhkxw/dancing-3.mp4?dl=1", "https://www.dropbox.com/s/42kts7mvjwiqb62/dancing-4.mp4?dl=1",
+			"https://www.dropbox.com/s/9qvedc1a7bm2iz2/Esta%20-%201738.mp4?dl=1", "https://www.dropbox.com/s/nlo7o6czz5yj0dx/monogatari.mp4?dl=1",
+			"https://www.dropbox.com/s/b4o5v1lsvkq1x4j/trip.mp4?dl=1", "https://www.dropbox.com/s/ucsbkr32g03gucv/get_it_.mp4?dl=1",
+			"https://www.dropbox.com/s/anjnw5be3mwwo3t/%5B%E3%81%A0%E3%81%8C%E3%81%97%E3%81%8B%E3%81%97%5D%20AD.mp4?dl=1", "https://www.dropbox.com/s/tctyhtnpdln39ch/GOING%20BAD.mp4?dl=1"
+		]
+
+		function switchVideo() {
+			var video, videoid = getArg("id");
+			if (videoid !== null && videoid <= items.length) {
+				video = items[ videoid ];
+			} else {
+				video = items[ Math.floor(Math.random() * (items.length)) ]
+			}
+			document.getElementById("site-info").innerText = document.getElementById("site-info").innerText.replace("%nigger%", items.length-1);
+			document.getElementById("video-src").src = video;
+
+			if (videoid >= items.length) console.log(videoid + " is not exist!");
+			// console.log("video: " + video);
+		};
+
+		function drawid() {
+			for (var i = 0; i < items.length; i++) {
+				if (items[i] === document.getElementById("video-src").src) {
+					document.getElementById("videoid").innerText = "id: " + i;
+					break;
+				}
+			}
+		}
+	</script>
+
+	<script type="text/javascript">
+		document.addEventListener("DOMContentLoaded", function() {
+			switchVideo();
+			drawid();
+
+			if (localStorage.getItem("Volume") !== null && localStorage.getItem("Volume") !== "null") {
+				var vol = parseFloat(localStorage.getItem("Volume"));
+				document.getElementById("input").value = vol;
+				changeVolume(vol);
+				SetVolume(vol);
+			} else {
+				SetVolume(0);
+				localStorage.setItem("Volume", 0);
+				document.getElementById("input").value = 0;
+				document.getElementById("volume").innerText = "volume: 0%(muted)";
+				video.muted = true;
+			}
+		});
+	</script>
+
+	<script type="text/javascript">
+		document.addEventListener("DOMContentLoaded", function() {
+			var btn = document.getElementById("toggle");
+			video.addEventListener("playing", function() {
+				// console.log("video: playing");
+				btn.innerText = "pause";
+			}, false);
+
+			video.addEventListener("pause", function() {
+				// console.log("video: paused");
+				btn.innerText = "play";
+			}, false);
+
+			video.addEventListener("loadedmetadata", function() {
+				// console.log("video: loaded!");
+			}, false);
+
+			video.addEventListener("canplaythrough", function() {
+				// console.log("video: suro-!");
+
+				/*if (btn.innerText === "play") {
+					btn.innerText = "pause";
+				} else {
+					btn.innerText = "play";
+				}*/
+
+				//toggle();
+			}, false);
+		});
+	</script>
+
+	<script type="text/javascript"> // Utils
+		function changeVolume(value) {
+			var vol = document.getElementById("volume");
+
+			SetVolume(value);
+			vol.innerText = "volume: " + value + "%" + (video.muted ? "(muted)" : "");
+			localStorage.setItem("Volume", vol.innerText.replace("volume: ", "").replace("%", "").replace("(muted)", ""));
+			changeMuteicon(value);
+		};
+
+		function changeMuteicon(value) {
+			var icon = document.getElementById("mute"), int = Number(value);
+			if (int === 0 || video.muted === true) {
+				icon.className = "fas fa-volume-mute";
+			} else if (int < 0) {
+				video.muted = false;
+			} else if (int < 15) {
+				icon.className = "fas fa-volume-down";
+				video.muted = false;
+			} else {
+				icon.className = "fas fa-volume-up";
+				video.muted = false;
+			}
+		}
+
+		function toggle() {
+			if (video.paused) {
+				video.play();
+			} else {
+				video.pause();
+			}
+		};
+
+		function muteToggle() {
+			video.muted = !video.muted;
+			changeMuteicon(Number(localStorage.getItem("Volume")));
+
+			var vol = document.getElementById("volume");
+			vol.innerText = video.muted ? vol.innerText + "(muted)" : vol.innerText.replace("(muted)", "");
+		};
+
+		function getArg(name, url) {
+			if (!url) url = window.location.href;
+			name = name.replace(/[\[\]]/g, "\\$&");
+			var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+				results = regex.exec(url);
+			if (!results) return null;
+			if (!results[2]) return '';
+			return decodeURIComponent(results[2].replace(/\+/g, " "));
+		}
+
+		function popup(url) {
+			window.open(url, "popup", "width = auto, height = auto");
+		}
+	</script>
+
+	<script type="text/javascript">
+		window.onload = function() {
+			var doc = document.getElementsByClassName("showonhover");
+			for (var i = 0; i < doc.length; i++) doc[i].title = doc[i].innerText;
+		};
+	</script>
+</head>
+
+<body style="padding-top: 3%; line-height: 95%;">
+	<!--
+＼　　　　　　　　　　　　　　／
+　＼　　　　　　　　　　　／
+　　＼　　　　　　　　　／
+　　　＼　　　　　　　／
+　　　　　＼( ^o^)／　　　うわああああああああああああああ！！！！！！！！！！
+　　　　　　│　　│
+　　　　　　│　　│　　　　～○～○～○～○～○～○～○
+　　　　　　│　　│　　～○～○～○～○～○～○～○～○～○
+　　　　　　(　 ω⊃～○～○～○～○～○～○～○～○～○～○～○
+　　　　　　／　　＼　～○～○～○～○～○～○～○～○～○～○
+　　　　　／　　　　＼　　　～○～○～○～○～○～○～○～○
+　　　　／　　　　　　＼
+　　　／　　　　　　　　＼
+	-->
+	<div class="info">Drip - <a href="../">akiba.cloud</a><br>dirty deeds done dirt cheap</div>
+
+	<ul class="info">
+		[profiles]
+		<li>
+			<a href="https://steamcommunity.com/id/S4WA/" target="_blank">steam</a>
+		</li>
+		<li>
+			youtube <a href="https://www.youtube.com/channel/UCJscE_cgstFGDQO6TIVEaxA" target="_blank">[1]</a> <a href="https://www.youtube.com/channel/UCC-4hzxcpCX7qr-wLeQmJSQ" target="_blank">[2]</a>
+		</li>
+		<li>
+			<a href="https://github.com/S4WA" target="_blank">github</a>
+		</li>
+		<li>
+			<a href="https://twitter.com/AkibaKaede" target="_blank">twitter</a>
+		</li>
+		<li>
+			<a href="https://s4wa.hatenadiary.jp/" target="_blank"><s class="showonhover">blog</s></a>
+		</li>
+	</ul>
+
+	<ul class="info">
+		[video player]
+		<li>
+			<a href="#" id="toggle" onclick="toggle();return false;">play</a>
+		</li>
+		<li>
+			<span id="videoid">id: </span>
+		</li>
+		<li>
+			<a href="#" onclick="muteToggle();return false;"><i id="mute" class="fas fa-volume-mute"></i></a>
+			<span id="volume">volume: 0%</span>
+		</li>
+		<li>
+			<input id="input" type="range" min="0" max="100" step="1" value="0"
+				oninput="changeVolume(this.value);" onchange="changeVolume(this.value);"
+				style="left: 0.4%; margin-top: 0.1%; margin-bottom: 0; width: 6.5%; ">
+			</input><br/>
+		</li>
+	</ul>
+
+	<ul class="info">
+		[suki na yatu]
+		<li>
+			steins;gate
+		</li>
+		<li>
+			fate series
+		</li>
+		<li>
+			code geass
+		</li>
+		<li>
+			evangelion
+		</li>
+		<li>
+			touhou
+		</li>
+		<li>
+			violet evergarden
+		</li>
+		<li>
+			monogatari series
+		</li>
+		<li>
+			+tic elder sister
+		</li>
+		<li>
+			jojo
+		</li>
+	</ul>
+
+	<ul class="info">
+		[moe kyara]
+		<li>
+			tohsaka rin
+		</li>
+		<li>
+			c.c.
+		</li>
+		<li>
+			hamakaze
+		</li>
+		<li>
+			makise kurisu
+		</li>
+		<li>
+			astolfo
+		</li>
+		<li>
+			alice margatroid
+		</li>
+		<li>
+			hiiragi kagami
+		</li>
+	</ul>
+
+	<ul class="info">
+		[web issue]
+		<li>
+			<s class="showonhover">play/pause btn</s>
+		</li>
+		<li>
+			<s class="showonhover">vid autoplay with audio(on chrome) <a href="https://developers.google.com/web/updates/2017/09/autoplay-policy-changes" target="_blank"><i class="fas fa-link"></i></a></s>
+		</li>
+		<li>
+			slip height on scroll(input type range)
+		</li>
+	</ul>
+
+	<ul class="info">
+		[info]
+		<li>
+			<span id="site-info">"/drip?id=0~%nigger%" to select vid with number</span>
+		</li>
+		<li>
+			<span class="info">
+				volume will save to <a href="javascript:popup('https://raw.githubusercontent.com/S4WA/files/master/untitled.png')" title="popup">local storage</a>
+			</span>
+		</li>
+	</ul>
+
+	<video id="video" rel="preload" loop autoplay id="videomain">
+		<source id="video-src" src="" type="video/mp4">
+	</video>
+
+	<div class="animated fadeInDown">
+	<footer style="float: right"></footer>
+	</div>
+</body>
+</html>
