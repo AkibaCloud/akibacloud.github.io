@@ -50,7 +50,7 @@
 		}
 
 		function switchVideo(num) {
-			if (num > items.length) num = 0;
+			if (num >= items.length) num = 0;
 			currentID = num;
 			document.getElementById("video").src = items[num];
 		}
