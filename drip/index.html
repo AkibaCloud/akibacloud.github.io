@@ -55,7 +55,7 @@
 			document.getElementById("video").src = items[num];
 		}
 
-		function autoNext() {
+		function next() {
 			switchVideo(++currentID);
 			drawid();
 		}
@@ -81,7 +81,7 @@
 			}
 
 			video.addEventListener("ended", () => {
-				autoNext();
+				next();
 			});
 		});
 	</script>
