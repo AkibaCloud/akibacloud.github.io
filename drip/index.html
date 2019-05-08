@@ -32,35 +32,40 @@
 			"https://www.dropbox.com/s/13iaqe9hnjhf34e/xqu-l14MjDaFvhl0.mp4?dl=1",
 			"https://www.dropbox.com/s/g6e07zo8gdara42/eMAqc9jhGF_UpDo5.mp4?dl=1",
 			"https://www.dropbox.com/s/74jhu4lsffa5jd0/rakisuta-3.mp4?dl=1"
-		]
+		], currentID = 0;
 
-		function switchVideo() {
+		function randomVideo() {
 			var video, videoid = getArg("id");
 			if (videoid !== null && videoid <= items.length) {
 				video = items[ videoid ];
 			} else {
-				video = items[ Math.floor(Math.random() * (items.length)) ]
+				video = items[ currentID = Math.floor(Math.random() * (items.length)) ]
 			}
 			document.getElementById("site-info").innerText = document.getElementById("site-info").innerText.replace("%nigger%", items.length-1);
 			document.getElementById("video-src").src = video;
 
 			if (videoid >= items.length) console.log(videoid + " is not exist!");
 			// console.log("video: " + video);
-		};
+		}
 
 		function drawid() {
-			for (var i = 0; i < items.length; i++) {
-				if (items[i] === document.getElementById("video-src").src) {
-					document.getElementById("videoid").innerText = "id: " + i;
-					break;
-				}
-			}
+			document.getElementById("videoid").innerText = "id: " + currentID;
+		}
+
+		function switchVideo(num) {
+			if (num > items.length) num = 0;
+			document.getElementById("video").src = items[num];
+		}
+
+		function autoNext() {
+			switchVideo(++currentID);
+			drawid();
 		}
 	</script>
 
 	<script type="text/javascript">
 		document.addEventListener("DOMContentLoaded", function() {
-			switchVideo();
+			randomVideo();
 			drawid();
 
 			if (localStorage.getItem("Volume") !== null && localStorage.getItem("Volume") !== "null") {
@@ -75,6 +80,10 @@
 				document.getElementById("volume").innerText = "volume: 0%(muted)";
 				video.muted = true;
 			}
+
+			video.addEventListener("ended", () => {
+				autoNext();
+			});
 		});
 	</script>
 
@@ -277,7 +286,6 @@
 	<ul class="info">
 		[web issue]
 		<li>
-			slip on height scroll(input type range)
 		</li>
 	</ul>
 
@@ -287,18 +295,23 @@
 			<span id="site-info">to select a numbered video, use this query "/drip?id=0~%nigger%" to access it.</span>
 		</li>
 		<li>
-			<span class="info">
+			<span>
 				volume will save to <a href="javascript:popup('https://raw.githubusercontent.com/S4WA/files/master/untitled.png')" title="popup">local storage</a>
+			</span>
+		</li>
+		<li>
+			<span>
+				試しに動画単体のループではなく、プレイリスト全体のループに変えてみました。
 			</span>
 		</li>
 	</ul>
 
-	<video id="video" rel="preload" loop autoplay id="videomain">
+	<video id="video" rel="preload" autoplay id="videomain"> <!-- never use loop -->
 		<source id="video-src" src="" type="video/mp4">
 	</video>
 
 	<div class="animated fadeInDown">
-	<footer style="float: right"></footer>
+	<footer style="float: right" class="info">ここにテキストを入力</footer>
 	</div>
 </body>
 </html>
