@@ -36,13 +36,12 @@
 		], currentID = 0;
 
 		function randomVideo() {
-			var video, videoid = getArg("id");
+			var videoid = getArg("id");
 			if (videoid !== null && videoid <= items.length) {
-				video = items[ videoid ];
+				currentID = videoid;
 			} else {
-				video = items[ currentID = Math.floor(Math.random() * (items.length)) ]
+				currentID = Math.floor(Math.random() * (items.length));
 			}
-			document.getElementById("site-info").innerText = document.getElementById("site-info").innerText.replace("%nigger%", items.length-1);
 			switchVideo(currentID);
 		}
 
@@ -66,6 +65,7 @@
 		document.addEventListener("DOMContentLoaded", function() {
 			randomVideo();
 			drawid();
+			document.getElementById("site-info").innerText = document.getElementById("site-info").innerText.replace("%nigger%", items.length-1);
 
 			if (localStorage.getItem("Volume") !== null && localStorage.getItem("Volume") !== "null") {
 				var vol = parseFloat(localStorage.getItem("Volume"));
