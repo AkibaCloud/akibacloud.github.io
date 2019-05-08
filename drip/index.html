@@ -43,10 +43,7 @@
 				video = items[ currentID = Math.floor(Math.random() * (items.length)) ]
 			}
 			document.getElementById("site-info").innerText = document.getElementById("site-info").innerText.replace("%nigger%", items.length-1);
-			document.getElementById("video-src").src = video;
-
-			if (videoid >= items.length) console.log(videoid + " is not exist!");
-			// console.log("video: " + video);
+			switchVideo(currentID);
 		}
 
 		function drawid() {
@@ -55,6 +52,7 @@
 
 		function switchVideo(num) {
 			if (num > items.length) num = 0;
+			currentID = num;
 			document.getElementById("video").src = items[num];
 		}
 
