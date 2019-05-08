@@ -17,6 +17,7 @@
 	<script src="../js/yeet/disabler.js"></script>
 
 	<script type="text/javascript">
+		var loopAll = true;
 		var items = [
 			"https://www.dropbox.com/s/6dxwvqbzpz42kht/rakisuta.mp4?dl=1", "https://www.dropbox.com/s/xyy0xu4hgazsugz/rakisuta-2.mp4?dl=1",
 			"https://www.dropbox.com/s/esjmu9wwlw8vaz5/dancing-2.mp4?dl=1", "https://www.dropbox.com/s/4d8vjhlq1shngqq/dancing.mp4?dl=1",
@@ -81,7 +82,11 @@
 			}
 
 			video.addEventListener("ended", () => {
-				next();
+				if (loopAll) {
+					next();
+				} else {
+					video.play();
+				}
 			});
 		});
 	</script>
@@ -296,11 +301,6 @@
 		<li>
 			<span>
 				volume will save to <a href="javascript:popup('https://raw.githubusercontent.com/S4WA/files/master/untitled.png')" title="popup">local storage</a>
-			</span>
-		</li>
-		<li>
-			<span>
-				試しに動画単体のループではなく、プレイリスト全体のループに変えてみました。
 			</span>
 		</li>
 	</ul>
