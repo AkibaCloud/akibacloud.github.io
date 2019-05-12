@@ -124,24 +124,6 @@
 	</script>
 
 	<script>
-		document.addEventListener("DOMContentLoaded", function() {
-			var arg = getArg("post");
-			if (arg !== null) {
-				post(arg);
-			}
-		});
-
-		function post(link) {
-			if (link !== null) {
-				var title = encodeURIComponent(link),
-					body = encodeURIComponent("short url, check at here: https://akiba.cloud/list"),
-					url = "https://github.com/AkibaCloud/db/issues/new?title=" + title + "&body=" + body;
-				window.open(url, '_blank');
-			}
-		}
-	</script>
-
-	<script>
 		function getArg(name, url) {
 			if (!url) url = window.location.href;
 			name = name.replace(/[\[\]]/g, "\\$&");
@@ -152,56 +134,6 @@
 			// console.log("argument: "+ decodeURIComponent(results[2].replace(/\+/g, " ")));
 			return decodeURIComponent(results[2].replace(/\+/g, " "));
 		}
-	</script>
-
-	<script>
-		var issuesUrl = "https://api.github.com/repos/AkibaCloud/db/issues";
-		var blacklist = ["3", "4", "5"];
-
-		function getJson(url, cb) {
-			var r = new XMLHttpRequest();
-			r.open("GET", url, true);
-			r.onreadystatechange = function () {
-				if(r.readyState !== 4) return;
-				var json = JSON.parse(r.responseText);
-				cb(r.status, json);
-			};
-			r.send();
-		};
-
-		function fixUrl(url) {
-			if(!/^https?:\/\//.test(url)) {
-				return "http://" + url;
-			}
-			return url;
-		};
-
-		function redirect(n) {
-			document.body.className = "redirect";
-			getJson(issuesUrl + '/' + n, function(status, json) {
-				if(status === 200) {
-					var url = fixUrl(json.title);
-					window.location.replace(url);
-				} else {
-					document.body.className = "error";
-					console.log(json.message);
-				}
-			})
-		};
-
-		document.addEventListener("DOMContentLoaded", function() {
-			var arg = getArg("s");
-			if (arg !== null) {
-				if (blacklist.indexOf(arg) >= 0) {
-					console.log("issue id " + arg + " is blacklisted.");
-				} else {
-					document.body.innerHTML = "<center><h1 id='redirect' style='font-size: 1000%;'>リダイレクト</h1></center>";
-					setTimeout(() => {
-						redirect(arg)
-					}, 1000);
-				}
-			}
-		});
 	</script>
 </head>
 
