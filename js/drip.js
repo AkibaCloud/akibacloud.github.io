@@ -13,7 +13,11 @@ function drawid() {
 }
 
 function switchVideo(num) {
-	if (num >= items.length) num = 0;
+	if (num >= items.length) {
+		num = 0;
+	} else if (num < 0) {
+		num = items.length-1;
+	}
 	currentID = num;
 	document.getElementById("video").src = items[num];
 }
