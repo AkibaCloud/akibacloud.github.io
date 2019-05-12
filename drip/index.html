@@ -69,6 +69,11 @@
 			switchVideo(++currentID);
 			drawid();
 		}
+
+		function prev() {
+			switchVideo(--currentID);
+			drawid();
+		}
 	</script>
 
 	<script type="text/javascript">
@@ -103,14 +108,15 @@
 	<script type="text/javascript">
 		document.addEventListener("DOMContentLoaded", function() {
 			var btn = document.getElementById("toggle");
+			var playTxt = "[ ▷ ]", pauseTxt = "[ || ]";
 			video.addEventListener("playing", function() {
 				// console.log("video: playing");
-				btn.innerText = "pause";
+				btn.innerText = pauseTxt;
 			}, false);
 
 			video.addEventListener("pause", function() {
 				// console.log("video: paused");
-				btn.innerText = "play";
+				btn.innerText = playTxt;
 			}, false);
 
 			video.addEventListener("loadedmetadata", function() {
@@ -120,10 +126,10 @@
 			video.addEventListener("canplaythrough", function() {
 				// console.log("video: suro-!");
 
-				/*if (btn.innerText === "play") {
-					btn.innerText = "pause";
+				/*if (btn.innerText === playTxt) {
+					btn.innerText = pauseTxt;
 				} else {
-					btn.innerText = "play";
+					btn.innerText = playTxt;
 				}*/
 
 				//toggle();
@@ -235,9 +241,9 @@
 	<ul class="info">
 		[video player]
 		<li>
-			<a href="#" id="toggle" onclick="toggle();return false;">play</a>
-			|
-			<a href="#" id="toggle" onclick="next();return false;">next</a>
+			<a href="#" title="prev" id="" onclick="prev();return false;"> [ |< ]</a>
+			<a href="#" title="play/pause" id="toggle" onclick="toggle();return false;">[ ▷ ]</a>
+			<a href="#" title="next" id="" onclick="next();return false;"> [ >| ]</a>
 		</li>
 		<li>
 			<span id="videoid">id: </span>
