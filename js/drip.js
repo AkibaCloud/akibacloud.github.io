@@ -122,24 +122,6 @@ function muteToggle() {
 	vol.innerText = video.muted ? vol.innerText + "(muted)" : vol.innerText.replace("(muted)", "");
 };
 
-function getArg(name, url) {
-	if (!url) url = window.location.href;
-	name = name.replace(/[\[\]]/g, "\\$&");
-	var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-		results = regex.exec(url);
-	if (!results) return null;
-	if (!results[2]) return '';
-	return decodeURIComponent(results[2].replace(/\+/g, " "));
-}
-
-function popup(url) {
-	window.open(url, "popup", "width = auto, height = auto");
-}
-window.onload = function () {
-	var doc = document.getElementsByClassName("showonhover");
-	for (var i = 0; i < doc.length; i++) doc[i].title = doc[i].innerText;
-};
-
 var loopAll = true, currentID = 0;
 var items = [
 	"https://www.dropbox.com/s/6dxwvqbzpz42kht/rakisuta.mp4?dl=1", 

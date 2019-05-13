@@ -25,9 +25,10 @@
 	<script src="../js/main.js"></script>
 	<script src="../js/disabler.js"></script>
 	<script src="../js/drip.js"></script>
+	<script src="../js/utils.js"></script>
 </head>
 
-<body style="padding-top: 3%; line-height: 95%;">
+<body style="padding-top: 3%; line-height: 95%;" onload="replaceListElem();">
 	<!--
 ＼　　　　　　　　　　　　　　／
 　＼　　　　　　　　　　　／
@@ -45,7 +46,7 @@
 	-->
 	<div class="info">Drip - <a href="../">akiba.cloud</a><br/>dirty deeds done dirt cheap</div>
 
-	<ul class="info">
+	<ul class="info list">
 		[social]
 		<li>
 			<a href="https://steamcommunity.com/id/S4WA/" target="_blank">steam</a>
@@ -65,7 +66,7 @@
 	</ul>
 
 	<ul class="info">
-		[video player]
+		[video info/player]
 		<li>
 			<span id="videoid">id: </span>
 		</li>
@@ -88,7 +89,7 @@
 		</li>
 	</ul>
 
-	<ul class="info">
+	<ul class="info list">
 		[suki na yatu]
 		<li>
 			steins;gate
@@ -110,7 +111,7 @@
 		</li>
 	</ul>
 
-	<ul class="info">
+	<ul class="info list">
 		[moe kyara]
 		<li>
 			tohsaka rin
@@ -123,14 +124,30 @@
 		</li>
 	</ul>
 
+	<ul class="info list">
+		[lang]
+		<li>
+			Java
+		</li>
+		<li>
+			JavaScript
+		</li>
+		<li>
+			PHP
+		</li>
+		<li>
+			HTML
+		</li>
+	</ul>
+
 	<ul class="info">
 		[web issue]
 		<li>
 		</li>
 	</ul>
 
-	<ul class="info">
-		[info]
+	<ul class="info list">
+		[web info]
 		<li>
 			<span id="site-info">to select a numbered video, use this query "/drip?id=0~%nigger%" to access it.</span>
 		</li>
@@ -144,9 +161,5 @@
 	<video id="video" rel="preload" autoplay id="videomain"> <!-- loop -->
 		<source id="video-src" src="" type="video/mp4">
 	</video>
-
-	<div class="animated fadeInDown">
-	<!-- <footer style="float: right" class="info">ここにテキストを入力</footer> -->
-	</div>
 </body>
 </html>
