@@ -141,6 +141,7 @@ var items = [
 	"https://www.dropbox.com/s/ksfrbq5inq9nq0e/U%20got%20that.mp4?dl=1", 
 	"https://www.dropbox.com/s/vwi5voi9q0ailqk/cream.mp4?dl=1", 
 	"https://www.dropbox.com/s/khr8yz080j7x2ph/tsukinomito.mp4?dl=1", 
-	"https://www.dropbox.com/s/13iaqe9hnjhf34e/xqu-l14MjDaFvhl0.mp4?dl=1", 
-	"https://www.dropbox.com/s/g6e07zo8gdara42/eMAqc9jhGF_UpDo5.mp4?dl=1", 
-	"https://www.dropbox.com/s/74jhu4lsffa5jd0/rakisuta-3.mp4?dl=1" ];
+	// "https://www.dropbox.com/s/13iaqe9hnjhf34e/xqu-l14MjDaFvhl0.mp4?dl=1", 
+	"https://www.dropbox.com/s/g6e07zo8gdara42/eMAqc9jhGF_UpDo5.mp4?dl=1"
+	// "https://www.dropbox.com/s/74jhu4lsffa5jd0/rakisuta-3.mp4?dl=1" 
+	];
