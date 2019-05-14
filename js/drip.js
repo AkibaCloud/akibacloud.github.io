@@ -33,6 +33,7 @@ function prev() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
+	setMode();
 	randomVideo();
 	drawid();
 	document.getElementById("site-info").innerText = document.getElementById("site-info").innerText.replace("%nigger%", items.length - 1);
@@ -121,6 +122,20 @@ function muteToggle() {
 	var vol = document.getElementById("volume");
 	vol.innerText = video.muted ? vol.innerText + "(muted)" : vol.innerText.replace("(muted)", "");
 };
+
+function setMode() {
+	if (localStorage.getItem("loopAll") == null) {
+		localStorage.setItem("loopAll", loopAll);
+	}
+	loopAll = Boolean(localStorage.getItem("loopAll") == "true");
+	document.getElementById("mode").innerText = loopAll ? "list loop" : "single loop";
+}
+
+function mode() {
+	loopAll = !loopAll;
+	document.getElementById("mode").innerText = loopAll ? "list loop" : "single loop";
+	localStorage.setItem("loopAll", loopAll);
+}
 
 var loopAll = true, currentID = 0;
 var items = [
