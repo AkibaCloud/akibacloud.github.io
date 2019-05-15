@@ -174,6 +174,14 @@ function seekbar() {
 	}, false);
 };
 
+function pipToggle() {
+	if (document.pictureInPictureElement) {
+		document.exitPictureInPicture().catch(console.error);
+	} else {
+		video.requestPictureInPicture().catch(console.error);
+	}
+}
+
 var loopAll = true, currentID = 0, muted = true;
 var items = [
 	"https://www.dropbox.com/s/6dxwvqbzpz42kht/rakisuta.mp4?dl=1", 
