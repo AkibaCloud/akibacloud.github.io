@@ -21,7 +21,7 @@ function getArg(name, url) {
 function popup(url) {
 	window.open(url, "popup", "width = auto, height = auto");
 }
-window.onload = function () {
-	var doc = document.getElementsByClassName("showonhover");
+window.onload = () => {
+	var doc = document.getElementsByClassName("hidden");
 	for (var i = 0; i < doc.length; i++) doc[i].title = doc[i].innerText;
 };
