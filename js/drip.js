@@ -149,7 +149,7 @@ function mode() {
 
 function inputHider() {
 	var child = document.getElementById("input"), parent = child.parentElement;
-	$(parent).hover(() => {
+	$(parent).hover(() => {;
 		child.style.display = "initial";
 	}, () => {
 		child.style.display = "none";
