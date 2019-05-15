@@ -83,10 +83,10 @@
 		</li>
 		<li>
 			<span>mode: </span>
-			<a href="#" id="mode" onclick="mode();return false;">list loop</a>
+			<a href="javascript:void(0);" id="mode" onclick="mode();">list loop</a>
 		</li>
 		<li style="width: 150px;">
-			<a href="#" onclick="muteToggle();return false;"><i id="mute" class="fas fa-volume-mute"></i></a>
+			<a href="javascript:void(0);" onclick="muteToggle();"><i id="mute" class="fas fa-volume-mute"></i></a>
 			<input id="input" type="range" title="volume changer"
 				min="0" max="100" step="1" value="0"
 				oninput="changeVolume(this.value);"
@@ -96,10 +96,10 @@
 			<span id="volume">volume: 0%</span>
 		</li>
 		<li>
-			<a href="#" onclick="pipToggle();return false;">[picture in picture]</a><br/>
-			<a href="#" title="prev" id="" onclick="prev();return false;"> [ |< ]</a>
-			<a href="#" title="play/pause" id="toggle" onclick="toggle();return false;">[ ▷ ]</a>
-			<a href="#" title="next" id="" onclick="next();return false;"> [ >| ]</a>
+			<a href="javascript:void(0);" onclick="pipToggle();">[picture in picture]</a><br/>
+			<a href="javascript:void(0);" title="prev" id="" onclick="prev();"> [ |< ]</a>
+			<a href="javascript:void(0);" title="play/pause" id="toggle" onclick="toggle();">[ ▷ ]</a>
+			<a href="javascript:void(0);" title="next" id="" onclick="next();"> [ >| ]</a>
 		</li>
 		<input id="seekbar" type="range" title="video seekbar"
 			min="0" max="100" value="0"
