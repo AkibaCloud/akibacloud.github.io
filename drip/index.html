@@ -26,9 +26,16 @@
 	<script src="../js/disabler.js"></script>
 	<script src="../js/drip.js"></script>
 	<script src="../js/utils.js"></script>
+	<script>
+		window.onload = () => {
+			replaceListElem();
+			hiddenTitle();
+			inputHider();
+		}
+	</script>
 </head>
 
-<body style="padding-top: 3%; line-height: 95%;" onload="replaceListElem();hiddenTitle();">
+<body style="padding-top: 3%; line-height: 95%;">
 	<!--
 ＼　　　　　　　　　　　　　　／
 　＼　　　　　　　　　　　／
@@ -74,16 +81,15 @@
 			<span>mode: </span>
 			<a href="#" id="mode" onclick="mode();return false;">list loop</a>
 		</li>
-		<li>
+		<li style="width: 150px;">
 			<a href="#" onclick="muteToggle();return false;"><i id="mute" class="fas fa-volume-mute"></i></a>
 			<span id="volume">volume: 0%</span>
-		</li>
-		<li>
+			<br/>
 			<input id="input" type="range"
 				min="0" max="100" step="1" value="0"
 				oninput="changeVolume(this.value);"
 				onchange="changeVolume(this.value);"
-				style="left: 0.4%; margin-top: 0%; margin-bottom: 0; width: 6.5%; ">
+				style="left: 0.4%; margin-top: 0%; margin-bottom: 0; width: 120px; display: none;">
 			</input>
 		</li>
 		<li>

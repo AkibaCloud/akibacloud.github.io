@@ -147,6 +147,15 @@ function mode() {
 	localStorage.setItem("loopAll", loopAll);
 }
 
+function inputHider() {
+	var child = document.getElementById("input"), parent = child.parentElement;
+	$(parent).hover(() => {
+		child.style.display = "initial";
+	}, () => {
+		child.style.display = "none";
+	})
+}
+
 var loopAll = true, currentID = 0, muted = true;
 var items = [
 	"https://www.dropbox.com/s/6dxwvqbzpz42kht/rakisuta.mp4?dl=1", 
