@@ -36,8 +36,18 @@ document.addEventListener("DOMContentLoaded", function () {
 	setMode();
 	randomVideo();
 	drawid();
+
+	var volStorage = localStorage.getItem("Volume") !== null && localStorage.getItem("Volume") !== "null";
 	document.getElementById("site-info").innerText = document.getElementById("site-info").innerText.replace("%nigger%", items.length - 1);
-	if (localStorage.getItem("Volume") !== null && localStorage.getItem("Volume") !== "null") {
+
+	if (localStorage.getItem("muted") == null && volStorage) {
+		localStorage.setItem("muted", muted);
+	} else if (localStorage.getItem("muted") != null) {
+		muted = (localStorage.getItem("muted") == "true");
+	}
+	video.muted = muted;
+
+	if (volStorage) {
 		var vol = parseFloat(localStorage.getItem("Volume"));
 		document.getElementById("input").value = vol;
 		changeVolume(vol);
@@ -47,7 +57,6 @@ document.addEventListener("DOMContentLoaded", function () {
 		localStorage.setItem("Volume", 0);
 		document.getElementById("input").value = 0;
 		document.getElementById("volume").innerText = "volume: 0%(muted)";
-		video.muted = true;
 	}
 	video.addEventListener("ended", () => {
 		if (loopAll) {
@@ -118,6 +127,7 @@ function toggle() {
 
 function muteToggle() {
 	video.muted = !video.muted;
+	localStorage.setItem("muted", muted = video.muted);
 	changeMuteicon(Number(localStorage.getItem("Volume")));
 	var vol = document.getElementById("volume");
 	vol.innerText = video.muted ? vol.innerText + "(muted)" : vol.innerText.replace("(muted)", "");
@@ -137,7 +147,7 @@ function mode() {
 	localStorage.setItem("loopAll", loopAll);
 }
 
-var loopAll = true, currentID = 0;
+var loopAll = true, currentID = 0, muted = true;
 var items = [
 	"https://www.dropbox.com/s/6dxwvqbzpz42kht/rakisuta.mp4?dl=1", 
 	"https://www.dropbox.com/s/xyy0xu4hgazsugz/rakisuta-2.mp4?dl=1", 
