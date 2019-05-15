@@ -91,6 +91,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		}*/
 		//toggle();
 	}, false);
+	seekbar();
 });
 
 function changeVolume(value) {
@@ -155,6 +156,23 @@ function inputHider() {
 		child.style.display = "none";
 	})
 }
+
+function seekbar() {
+	var seekbar = document.getElementById("seekbar");
+	if (video.readyState > 0){
+		seekbar.max = video.duration;
+	} else {
+		video.addEventListener("loadedmetadata", () => {
+			seekbar.max = video.duration;
+		});
+	}
+	seekbar.addEventListener("change", () => {
+		video.currentTime = seekbar.value;
+	}, false);
+	video.addEventListener("timeupdate", () => {
+		seekbar.value = video.currentTime;
+	}, false);
+};
 
 var loopAll = true, currentID = 0, muted = true;
 var items = [
