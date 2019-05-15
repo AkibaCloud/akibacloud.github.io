@@ -151,8 +151,10 @@ function mode() {
 function inputHider() {
 	var child = document.getElementById("input"), parent = child.parentElement;
 	$(parent).hover(() => {;
+		parent.style.width = "150px";
 		child.style.display = "initial";
 	}, () => {
+		parent.style.width = "95px";
 		child.style.display = "none";
 	})
 }
