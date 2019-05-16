@@ -59,7 +59,9 @@ document.addEventListener("DOMContentLoaded", function () {
 		SetVolume(0);
 		localStorage.setItem("Volume", 0);
 		document.getElementById("input").value = 0;
-		document.getElementById("volume").innerText = "volume: 0%(muted)";
+		var volElem = document.getElementById("volume");
+		volElem.innerText = "volume: 0%(muted)";
+		volElem.style.width = "140px";
 	}
 	video.addEventListener("ended", () => {
 		if (loopAll) {
@@ -162,7 +164,7 @@ function inputHider() {
 		parent.style.width = "150px";
 		child.style.display = "initial";
 	}, () => {
-		parent.style.width = "95px";
+		parent.style.width = muted ? "140px" : "95px";
 		child.style.display = "none";
 	})
 }
