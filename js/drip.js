@@ -5,6 +5,9 @@ function randomVideo() {
 	} else {
 		currentID = Math.floor(Math.random() * (items.length));
 	}
+	if (localStorage.getItem("locked") != null) {
+		currentID = Number(localStorage.getItem("locked"));
+	}
 	switchVideo(currentID);
 }
 
@@ -69,11 +72,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.addEventListener("DOMContentLoaded", function () {
 	var btn = document.getElementById("toggle");
-	var playTxt = "[ ▷ ]",
-		pauseTxt = "[ || ]";
+	var playTxt = "[ ▷ ]", pauseTxt = "[ || ]";
 	video.addEventListener("playing", function () {
 		// console.log("video: playing");
 		btn.innerText = pauseTxt;
+
+		if (localStorage.getItem("locked") != null && currentID != Number(localStorage.getItem("locked"))) {
+			var lock = document.getElementById("locked");
+			lock.className = "fas fa-lock-open";
+			lock.title = "unlocked";
+		}
 	}, false);
 	video.addEventListener("pause", function () {
 		// console.log("video: paused");
@@ -181,6 +189,30 @@ function pipToggle() {
 		document.exitPictureInPicture().catch(console.error);
 	} else {
 		video.requestPictureInPicture().catch(console.error);
+	}
+}
+
+function lock() {
+	var doc = document.getElementById("locked");
+	if (doc.className == "fas fa-lock-open") { // localStorage.getItem("locked") == null
+		doc.className = "fas fa-lock";
+		doc.title = "locked";
+		localStorage.setItem("locked", currentID);
+	} else {
+		doc.className = "fas fa-lock-open";
+		doc.title = "unlocked";
+		localStorage.removeItem("locked");
+	}
+}
+
+function lockIcon() {
+	var doc = document.getElementById("locked");
+	if (localStorage.getItem("locked") == null) {
+		doc.className = "fas fa-lock-open";
+		doc.title = "unlocked";
+	} else {
+		doc.className = "fas fa-lock";
+		doc.title = "locked";
 	}
 }
 
