@@ -240,5 +240,6 @@ var items = [
 	// "https://www.dropbox.com/s/13iaqe9hnjhf34e/xqu-l14MjDaFvhl0.mp4?dl=1", 
 	"https://www.dropbox.com/s/g6e07zo8gdara42/eMAqc9jhGF_UpDo5.mp4?dl=1",
 	// "https://www.dropbox.com/s/74jhu4lsffa5jd0/rakisuta-3.mp4?dl=1" ,
-	"https://www.dropbox.com/s/e6cqvve49c8vwal/U%20Got%20That%20%28Miku%20Mix%29.mp4?dl=1"
+	"https://www.dropbox.com/s/e6cqvve49c8vwal/U%20Got%20That%20%28Miku%20Mix%29.mp4?dl=1",
+	"https://www.dropbox.com/s/uyhmkzvdtxuxdlv/Neko%20Mimi%20Mode.mp4?dl=1"
 	];
