@@ -122,11 +122,15 @@ a {
 	display: inline;
 }
 
-.body#profile {
+.body#profile, .body#loves {
 	padding-left: 20px;
 }
 
-#profile ul {
+.body#loves ul {
+	display: inline-block;
+}
+
+.body ul {
 	padding: 0 0;
 	list-style: none;
 }
