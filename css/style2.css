@@ -27,6 +27,7 @@ body .toolbar {
 .toolbar ul li {
 	display: inline-block;
 	padding: 0 10px;
+	cursor: pointer;
 }
 
 .toolbar ul li * {
@@ -78,6 +79,7 @@ body .toolbar {
 	top: 50%;
 	left: 50%;
 	transform: translateY(-50%) translateX(-50%);
+	cursor: pointer;
 }
 
 .button .opacity {
@@ -91,7 +93,7 @@ body .toolbar {
 	opacity: 1;
 }
 
-	.button.exit {
+.button.exit {
 		background-color: red;
 }
 
@@ -101,4 +103,8 @@ body .toolbar {
 
 .button.custom {
 	background-color: #3cb371;
+}
+
+a {
+	color: inherit;
 }
