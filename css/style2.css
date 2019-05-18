@@ -3,6 +3,7 @@ body {
 	background-size: cover;
 	background-repeat: no-repeat;
 	padding-top: 30px;
+	font-family: "Cantarell", sans-serif;
 }
 
 body .toolbar {
@@ -10,14 +11,14 @@ body .toolbar {
 	top: 0;
 	width: 100vw;
 	left: 0;
-	background: rgba(0, 0, 0, 0.5);
+	background: rgba(0, 0, 0, 0.65);
 	margin-bottom: 20px;
 	height: 30px;
 }
 
 .toolbar ul {
 	margin: 0 0;
-	padding: 5px 5px;
+	padding: 5px 15px;
 	color: #fff;
 	list-style: none;
 	line-height: 20px;
@@ -25,13 +26,18 @@ body .toolbar {
 
 .toolbar ul li {
 	display: inline-block;
+	padding: 0 10px;
+}
+
+.toolbar ul li * {
+	padding: 0 0;
+	margin: 0 0;
 }
 
 .window {
 	background-color: #ececec;
 	box-shadow: 0 0 35px -5px #ababab;
 	border-radius: 5px;
-	font-family: "Cantarell", sans-serif;
 	color: #000;
 }
 
@@ -57,6 +63,10 @@ body .toolbar {
 	border-radius: 45px;
 	display: inline-block;
 	position: relative;
+}
+
+.bar span.title {
+	padding: 0 200px;
 }
 
 .button .icon {
