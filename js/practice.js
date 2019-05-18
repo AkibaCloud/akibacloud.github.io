@@ -1,9 +1,27 @@
+/*
+ (c) akibacloud
+*/
+
 document.addEventListener("DOMContentLoaded", () => {
 });
 
 window.onload = () => {
 	registerAllWindows();
+	$(".window").resizable({
+		maxHeight: 1000,
+		maxWidth: 1000,
+		minHeight: 30,
+		minWidth: 30,
+		aspectRatio: true,
+		ghost:true
+	});
 	$(".window").draggable();
+	$(".window").on("drag", function() {
+		drag($(this));
+	});
+	$(".window").on("click", function() {
+		drag($(this));
+	});
 }
 
 function registerAllWindows() {
@@ -18,19 +36,24 @@ function registerAllWindows() {
 	}
 	if (!list.isEmpty()) {
 		currentWindow = list[0];
-		currentWindow.body.style["z-index"] = 1;
 	}
 }
 
-function drag() {
+function getFrameFromElement(element) {
 	for (var i = 0; i < list.length; i++) {
-		list[i];
+		if (list[i].body == element) return list[i];
 	}
 }
 
 function frame() {
 	var x = 0, y = 0;
 	var name, body;
+}
+
+function drag(elem) {
+	$("#currentWindow").text(elem.find(".title").text());
+	$(".window").removeClass("forward").addClass("backward");
+	$(elem).removeClass("backward").addClass("forward");
 }
 
 var list = new Array(), currentWindow;

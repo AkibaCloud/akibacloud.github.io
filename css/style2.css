@@ -10,6 +10,7 @@ body {
 }
 
 body .toolbar {
+	z-index: 999999999;
 	position: absolute;
 	top: 0;
 	width: 100vw;
@@ -40,7 +41,7 @@ body .toolbar {
 
 .window {
 	position: absolute;
-	z-index: -1;
+	z-index: 0;
 	background-color: #ececec;
 	box-shadow: 0 0 35px -5px #ababab;
 	border-radius: 5px;
@@ -135,4 +136,12 @@ a {
 small {
 	color: gray;
 	font-size: 80%;
+}
+
+.window.backward {
+	z-index: 0;
+}
+
+.window.forward {
+	z-index: 1;
 }
