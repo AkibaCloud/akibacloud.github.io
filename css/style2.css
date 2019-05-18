@@ -1,0 +1,35 @@
+.window {
+	background-color: #ececec;
+}
+
+.windows .window {
+	font-family: 'Cantarell', sans-serif;
+	color: #000;
+	height: 350px;
+	width: 400px;
+}
+
+.window .body {
+	padding: 0 5px;
+}
+
+.window .bar {
+	height: 20px;
+	background-color: #dcdcdc;
+}
+
+.bar .button {
+	height: 14px;
+	width: 14px;
+	padding: 3px 3px;
+}
+
+.button.exit {
+	background-color: red;
+	display: inline-block;
+}
+
+.button.hide {
+	background-color: green;
+	display: inline-block;
+}
