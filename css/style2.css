@@ -1,3 +1,7 @@
+body {
+	background-color: #000;
+}
+
 .window {
 	background-color: #ececec;
 }
@@ -7,16 +11,18 @@
 	color: #000;
 	height: 350px;
 	width: 400px;
+	border-radius: 5px;
 	box-shadow:0px 0px 35px -5px #ababab;
-}
-
-.window .body {
-	padding: 0 5px;
 }
 
 .window .bar {
 	height: 20px;
+	border-radius: 5px 5px 0 0;
 	background-color: #dcdcdc;
+}
+
+.window .body {
+	padding: 0 5px;
 }
 
 .bar .button {
