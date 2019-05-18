@@ -36,6 +36,8 @@ body .toolbar {
 }
 
 .window {
+	position: absolute;
+	z-index: -1;
 	background-color: #ececec;
 	box-shadow: 0 0 35px -5px #ababab;
 	border-radius: 5px;

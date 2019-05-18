@@ -22,6 +22,9 @@
 			rel="stylesheet"
 		/>
 
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script> 
+		<script type="text/javascript" src="js/utils.js"></script>
 		<script type="text/javascript" src="js/practice.js"></script>
 	</head>
 
@@ -59,7 +62,7 @@
 					</span>
 				</div>
 				<div class="body" id="profile">
-					<img src="assets/avatar.png" width="150px">
+					<img src="assets/avatar.png" width="150px" ondragstart="return false;">
 					<ul>
 						<li>
 							<h1>
@@ -103,6 +106,30 @@
 							</a>
 						</li>
 					</ul>
+				</div>
+			</div>
+			<div class="window">
+				<div class="bar">
+					<div class="button exit">
+						<div class="opacity">
+							<i class="fas fa-times icon"></i>
+						</div>
+					</div>
+					<div class="button hide">
+						<div class="opacity">
+							<i class="fas fa-minus icon"></i>
+						</div>
+					</div>
+					<div class="button custom">
+						<div class="opacity">
+							<i class="fas fa-plus icon"></i>
+						</div>
+					</div>
+					<span class="title">
+						window2
+					</span>
+				</div>
+				<div class="body">
 				</div>
 			</div>
 		</div>

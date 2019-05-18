@@ -26,3 +26,19 @@ function hiddenTitle() {
 	var doc = document.getElementsByClassName("hidden");
 	for (var i = 0; i < doc.length; i++) doc[i].title = doc[i].innerText;
 };
+
+String.prototype.replaceAll = function (oldChar, newChar) {
+	return this.split(oldChar).join(newChar);
+}
+
+String.prototype.equalsIgnoreCase = function (text) {
+	return this.toLowerCase() == text.toLowerCase();
+}
+
+String.prototype.clean = function (text) {
+	return this.replaceAll(" ", "").replaceAll("\n", "");
+}
+
+Array.prototype.isEmpty = function() {
+	return this.length == 0;
+}
