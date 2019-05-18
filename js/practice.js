@@ -3,12 +3,14 @@
 */
 
 document.addEventListener("DOMContentLoaded", () => {
-	$(".window").draggable();
+	$(".window").draggable({
+		cancel: ".body"
+	});
 	$(".window").on("drag", function() {
-		drag($(this));
+		update($(this));
 	});
 	$(".window").on("click", function() {
-		drag($(this));
+		update($(this));
 	});
 });
 
@@ -42,7 +44,7 @@ function frame() {
 	var name, body;
 }
 
-function drag(elem) {
+function update(elem) {
 	$("#currentWindow").text(elem.find(".title").text());
 	$(".window").removeClass("forward").addClass("backward");
 	$(elem).removeClass("backward").addClass("forward");

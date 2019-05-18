@@ -51,6 +51,8 @@ body .toolbar {
 .windows .window {
 	height: 350px;
 	width: 600px;
+	animation: fadeIn 0.5s ease 0s 1 normal;
+	-webkit-animation: fadeIn 0.5s ease 0s 1 normal;
 }
 
 .window .bar {
@@ -58,6 +60,7 @@ body .toolbar {
 	border-radius: 5px 5px 0 0;
 	background-color: #dcdcdc;
 	padding: 1px 3px;
+	cursor: pointer;
 }
 
 .window .body {
@@ -119,18 +122,34 @@ a {
 	display: inline;
 }
 
-#profile ul {
-	display: inline-block;
-	list-style: none;
-	padding-left: 0;
+.body#profile {
+	padding-left: 20px;
 }
 
-#profile ul li * {
+#profile ul {
+	padding: 0 0;
+	list-style: none;
+}
+
+#profile ul:not(.links) {
+	margin-top: 0px;
+}
+
+#profile ul.links {
+	display: inline-block;
+	padding-left: 20px;
+}
+
+#profile ul.links li * {
 	margin: 0 0;
 }
 
-#profile ul li a {
+#profile ul.links li a {
 	text-decoration: none;
+}
+
+img {
+	border-radius: 5px;
 }
 
 small {
@@ -144,4 +163,14 @@ small {
 
 .window.forward {
 	z-index: 1;
+}
+
+@keyframes fadeIn {
+	0% {opacity: 0}
+	100% {opacity: 1}
+}
+
+@-webkit-keyframes fadeIn {
+	0% {opacity: 0}
+	100% {opacity: 1}
 }
