@@ -34,6 +34,16 @@ body {
 	display: inline-block;
 }
 
+.button .icon {
+	opacity: 0;
+	display: -webkit-box;
+}
+
+.button .icon:hover {
+	animation-name: fadeIn;
+	animation-duration: 0.5s;
+}
+
 .button.exit {
 	background-color: red;
 }
@@ -44,4 +54,13 @@ body {
 
 .button.custom {
 	background-color: #3cb371;
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
 }
