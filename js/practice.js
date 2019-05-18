@@ -4,7 +4,7 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 	$(".window").draggable({
-		cancel: ".body"
+		handle: ".bar"
 	});
 	$(".window").on("drag", function() {
 		update($(this));
