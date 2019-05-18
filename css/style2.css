@@ -1,49 +1,62 @@
 body {
-  background-color: #000;
+	background-image: url("../assets/bg.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+body .toolbar {
+	background: rgba(0, 0, 0, 0.5);
+	margin-bottom: 20px;
+	height: 50px;
+}
+
+.toolbar * {
+	padding: 5px 5px;
+	font-size: 40px;
+	color: #fff;
 }
 
 .window {
-  background-color: #ececec;
-  box-shadow: 0 0 35px -5px #ababab;
-  border-radius: 5px;
-  font-family: "Cantarell", sans-serif;
-  color: #000;
+	background-color: #ececec;
+	box-shadow: 0 0 35px -5px #ababab;
+	border-radius: 5px;
+	font-family: "Cantarell", sans-serif;
+	color: #000;
 }
 
 .windows .window {
-  height: 350px;
-  width: 400px;
+	height: 350px;
+	width: 600px;
 }
 
 .window .bar {
-  height: 20px;
-  border-radius: 5px 5px 0 0;
-  background-color: #dcdcdc;
-  padding: 1px 3px;
+	height: 20px;
+	border-radius: 5px 5px 0 0;
+	background-color: #dcdcdc;
+	padding: 1px 3px;
 }
 
 .window .body {
-  padding: 0 5px;
+	padding: 0 5px;
 }
 
 .bar .button {
-  height: 14px;
-  width: 14px;
-  /* box-sizing: border-box; */
-  border-radius: 45px;
-  display: inline-block;
-  position: relative;
+	height: 14px;
+	width: 14px;
+	border-radius: 45px;
+	display: inline-block;
+	position: relative;
 }
 
 .button .icon {
 	color: #444;
-  position: absolute;
-  display: inline-block;
-  font-size: 11px;
-  line-height: 14px;
-  top: 50%;
-  left: 50%;
-  transform: translateY(-50%) translateX(-50%);
+	position: absolute;
+	display: inline-block;
+	font-size: 11px;
+	line-height: 14px;
+	top: 50%;
+	left: 50%;
+	transform: translateY(-50%) translateX(-50%);
 }
 
 .button .opacity {
@@ -58,7 +71,7 @@ body {
 }
 
 	.button.exit {
-	  background-color: red;
+		background-color: red;
 }
 
 .button.hide {
