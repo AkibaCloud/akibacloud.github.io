@@ -2,18 +2,29 @@ body {
 	background-image: url("../assets/bg.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
+	padding-top: 30px;
 }
 
 body .toolbar {
+	position: absolute;
+	top: 0;
+	width: 100vw;
+	left: 0;
 	background: rgba(0, 0, 0, 0.5);
 	margin-bottom: 20px;
-	height: 50px;
+	height: 30px;
 }
 
-.toolbar * {
+.toolbar ul {
+	margin: 0 0;
 	padding: 5px 5px;
-	font-size: 40px;
 	color: #fff;
+	list-style: none;
+	line-height: 20px;
+}
+
+.toolbar ul li {
+	display: inline-block;
 }
 
 .window {
