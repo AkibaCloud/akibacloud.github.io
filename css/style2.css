@@ -25,14 +25,17 @@
 	padding: 3px 3px;
 	box-sizing : border-box;
 	border-radius: 45px;
+	display: inline-block;
 }
 
 .button.exit {
 	background-color: red;
-	display: inline-block;
 }
 
 .button.hide {
 	background-color: #ff8c00;
-	display: inline-block;
+}
+
+.button.custom {
+	background-color: #3cb371;
 }
