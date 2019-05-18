@@ -3,18 +3,6 @@
 */
 
 document.addEventListener("DOMContentLoaded", () => {
-});
-
-window.onload = () => {
-	registerAllWindows();
-	$(".window").resizable({
-		maxHeight: 1000,
-		maxWidth: 1000,
-		minHeight: 30,
-		minWidth: 30,
-		aspectRatio: true,
-		ghost:true
-	});
 	$(".window").draggable();
 	$(".window").on("drag", function() {
 		drag($(this));
@@ -22,6 +10,10 @@ window.onload = () => {
 	$(".window").on("click", function() {
 		drag($(this));
 	});
+});
+
+window.onload = () => {
+	registerAllWindows();
 }
 
 function registerAllWindows() {
