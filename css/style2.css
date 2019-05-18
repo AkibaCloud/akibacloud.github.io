@@ -108,3 +108,26 @@ body .toolbar {
 a {
 	color: inherit;
 }
+
+#profile img {
+	display: inline;
+}
+
+#profile ul {
+	display: inline-block;
+	list-style: none;
+	padding-left: 0;
+}
+
+#profile ul li * {
+	margin: 0 0;
+}
+
+#profile ul li a {
+	text-decoration: none;
+}
+
+small {
+	color: gray;
+	font-size: 80%;
+}
