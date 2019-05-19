@@ -167,6 +167,8 @@ small {
 
 .tab .display li {
 	background-color: #fff;
+	width: 630%; /* 480px, 470px */
+	height: 15vw;
 }
 
 .tab ul.name {
