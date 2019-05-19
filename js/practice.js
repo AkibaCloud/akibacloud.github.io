@@ -21,8 +21,11 @@ function registerWindows() {
 }
 
 function registerTabs() {
-	$(".tab ul.title li").addClass("other");
-	$(".tab ul.title li:first-child").removeClass("other").addClass("current");
+	$(".tab ul.name li").addClass("other");
+	$(".tab ul.name li:first-child").removeClass("other").addClass("current");
+
+	$(".tab ul.display li").addClass("backward");
+	$(".tab ul.display li:first-child").removeClass("backward").addClass("forward");
 }
 
 function updateWindow(elem) {

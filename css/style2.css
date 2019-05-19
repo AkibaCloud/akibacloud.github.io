@@ -161,7 +161,7 @@ small {
 	z-index: 0;
 }
 
-.tab ul.title {
+.tab ul.name {
 	cursor: pointer;
 	width: 20%;
 	box-shadow: 0 0 35px -5px #ababab;
@@ -171,16 +171,26 @@ small {
 	display: inline-block;
 }
 
-.tab ul.title li {
+.tab ul.display li.forward {
+	z-index: 1;
+	display: block;
+}
+
+.tab ul.display li.backward {
+	z-index: 0;
+	display: none;
+}
+
+.tab ul.name li {
 	padding-left: 10px;
 }
 
-.tab ul.title .current {
+.tab ul.name .current {
 	background-color: #114fbd;
 	color: #fff;
 }
 
-.tab ul.title .other {
+.tab ul.name .other {
 	background-color: #f3f3f3;
 	color: #000;
 }
