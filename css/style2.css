@@ -161,14 +161,18 @@ small {
 	z-index: 0;
 }
 
+.tab .name, .tab .display {
+	display: inline-block;
+}
+
+.tab .display li {
+	background-color: #fff;
+}
+
 .tab ul.name {
 	cursor: pointer;
 	width: 20%;
 	box-shadow: 0 0 35px -5px #ababab;
-}
-
-.tab ul.display {
-	display: inline-block;
 }
 
 .tab ul.display li.forward {
