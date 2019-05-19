@@ -63,8 +63,8 @@ body .toolbar {
 	cursor: pointer;
 }
 
-.window .body {
-	padding: 0 5px;
+.window .body:not(#aboutme) {
+	padding-left: 20px;
 }
 
 .bar .button {
@@ -122,14 +122,6 @@ a {
 	display: inline;
 }
 
-.body#profile, .body#loves {
-	padding-left: 20px;
-}
-
-.body#loves ul {
-	display: inline-block;
-}
-
 .body ul {
 	padding: 0 0;
 	list-style: none;
@@ -161,12 +153,40 @@ small {
 	font-size: 80%;
 }
 
+.window.forward {
+	z-index: 1;
+}
+
 .window.backward {
 	z-index: 0;
 }
 
-.window.forward {
-	z-index: 1;
+.tab ul.title {
+	cursor: pointer;
+	width: 20%;
+	box-shadow: 0 0 35px -5px #ababab;
+}
+
+.tab ul.display {
+	display: inline-block;
+}
+
+.tab ul.title li {
+	padding-left: 10px;
+}
+
+.tab ul.title .current {
+	background-color: #114fbd;
+	color: #fff;
+}
+
+.tab ul.title .other {
+	background-color: #f3f3f3;
+	color: #000;
+}
+
+#time {
+	float: right;
 }
 
 @keyframes fadeIn {
