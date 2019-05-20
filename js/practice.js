@@ -9,6 +9,9 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function registerWindows() {
+	$(".window:not(:first-child)").addClass("backward");
+	$(".window:first-child").addClass("forward");
+
 	$(".window").draggable({
 		handle: ".bar"
 	});
@@ -28,11 +31,13 @@ function registerTabs() {
 	$(".tab ul.display li:first-child").removeClass("backward").addClass("forward");
 
 	$(".tab ul.name li").on("click", function() {
-		$(".tab ul.name li").removeClass("current").addClass("other");
+		var parent = $(this).parent().parent();
+		$(parent.find("ul.name li")).removeClass("current").addClass("other");
+		// $(".tab ul.name li").removeClass("current").addClass("other");
 		$(this).removeClass("other").addClass("current");
-		var index = $(".tab ul.name li.current").index();
-		$(".tab ul.display li").removeClass("forward").addClass("backward");
-		$($(".tab ul.display li")[index]).removeClass("backward").addClass("forward");
+		var index = $(parent.find("ul.name li.current")).index();
+		$(parent.find("ul.display li")).removeClass("forward").addClass("backward");
+		$($(parent.find("ul.display li"))[index]).removeClass("backward").addClass("forward");
 	});
 }
 

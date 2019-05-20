@@ -162,30 +162,31 @@ small {
 }
 
 .tab .name, .tab .display {
-	display: inline-block;
+	display: inline-grid;
 }
 
 .tab .display {
 	background-color: #fff;
 	width: 78%; /* 480px, 470px */
-	height: 15vw;
-	box-shadow: 0 0 35px -5px #ababab;
-}
-
-.tab ul.name {
-	cursor: pointer;
-	width: 20%;
+	height: 16.7vw;
 	box-shadow: 0 0 35px -5px #ababab;
 }
 
 .tab ul.display li.forward {
 	z-index: 1;
 	display: block;
+	padding-left: 4px;
 }
 
 .tab ul.display li.backward {
 	z-index: 0;
 	display: none;
+}
+
+.tab ul.name {
+	cursor: pointer;
+	width: 20%;
+	box-shadow: 0 0 35px -5px #ababab;
 }
 
 .tab ul.name li {
