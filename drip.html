@@ -1,257 +1,212 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<meta name="author" content="Drip">
-	<meta name="description" content="@AkibaKaede">
-	<meta name="og:type" content="website">
-	<meta name="og:site_name" content="AkibaKaede">
+	<head>
+		<meta charset="utf-8" />
+		<title>Drip</title>
 
-	<meta property="og:url" content="http://akiba.cloud">
-	<meta property="og:title" content="Drip">
-	<meta property="og:description" content="@AkibaKaede">
+		<meta name="author" content="Drip" />
+		<meta name="description" content="@AkibaKaede" />
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content="Practice page" />
+		<meta property="og:description" content="just test" />
+		<meta property="og:url" content="https://akiba.cloud/" />
 
-	<meta name="theme-color" content="#2d2d2d">
-	<meta name="msapplication-TileColor" content="#2d2d2d">
-	<title>Drip</title>
-	<!-- 産まれ変わったらグミか龍角散のどあめになりたい -->
+		<link rel="shortcut icon" href="favicon.ico">
+		<link
+			rel="stylesheet"
+			href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+			integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+			crossorigin="anonymous"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css?family=Cantarell&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="css/style2.css" />
 
-	<link rel="shortcut icon" href="favicon.ico" />
-	<link rel="stylesheet" href="css/style.css">
-	<link rel="stylesheet" href="css/animate.css">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script> 
+		<script type="text/javascript" src="js/utils.js"></script>
+		<script type="text/javascript" src="js/practice.js"></script>
+	</head>
 
-	<script src="js/jquery.js"></script>
-	<script src="js/marquee.js"></script>
-	<script src="js/main.js"></script>
-	<script src="js/disabler.js"></script>
-	<script src="js/drip.js"></script>
-	<script src="js/utils.js"></script>
-	<script>
-		document.addEventListener("DOMContentLoaded", () => {
-			replaceListElem();
-			hiddenTitle();
-			inputHider();
-			lockIcon();
-		});
-	</script>
-</head>
-
-<body style="padding-top: 3%; line-height: 95%;">
-	<!--
-＼　　　　　　　　　　　　　　／
-　＼　　　　　　　　　　　／
-　　＼　　　　　　　　　／
-　　　＼　　　　　　　／
-　　　　　＼( ^o^)／　　　うわああああああああああああああ！！！！！！！！！！
-　　　　　　│　　│
-　　　　　　│　　│　　　　～○～○～○～○～○～○～○
-　　　　　　│　　│　　～○～○～○～○～○～○～○～○～○
-　　　　　　(　 ω⊃～○～○～○～○～○～○～○～○～○～○～○
-　　　　　　／　　＼　～○～○～○～○～○～○～○～○～○～○
-　　　　　／　　　　＼　　　～○～○～○～○～○～○～○～○
-　　　　／　　　　　　＼
-　　　／　　　　　　　　＼
-	-->
-	<div class="info">Drip - <a href="">akiba.cloud</a><br/>dirty deeds done dirt cheap</div>
-
-	<ul class="info list">
-		[social]
-		<li>
-			steam <a href="https://steamcommunity.com/id/S4WA/" target="_blank">[1]</a> <a href="https://steamcommunity.com/id/VanityCS/" target="_blank">[2]</a> <a href="https://steamcommunity.com/id/FulteaR" target="_blank">[3]</a>
-		</li>
-		<li>
-			youtube <a href="https://www.youtube.com/channel/UCJscE_cgstFGDQO6TIVEaxA" target="_blank">[1]</a> <a href="https://www.youtube.com/channel/UCC-4hzxcpCX7qr-wLeQmJSQ" target="_blank">[2]</a>
-		</li>
-		<li>
-			<a href="https://www.twitch.tv/s4wa" target="_blank">twitch</a>
-		</li>
-		<li>
-			<a href="https://github.com/S4WA" target="_blank">github</a>
-		</li>
-		<li>
-			<a href="https://twitter.com/AkibaKaede" target="_blank">twitter</a>
-		</li>
-		<li>
-			<a href="mailto:drip@outlook.jp">contact (email)</a>
-		</li>
-		<li>
-			<a href="https://s4wa.hatenadiary.jp/" target="_blank"><s class="hidden">blog</s></a>
-		</li>
-	</ul>
-
-	<ul class="info">
-		[video info/player]
-		<li>
-			<span id="videoid">id: </span>
-			<a href="javascript:void(0);" id="locked" onclick="lock();" class="fas fa-lock-open"></a>
-		</li>
-		<li>
-			<span>mode: </span>
-			<a href="javascript:void(0);" id="mode" onclick="mode();">list loop</a>
-		</li>
-		<li style="width: 95px;">
-			<a href="javascript:void(0);" onclick="muteToggle();"><i id="mute" class="fas fa-volume-mute"></i></a>
-			<input id="input" type="range" title="volume changer"
-				min="0" max="100" step="1" value="0"
-				oninput="changeVolume(this.value);"
-				onchange="changeVolume(this.value);"
-				style="left: 0.4%; margin-top: 0%; margin-bottom: 0; width: 120px; display: none;">
-			</input>
-			<span id="volume">volume: 0%</span>
-		</li>
-		<li>
-			<a href="javascript:void(0);" onclick="pipToggle();">[picture in picture]</a><br/>
-			<a href="javascript:void(0);" title="prev" id="" onclick="prev();"> [ |< ]</a>
-			<a href="javascript:void(0);" title="play/pause" id="toggle" onclick="toggle();">[ ▷ ]</a>
-			<a href="javascript:void(0);" title="next" id="" onclick="next();"> [ >| ]</a>
-		</li>
-		<input id="seekbar" type="range" title="video seekbar"
-			min="0" max="100" value="0"
-			style="left: 0.4%; margin-top: 0%; margin-bottom: 0; width: 95px;">
-		</input>
-	</ul>
-
-	<ul class="info list">
-		[suki na yatu]
-		<li>
-			steins;gate
-		</li>
-		<li>
-			code geass
-		</li>
-		<li>
-			evangelion
-		</li>
-		<li>
-			monogatari series
-		</li>
-		<li>
-			+tic elder sister
-		</li>
-		<li>
-			jojo
-		</li>
-	</ul>
-
-	<ul class="info list">
-		[moe kyara]
-		<li>
-			kimuraya anko
-		</li>
-		<li>
-			tohsaka rin
-		</li>
-		<li>
-			astolfo
-		</li>
-		<li>
-			alice margatroid
-		</li>
-	</ul>
-
-	<ul class="info list">
-		[lang]
-		<li>
-			java
-		</li>
-		<li>
-			javascript
-		</li>
-		<li>
-			php
-		</li>
-		<li>
-			html
-		</li>
-		<li>
-			mysql
-		</li>
-	</ul>
-
-	<ul class="info list">
-		[software]
-		<li>
-			vivaldi
-		</li>
-		<li>
-			sakura editor
-		</li>
-		<li>
-			intellij idea
-		</li>
-		<li>
-			firealpaca
-		</li>
-	</ul>
-
-	<ul class="info list">
-		[games]
-		<li>
-			lol
-		</li>
-		<li>
-			csgo
-		</li>
-		<li>
-			pubg
-		</li>
-		<li>
-			<s class="hidden">minecraft</s>
-		</li>
-	</ul>
-
-	<ul class="info list">
-		[artist]
-		<li>
-			queen
-		</li>
-		<li>
-			aiobahn
-		</li>
-		<li>
-			lm7
-		</li>
-		<li>
-			utada hikaru
-		</li>
-		<li>
-			skrillex
-		</li>
-		<li>
-			akatsuki records
-		</li>
-		<li>
-			mark redito
-		</li>
-		<li>
-			shawn wasabi
-		</li>
-	</ul>
-
-	<ul class="info list">
-		[web issue]
-	</ul>
-
-	<ul class="info list">
-		[web info]
-		<li>
-			<span id="site-info">to select a numbered video, use this query "/drip?id=0~%nigger%" to access it.</span>
-		</li>
-		<li>
-			<span>
-				volume will save to <a href="javascript:popup('https://raw.githubusercontent.com/S4WA/files/master/untitled.png')" title="popup">local storage</a>
-			</span>
-		</li>
-	</ul>
-
-	<span class="info">[old pages] - <a href="qU4Hdx">[1]</a> <a href="Lk9et">[2]</a> <a href="jX8YawWT">[3]</a></span>
-	<br/>
-	<br/>
-	<br/>
-
-	<video id="video" rel="preload" autoplay id="videomain"> <!-- loop -->
-		<source id="video-src" src="" type="video/mp4">
-	</video>
-</body>
+	<body>
+		<div class="toolbar">
+			<ul>
+				<li>			
+					<i class="fab fa-linux"></i>
+				</li>
+				<li>
+					<p id="currentWindow">Drip</p>
+				</li>
+				<li id="time">
+					<p></p>
+				</li>
+				<li>
+					<a href="old1">
+						Old
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="windows">
+			<div class="window" style="left: 843px; top: 122px;">
+				<div class="bar">
+					<div class="button exit">
+						<div class="opacity">
+							<i class="fas fa-times icon"></i>
+						</div>
+					</div>
+					<div class="button hide">
+						<div class="opacity">
+							<i class="fas fa-minus icon"></i>
+						</div>
+					</div>
+					<div class="button custom">
+						<div class="opacity">
+							<i class="fas fa-plus icon"></i>
+						</div>
+					</div>
+					<span class="title">
+						Drip
+					</span>
+				</div>
+				<div class="body" id="profile">
+					<img src="assets/avatar.png" width="150px" ondragstart="return false;">
+					<ul class="links">
+						<li>
+							<h1>
+								drip <small>(sawa)</small>
+							</h1>
+						</li>
+						<li>
+							<i class="fab fa-steam-symbol"></i> Steam
+							<a href="https://steamcommunity.com/id/S4WA/" target="_blank">
+								[1]
+							</a>
+							<a href="https://steamcommunity.com/id/VanityCS/" target="_blank">
+								[2]
+							</a>
+							<a href="https://steamcommunity.com/id/FulteaR/" target="_blank">
+								[3]
+							</a>
+						</li>
+						<li>
+							<i class="fab fa-twitter"></i>
+							<a href="https://twitter.com/AkibaKaede" target="_blank">
+								Twitter
+							</a>
+						</li>
+						<li>
+							<i class="fab fa-twitch"></i>
+							<a href="https://www.twitch.tv/s4wa" target="_blank">
+								Twitch
+							</a>
+						</li>
+						<li>
+							<i class="fab fa-github"></i>
+							<a href="https://github.com/S4WA" target="_blank">
+								Github
+							</a>
+						</li>
+						<li>
+							<i class="far fa-envelope"></i>
+							<a href="mailto:drip@outlook.jp" title="drip@outlook.jp">
+								Mail
+							</a>
+						</li>
+					</ul>
+					<ul class="links">
+						<li>
+							<i class="fab fa-discord"></i> drip#0000 
+							<small>
+								<a href="https://discord.gg/hDdqNCK" target="_blank">(group)</a>
+							</small>
+						</li>
+						<li>
+							<i class="fab fa-youtube"></i> YouTube
+							<a href="https://www.youtube.com/channel/UCJscE_cgstFGDQO6TIVEaxA" target="_blank">
+								[1]
+							</a>
+							<a href="https://www.youtube.com/channel/UCC-4hzxcpCX7qr-wLeQmJSQ" target="_blank">
+								[2]
+							</a>
+						</li>
+						<li>
+							<i class="fab fa-soundcloud"></i>
+							<a href="https://soundcloud.com/litedrip" target="_blank">
+								SoundCloud
+							</a>
+						</li>
+						<li>
+							<i class="fas fa-blog"></i>
+							<a href="https://s4wa.hatenadiary.jp" target="_blank">
+								<s>blog</s>
+							</a>
+						</li>
+					</ul>
+					<ul>
+						<li>
+							<i class="fas fa-map-marker-alt"></i> Tokyo, Japan
+						</li>
+						<li>
+							<i class="fas fa-birthday-cake"></i> 2002/XX/XX
+						</li>
+						<li>
+							<i class="fas fa-users"></i> AkibaCloud, VOQ
+						</li>
+						<li>
+							<i class="fas fa-comment-dots"></i> Dirty Deeds Done Dirt Cheap
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="window" style="left: 339px; top: 283px;">
+				<div class="bar">
+					<div class="button exit">
+						<div class="opacity">
+							<i class="fas fa-times icon"></i>
+						</div>
+					</div>
+					<div class="button hide">
+						<div class="opacity">
+							<i class="fas fa-minus icon"></i>
+						</div>
+					</div>
+					<div class="button custom">
+						<div class="opacity">
+							<i class="fas fa-plus icon"></i>
+						</div>
+					</div>
+					<span class="title">
+						About me
+					</span>
+				</div>
+				<div class="body" id="aboutme">
+					<div class="tab">
+						<ul class="name">
+							<li>
+								アバウトに
+							</li>
+							<li>
+								Todo
+							</li>
+						</ul><ul class="display">
+							<li>
+								<div>
+									東方大好きな中3です！ｗ好きなキャラは八雲橙だZE☆ｗ原作は紅魔館イージーはクリアしました！ｗレミリア強かった～ｗ
+好きな曲はナイトオブナイツです！咲夜さんマジPAD長wwwいつもドロップブックスで同人誌読んでるからほとんど知ってるZE☆w
+								</div>
+							</li>
+							<li>
+								<div>
+									・Dock
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
 </html>
