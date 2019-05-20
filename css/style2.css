@@ -209,6 +209,13 @@ small {
 	color: #000;
 }
 
+.tab .path {
+	padding-left: 124px;
+	position: absolute;
+	bottom: 13px;
+	color: #585858;
+}
+
 #time {
 	float: right;
 }

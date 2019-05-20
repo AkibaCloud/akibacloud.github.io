@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function registerWindows() {
 	$(".window:not(:first-child)").addClass("backward");
-	$(".window:first-child").addClass("forward");
+	updateWindow($(".windows").find(":first"));
 
 	$(".window").draggable({
 		handle: ".bar"
@@ -39,13 +39,21 @@ function registerTabs() {
 		
 		$(parent.find("ul.display li")).removeClass("forward").addClass("backward");
 		$($(parent.find("ul.display li"))[index]).removeClass("backward").addClass("forward");
+		updateTabPath(parent);
+		console.log(parent)
 	});
+	var tabs = $(".tab");
+	for (var i = 0; i < tabs.length; i++) updateTabPath($(tabs[i]) );
 }
 
 function updateWindow(elem) {
 	$("#currentWindow").text(elem.find(".title").text());
 	$(".window").removeClass("forward").addClass("backward");
 	$(elem).removeClass("backward").addClass("forward");
+}
+
+function updateTabPath(parent) {
+	parent.find(".path").text("Drip > Portfolio > " + parent.grandpa().find(".title").text() + " > " + parent.find("ul.name li.current").text());
 }
 
 function renderTime() {

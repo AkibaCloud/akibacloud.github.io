@@ -36,7 +36,7 @@ String.prototype.equalsIgnoreCase = function (text) {
 }
 
 String.prototype.clean = function (text) {
-	return this.replaceAll(" ", "").replaceAll("\n", "");
+	return this.replaceAll(" ", "").replaceAll("\n", "").replaceAll("	", "");
 }
 
 Array.prototype.isEmpty = function() {
