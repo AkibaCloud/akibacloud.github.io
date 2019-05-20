@@ -172,7 +172,7 @@ small {
 .tab .display {
 	background-color: #fff;
 	width: 78%; /* 480px, 470px */
-	height: 16vw;
+	height: 300px; /* 16vw */
 	box-shadow: 0 0 35px -5px #ababab;
 }
 
@@ -180,6 +180,8 @@ small {
 	z-index: 1;
 	display: block;
 	padding-left: 8px;
+	animation: fadeIn 0.5s ease 0s 1 normal;
+	-webkit-animation: fadeIn 0.5s ease 0s 1 normal;
 }
 
 .tab ul.display li.backward {
