@@ -20,7 +20,7 @@ body .toolbar {
 	height: 30px;
 }
 
-.toolbar ul:not([content]) {
+.toolbar ul {
 	margin: 0 0;
 	padding: 5px 15px;
 	color: #fff;
@@ -68,7 +68,7 @@ body .toolbar {
 }
 
 .window .body:not(#aboutme) {
-	padding-left: 20px;
+	padding-left: 3.5%;
 }
 
 .bar .button {
@@ -80,7 +80,7 @@ body .toolbar {
 }
 
 .bar span.title {
-	padding: 0 200px;
+	padding-left: 40%;
 }
 
 .button .icon {
@@ -126,6 +126,10 @@ a {
 	display: inline;
 }
 
+.body {
+	height: 90%;
+}
+
 .body ul {
 	padding: 0 0;
 	list-style: none;
@@ -137,7 +141,7 @@ a {
 
 #profile ul.links {
 	display: inline-block;
-	padding-left: 20px;
+	padding-left: 3.5%;
 }
 
 #profile ul.links li * {
@@ -165,14 +169,23 @@ small {
 	z-index: 0;
 }
 
+.window.hide {
+	z-index: -1;
+	display: none;
+}
+
 .tab .name, .tab .display {
 	display: inline-grid;
+}
+
+.tab {
+	height: 100%;
 }
 
 .tab .display {
 	background-color: #fff;
 	width: 78%; /* 480px, 470px */
-	height: 300px; /* 16vw */
+	height: 96%; /* 16vw */
 	box-shadow: 0 0 35px -5px #ababab;
 }
 
@@ -210,9 +223,9 @@ small {
 }
 
 .tab .path {
-	padding-left: 124px;
+	padding-left: 20.5%;
 	position: absolute;
-	bottom: 13px;
+	bottom: 3%;
 	color: #585858;
 }
 

@@ -4,6 +4,7 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 	registerWindows();
+	regeisterButtons();
 	registerTabs();
 	renderTime();
 });
@@ -15,6 +16,19 @@ function registerWindows() {
 	$(".window").draggable({
 		handle: ".bar"
 	});
+
+	$("#profile").parent().resizable({
+		minHeight: 320,
+		minWidth: 540,
+		maxHeight: 400,
+		maxWidth: 650
+	});
+	$("#aboutme").parent().resizable({
+		minHeight: 290,
+		minWidth: 490,
+		maxHeight: 390
+	});
+
 	$(".window").on("drag", function() {
 		updateWindow($(this));
 	});
@@ -44,6 +58,15 @@ function registerTabs() {
 	});
 	var tabs = $(".tab");
 	for (var i = 0; i < tabs.length; i++) updateTabPath($(tabs[i]) );
+}
+
+function regeisterButtons() {
+	$(".button.exit").on("click", function() {
+		$(this).grandpa().remove();
+	});
+	$(".button.hide").on("click", function() {
+		$(this).grandpa().removeClass("forward").addClass("hide");
+	});
 }
 
 function updateWindow(elem) {
