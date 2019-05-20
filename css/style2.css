@@ -165,10 +165,11 @@ small {
 	display: inline-block;
 }
 
-.tab .display li {
+.tab .display {
 	background-color: #fff;
-	width: 630%; /* 480px, 470px */
+	width: 78%; /* 480px, 470px */
 	height: 15vw;
+	box-shadow: 0 0 35px -5px #ababab;
 }
 
 .tab ul.name {

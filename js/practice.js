@@ -26,6 +26,14 @@ function registerTabs() {
 
 	$(".tab ul.display li").addClass("backward");
 	$(".tab ul.display li:first-child").removeClass("backward").addClass("forward");
+
+	$(".tab ul.name li").on("click", function() {
+		$(".tab ul.name li").removeClass("current").addClass("other");
+		$(this).removeClass("other").addClass("current");
+		var index = $(".tab ul.name li.current").index();
+		$(".tab ul.display li").removeClass("forward").addClass("backward");
+		$($(".tab ul.display li")[index]).removeClass("backward").addClass("forward");
+	});
 }
 
 function updateWindow(elem) {
