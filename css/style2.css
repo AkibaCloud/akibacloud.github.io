@@ -233,6 +233,18 @@ small {
 	float: right;
 }
 
+.dock {
+	position: absolute;
+	z-index: 999999999;
+	background-color: rgba(206, 206, 206, 0.9);
+	bottom: 0;
+	width: 90%;
+	left: 5%;
+	right: 5%;
+	height: 7%;
+	border-radius: 5px 5px 0 0;
+}
+
 @keyframes fadeIn {
 	0% {opacity: 0}
 	100% {opacity: 1}

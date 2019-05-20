@@ -54,7 +54,6 @@ function registerTabs() {
 		$(parent.find("ul.display li")).removeClass("forward").addClass("backward");
 		$($(parent.find("ul.display li"))[index]).removeClass("backward").addClass("forward");
 		updateTabPath(parent);
-		console.log(parent)
 	});
 	var tabs = $(".tab");
 	for (var i = 0; i < tabs.length; i++) updateTabPath($(tabs[i]) );
