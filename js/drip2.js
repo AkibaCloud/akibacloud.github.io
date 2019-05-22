@@ -21,12 +21,18 @@ function registerWindows() {
 		minHeight: 320,
 		minWidth: 540,
 		maxHeight: 400,
-		maxWidth: 650
+		maxWidth: 650,
+		start: function (event, ui) {
+		    updateWindow(event.originalEvent.currentTarget);
+		}
 	});
 	$("#aboutme").parent().resizable({
 		minHeight: 290,
 		minWidth: 490,
-		maxHeight: 390
+		maxHeight: 390,
+		start: function (event, ui) {
+		    updateWindow(event.originalEvent.currentTarget);
+		}
 	});
 
 	$(".window").on("drag", function() {
@@ -69,7 +75,7 @@ function regeisterButtons() {
 }
 
 function updateWindow(elem) {
-	$("#currentWindow").text(elem.find(".title").text());
+    $("#currentWindow").text($(elem).find(".title").text());
 	$(".window").removeClass("forward").addClass("backward");
 	$(elem).removeClass("backward").addClass("forward");
 }
