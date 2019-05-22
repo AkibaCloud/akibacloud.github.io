@@ -38,8 +38,11 @@
 	</script>
 
 	<script type="text/javascript">
-		window.onload = function() {
+		document.addEventListener("DOMContentLoaded", () => {
 			location = "/drip";
+		});
+
+		window.onload = function() {
 			var xmlhttp = createXMLHttpRequest(); //IEにも対応する時
 
 			xmlhttp.onreadystatechange = function () {
