@@ -1,0 +1,37 @@
+body {
+    background: linear-gradient(to right, #7f00ff, #e100ff); /* pink, lightblue */
+}
+
+img#moe {
+	filter: drop-shadow(5px 5px 0 #ff7eec);
+	z-index: 0;
+	animation: fadeIn 0.5s ease 0s 1 normal;
+}
+
+.text {
+	position: absolute;
+	z-index: -1;
+	color: white;
+}
+
+.text .big {
+	font-size: 200%;
+}
+
+.text a {
+	text-decoration: none;
+}
+
+.title {
+	color: white;
+	text-shadow: black -1px 0px, black 0px 1px, black 1px 0px, rgb(0, 0, 0) 0px -1px;
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
