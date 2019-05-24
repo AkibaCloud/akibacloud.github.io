@@ -23,6 +23,12 @@ a {
 	text-shadow: black -1px 0px, black 0px 1px, black 1px 0px, rgb(0, 0, 0) 0px -1px;
 }
 
+#bottom-right {
+	position: absolute;
+	bottom: 5px;
+	right: 10px;
+}
+
 @keyframes fadeIn {
 	0% {
 		opacity: 0;
