@@ -10,16 +10,13 @@ img#moe {
 
 .text {
 	position: absolute;
-	z-index: -1;
+	z-index: 1;
 	color: white;
 }
 
-.text .big {
-	font-size: 200%;
-}
-
-.text a {
+a {
 	text-decoration: none;
+	color: inherit;
 }
 
 .title {
