@@ -1,0 +1,227 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>Drip</title>
+		<meta charset="utf-8">
+		<meta name="author" content="Drip">
+		<meta name="description" content="@AkibaKaede">
+		<meta name="og:type" content="website">
+		<meta name="og:site_name" content="AkibaKaede">
+
+		<meta property="og:url" content="http://akiba.cloud">
+		<meta property="og:title" content="Drip">
+		<meta property="og:description" content="@AkibaKaede">
+
+		<meta name="theme-color" content="#2d2d2d">
+		<meta name="msapplication-TileColor" content="#2d2d2d">
+
+		<link rel="shortcut icon" href="favicon.ico" />
+
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+			integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+			crossorigin="anonymous" />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cantarell&display=swap" />
+		<link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
+		<link rel="stylesheet" href="css/style2.css" />
+	
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script> 
+
+		<script type="text/javascript" src="js/utils.js"></script>
+		<script type="text/javascript" src="js/jquery.family.0.1.js"></script>
+		<script type="text/javascript" src="js/drip2.js"></script>
+		<script>
+			document.addEventListener("DOMContentLoaded", () => {
+				// location = "/old1";
+			});
+		</script>
+	</head>
+
+	<body>
+		<div class="toolbar">
+			<ul>
+				<li>
+					<i class="fab fa-linux"></i>
+				</li>
+				<li>
+					<p id="currentWindow"></p>
+				</li>
+				<li id="time">
+					<p></p>
+				</li>
+				<li>
+					<a href="old1">
+						Old
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="windows">
+			<div class="window" style="left: 843px; top: 122px;">
+				<div class="bar">
+					<div class="button exit">
+						<div class="opacity">
+							<i class="fas fa-times icon"></i>
+						</div>
+					</div>
+					<div class="button hide">
+						<div class="opacity">
+							<i class="fas fa-minus icon"></i>
+						</div>
+					</div>
+					<div class="button custom">
+						<div class="opacity">
+							<i class="fas fa-plus icon"></i>
+						</div>
+					</div>
+					<span class="title">
+						Drip
+					</span>
+				</div>
+				<div class="body" id="profile">
+					<img src="assets/avatar.png" width="150px" ondragstart="return false;">
+					<ul class="links">
+						<li>
+							<h1>
+								drip <small>(sawa)</small>
+							</h1>
+						</li>
+						<li>
+							<i class="fab fa-steam-symbol"></i> Steam
+							<a href="https://steamcommunity.com/id/S4WA/" target="_blank">
+								[1]
+							</a>
+							<a href="https://steamcommunity.com/id/VanityCS/" target="_blank">
+								[2]
+							</a>
+							<a href="https://steamcommunity.com/id/FulteaR/" target="_blank">
+								[3]
+							</a>
+						</li>
+						<li>
+							<i class="fab fa-twitter"></i>
+							<a href="https://twitter.com/AkibaKaede" target="_blank">
+								Twitter
+							</a>
+						</li>
+						<li>
+							<i class="fab fa-twitch"></i>
+							<a href="https://www.twitch.tv/s4wa" target="_blank">
+								Twitch
+							</a>
+						</li>
+						<li>
+							<i class="fab fa-github"></i>
+							<a href="https://github.com/S4WA" target="_blank">
+								Github
+							</a>
+						</li>
+						<li>
+							<i class="far fa-envelope"></i>
+							<a href="mailto:drip@outlook.jp" title="drip@outlook.jp">
+								Mail
+							</a>
+						</li>
+					</ul>
+					<ul class="links">
+						<li>
+							<i class="fab fa-discord"></i> drip#0000 
+							<small>
+								<a href="https://discord.gg/hDdqNCK" target="_blank">(group)</a>
+							</small>
+						</li>
+						<li>
+							<i class="fab fa-youtube"></i> YouTube
+							<a href="https://www.youtube.com/channel/UCJscE_cgstFGDQO6TIVEaxA" target="_blank">
+								[1]
+							</a>
+							<a href="https://www.youtube.com/channel/UCC-4hzxcpCX7qr-wLeQmJSQ" target="_blank">
+								[2]
+							</a>
+						</li>
+						<li>
+							<i class="fab fa-soundcloud"></i>
+							<a href="https://soundcloud.com/litedrip" target="_blank">
+								SoundCloud
+							</a>
+						</li>
+						<li>
+							<i class="fas fa-blog"></i>
+							<a href="https://s4wa.hatenadiary.jp" target="_blank">
+								<s>blog</s>
+							</a>
+						</li>
+					</ul>
+					<ul>
+						<li>
+							<i class="fas fa-map-marker-alt"></i> Tokyo, Japan
+						</li>
+						<li>
+							<i class="fas fa-birthday-cake"></i> 2002/XX/XX
+						</li>
+						<li>
+							<i class="fas fa-users"></i> AkibaCloud, VOQ
+						</li>
+						<li>
+							<i class="fas fa-comment-dots"></i> Dirty Deeds Done Dirt Cheap
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="window" style="left: 339px; top: 283px;">
+				<div class="bar">
+					<div class="button exit">
+						<div class="opacity">
+							<i class="fas fa-times icon"></i>
+						</div>
+					</div>
+					<div class="button hide">
+						<div class="opacity">
+							<i class="fas fa-minus icon"></i>
+						</div>
+					</div>
+					<div class="button custom">
+						<div class="opacity">
+							<i class="fas fa-plus icon"></i>
+						</div>
+					</div>
+					<span class="title">
+						About me
+					</span>
+				</div>
+				<div class="body" id="aboutme">
+					<div class="tab">
+						<ul class="name">
+							<li>
+								プロジェクト
+							</li>
+							<li>
+								Web Todo
+							</li>
+						</ul><ul class="display">
+							<li>
+								<div>
+									[Chrome Extensions] <br/>
+									- <a href="https://chrome.google.com/webstore/detail/soundcloud-player/oackhlcggjandamnkggpfhfjbnecefej" target="_blank">
+										SoundCloud Player
+									</a>
+								</div>
+							</li>
+							<li>
+								<div>
+									・Dock
+								</div>
+							</li>
+						</ul>
+						<div class="path">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="dock" style="display: none;">
+			<ul>
+			</ul>
+		</div>
+	</body>
+</html>
