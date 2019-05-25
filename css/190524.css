@@ -8,13 +8,13 @@ body {
 
 
 /* PC */
-@media screen and (min-width: 641px) {
+@media (min-width: 641px) {
 }
 
 /* Mobile */
-@media screen and (max-width: 640px) {
+@media (max-width: 640px) {
 	body {
-		font-size: 62.5%
+		font-size: 150%;
 	}
 }
 
