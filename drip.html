@@ -16,7 +16,6 @@
 		<title>Drip</title>
 
 		<link rel="shortcut icon" href="favicon.ico" />
-		<link rel="stylesheet" href="css/animate.css">
 		<link rel="stylesheet" href="css/190524.css">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
 			integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -30,15 +29,41 @@
 	</head>
 
 	<body>
-		<a class="text title" href="old2">^-^</a>
-		<center>
+		<div class="title text">
+			<span>
+				<a href="old2">^-^</a>
+			</span>
+		</div>
+		<div id="center">
 			<img id="moe" src="assets/moe.png">
-			<p class="title">
-				<a href="https://twitter.com/AkibaKaede" target="_blank">
-					Drip
-				</a>
-			</p>
-		</center>
-		<a class="title" id="bottom-right" href="https://suika.xyz">=></a>
+			<div class="title">
+				<span>
+					<a href="https://twitter.com/AkibaKaede" target="_blank">
+						Drip
+					</a>
+				</span>
+				<div>
+					<span id="prev">
+						[ |< ]
+					</span>
+					<span id="toggle">
+						[ ▷ ]
+					</span>
+					<span id="next">
+						[ >| ]
+					</span>
+					<br/>
+					<input id="seekbar" type="range" title="seekbar"
+						min="0" max="100" step="1" value="0"
+						style="margin-top: 0%; margin-bottom: 0; width: 48%;">
+					</input>
+				</div>
+			</div>
+		</div>
+		<a id="bottom-right" class="title" href="https://suika.xyz">=></a>
+
+		<audio id="audio" autoplay>
+			<source id="audio-src" type="audio/mp3">
+		</audio>
 	</body>
 </html>

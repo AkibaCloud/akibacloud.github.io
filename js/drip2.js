@@ -1,5 +1,5 @@
 /*
- (c) akibacloud
+  (c) AkibaCloud
 */
 
 document.addEventListener("DOMContentLoaded", () => {
