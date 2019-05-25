@@ -12,8 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
 	});
 
 	// audio controll
-	registerButtons();
 	seekbar();
+	registerButtons();
 });
 
 function initAudio() {
