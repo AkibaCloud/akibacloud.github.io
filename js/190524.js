@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
 function initAudio() {
 	var audio = $("#audio")[0];
 	audio.muted = false;
-	audio.volume = 0.07;
+	audio.volume = 0.05;
 
 	if (localStorage.getItem("190524") == null) {
 		localStorage.setItem("190524", JSON.stringify(settings));
