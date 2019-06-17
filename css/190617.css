@@ -1,0 +1,24 @@
+#base {
+	width: 90vmin;
+	height: 90vmin;
+}
+
+.record {
+	top: 50%;
+	left: 50%;
+	border-radius: 50%;
+}
+
+.gray {
+	background-color: #252425;
+}
+
+.white-gray {
+	background-color: #3b3a3b;
+}
+
+#image {
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-image: linear-gradient(0deg, rgba(214, 17, 19, .7), rgba(214, 17, 19, .7)), url(../assets/moe2.png);
+}
