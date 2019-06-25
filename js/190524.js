@@ -94,7 +94,7 @@ function play(number) {
 		number = list.length-1;
 	}
 	settings["id"] = current = number;
-	audio.src = "assets/audios/" + list[current];
+	audio.src = "../assets/audios/" + list[current];
 	return "Playing: " + list[current];
 }
 

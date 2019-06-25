@@ -1,0 +1,51 @@
+#t1 {
+	position: relative;
+	display: inline-block;
+	font-size: 32px;
+
+	left: 2vw;
+	transform: rotate(270deg);
+	font-style: italic;
+	transform-origin: left;
+
+	background: -webkit-linear-gradient(0deg, #4291c9, #b812f4);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+#t2 {
+	color: white;
+	right: 2vw;
+	bottom: 5vw;
+	position: absolute;
+	font-size: 35px;
+	line-height: 70%;
+	font-family: 'UnifrakturCook';
+}
+
+#t2 a {
+	font-size: 60%;
+}
+
+h1 {
+	margin: 0;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+a:hover {
+	color: black;
+}
+
+body {
+	margin: 0;
+	font-family: 'Signika Negative', sans-serif;
+	background-repeat: no-repeat;
+	background-size: 100% auto;
+	background: url("../assets/nagato/depressing.jpg") center center no-repeat;
+	height: 100vh;
+    width: 100%;
+}
