@@ -20,7 +20,7 @@
 	position: absolute;
 	font-size: 35px;
 	line-height: 70%;
-	font-family: 'UnifrakturCook';
+	font-family: "UnifrakturCook";
 }
 
 #t2 a {
@@ -42,7 +42,7 @@ a:hover {
 
 body {
 	margin: 0;
-	font-family: 'Signika Negative', sans-serif;
+	font-family: "Signika Negative", sans-serif;
 	background-repeat: no-repeat;
 	background-size: 100% auto;
 	background: url("../assets/yotsugi/beach.png") center center no-repeat; /*url("../assets/nagato/depressing.jpg")*/
