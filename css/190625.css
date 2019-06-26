@@ -14,7 +14,7 @@
 }
 
 #t2 {
-	color: white;
+	color: black;
 	right: 2vw;
 	bottom: 5vw;
 	position: absolute;
@@ -37,7 +37,7 @@ a {
 }
 
 a:hover {
-	color: black;
+	color: white;
 }
 
 body {
@@ -45,7 +45,7 @@ body {
 	font-family: 'Signika Negative', sans-serif;
 	background-repeat: no-repeat;
 	background-size: 100% auto;
-	background: url("../assets/nagato/depressing.jpg") center center no-repeat;
+	background: url("../assets/yotsugi.png") center center no-repeat; /*url("../assets/nagato/depressing.jpg")*/
 	height: 100vh;
     width: 100%;
 }
