@@ -45,7 +45,7 @@ body {
 	font-family: "Signika Negative", sans-serif;
 	background-repeat: no-repeat;
 	background-size: 100% auto;
-	background: url("../assets/yotsugi/beach.png") center center no-repeat; /*url("../assets/nagato/depressing.jpg")*/
+	background: url("../assets/nagato/depressing.jpg") center center no-repeat; /* "../assets/nagato/depressing.jpg", "../assets/yotsugi/beach.png"*/
 	height: 100vh;
     width: 100%;
 }
