@@ -3,20 +3,23 @@
 	display: inline-block;
 	font-size: 32px;
 
+	top: 15vh;
 	left: 2vw;
 	transform: rotate(270deg);
 	font-style: italic;
 	transform-origin: left;
 
-	background: -webkit-linear-gradient(0deg, #4291c9, #b812f4);
+	background: linear-gradient(90deg, #4291c9, #b812f4);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
+
+	padding-right: 0.2em;
 }
 
 #t2 {
 	color: black;
 	right: 2vw;
-	bottom: 5vw;
+	bottom: 10vh;
 	position: absolute;
 	font-size: 35px;
 	line-height: 70%;
