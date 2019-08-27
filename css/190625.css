@@ -16,19 +16,26 @@
 	padding-right: 0.2em;
 }
 
-#t2 {
+#t2, #t3 {
 	color: black;
-	right: 2vw;
-	bottom: 10vh;
 	position: absolute;
+	font-family: "UnifrakturCook";
 	font-size: 35px;
 	line-height: 70%;
-	font-family: "UnifrakturCook";
+	right: 2vw;
+	text-align: right;
 }
 
-#t2 a {
+#t2 {
+	bottom: 10vh;
+}
+
+#t3 {
+}
+
+#t2 a, #t3 span {
 	font-size: 60%;
-	text-shadow: #fff 0px 0px 3px, #fff 0px 0px 2px, #fff 0px 0px 2px, #fff 0px 0px 2px, #fff 0px 0px 2px, #fff 0px 0px 2px;
+	/*text-shadow: #fff 0px 0px 3px, #fff 0px 0px 2px, #fff 0px 0px 2px, #fff 0px 0px 2px, #fff 0px 0px 2px, #fff 0px 0px 2px;*/
 }
 
 h1 {
@@ -42,7 +49,7 @@ a {
 
 a:hover {
 	color: white;
-	text-shadow: #000 0px 0px 3px, #000 0px 0px 2px, #000 0px 0px 2px, #000 0px 0px 2px, #000 0px 0px 2px, #000 0px 0px 2px;
+	/*text-shadow: #000 0px 0px 3px, #000 0px 0px 2px, #000 0px 0px 2px, #000 0px 0px 2px, #000 0px 0px 2px, #000 0px 0px 2px;*/
 }
 
 body {
