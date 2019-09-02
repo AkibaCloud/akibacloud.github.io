@@ -30,50 +30,92 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script> 
 		<!-- <script src="js/disabler.js"></script> -->
 		<script src="js/utils.js"></script>
-		<!-- <script src="js/190625.js"></script> -->
+		<script src="js/jquery.scrollify.js"></script>
+		<script src="js/190625.js"></script>
+
+		<script type="text/javascript">
+			$(() => {
+				$.scrollify({
+					section : ".scrollify",
+					scrollbars: true,
+					scrollSpeed: 300
+				});
+        	});
+		</script>
 	</head>
 
-	<body>
+	<body class="fixed-bg">
 		<h1 id="t1">
 			<a href="https://twitter.com/DripNyan" title="Twitter" target="_blank">
 				DripNyan
 			</a>
+			
 		</h1>
-		<h1 id="t3">
-			Suki
-			<br>
-			<span>
-				Monogatari Series
-			</span>
-			<br>
-			<span>
-				Heavy Metal
-			</span>
-			<br>
-			<span>
-				SoundCloud
-			</span>
-			<br>
-		</h1>
-		<h1 id="t2">
-			Drippin
-			<br>
-			<a href="https://github.com/S4WA" title="Github" target="_blank">
-				Github
-			</a>
-			<br>
-			<a href="https://www.twitch.tv/S4WA" title="Twitch" target="_blank">
-				Twitch
-			</a>
-			<br>
-			<a href="https://steamcommunity.com/id/S4WA/" title="Steam" target="_blank">
-				Steam
-			</a>
-			<br>
-			<a href="https://www.instagram.com/dripnyan/" title="instagram" target="_blank">
-				IG
-			</a>
-			<br>
-		</h1>
+		<div id="toggle-font"></div>
+		<div class="scrollify">
+			<h1 class="right-text" id="t2">
+				Dripping
+				<br>
+				<span>
+					<a href="https://github.com/S4WA" title="Github" target="_blank">
+						Github
+					</a>
+				</span>
+				<br>
+				<span>
+					<a href="https://www.twitch.tv/S4WA" title="Twitch" target="_blank">
+						Twitch
+					</a>
+				</span>
+				<br>
+				<span>
+					<a href="https://steamcommunity.com/id/S4WA/" title="Steam" target="_blank">
+						Steam
+					</a>
+				</span>
+				<br>
+				<span>
+					<a href="https://www.instagram.com/dripnyan/" title="instagram" target="_blank">
+						IG
+					</a>
+				</span>
+				<br>
+			</h1>
+		</div>
+		<div class="scrollify">
+			<h1 class="right-text">
+				Projects
+				<br>
+				<span>
+					SoundCloud Player
+					<br>
+					<a href="https://github.com/S4WA/soundcloud-player" target="_blank">
+						<i class="fab fa-github" title="Source Code"></i>
+					</a>
+					<a href="https://chrome.google.com/webstore/detail/soundcloud-player/oackhlcggjandamnkggpfhfjbnecefej">
+						<i class="fab fa-chrome" title="Chrome Store"></i>
+					</a>
+				</span>
+				<br>
+			</h1>
+		</div>
+		<div class="scrollify">
+			<h1 class="right-text" id="t3">
+				Suki
+				<br>
+				<span>
+					Monogatari Series
+				</span>
+				<br>
+				<span>
+					Heavy Metal
+				</span>
+				<br>
+				<span>
+					SoundCloud
+				</span>
+				<br>
+			</h1>
+		</div>
 	</body>
 </html>

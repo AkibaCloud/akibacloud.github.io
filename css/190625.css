@@ -1,10 +1,10 @@
 #t1 {
-	position: relative;
+	position: fixed; /* relative */
 	display: inline-block;
 	font-size: 32px;
 
 	top: 120px;
-	left: 2vw;
+	left: 2.5vw;
 	transform: rotate(270deg);
 	font-style: italic;
 	transform-origin: left;
@@ -16,7 +16,7 @@
 	padding-right: 0.2em;
 }
 
-#t2, #t3 {
+.right-text /*#t2, #t3*/ {
 	color: black;
 	position: absolute;
 	font-family: "UnifrakturCook";
@@ -24,16 +24,17 @@
 	line-height: 70%;
 	right: 2vw;
 	text-align: right;
+	margin-top: 20px;
 }
 
 #t2 {
-	bottom: 10vh;
+	/*bottom: 10vh;*/
 }
 
 #t3 {
 }
 
-#t2 a, #t3 span {
+.right-text span /*#t2 span, #t3 span*/ {
 	font-size: 60%;
 	/*text-shadow: #fff 0px 0px 3px, #fff 0px 0px 2px, #fff 0px 0px 2px, #fff 0px 0px 2px, #fff 0px 0px 2px, #fff 0px 0px 2px;*/
 }
@@ -48,7 +49,7 @@ a {
 }
 
 a:hover {
-	color: white;
+	color: #9f9f9f;
 	/*text-shadow: #000 0px 0px 3px, #000 0px 0px 2px, #000 0px 0px 2px, #000 0px 0px 2px, #000 0px 0px 2px, #000 0px 0px 2px;*/
 }
 
@@ -59,6 +60,25 @@ body {
 	background-size: 100% auto;
 	background: url("../assets/shinobu/861e72cb806da22fc6d1fa354ee412f4.jpg") center center no-repeat; /* "../assets/nagato/depressing.jpg", "../assets/yotsugi/beach.png"*/
 	height: 100vh;
+}
+
+.fixed-bg {
+	background-attachment: fixed;
+	min-height: 100vh;
+}
+
+#toggle-font {
+	height: 40px;
+	width: 40px;
+
+	left: 2vw;
+	bottom: 30px;
+	
+	border-radius: 50%;
+	background-image: linear-gradient(45deg, #d7d2cc 0%, #304352 100%);
+	position: fixed;
+
+	cursor: pointer;
 }
 
 /* mobile */

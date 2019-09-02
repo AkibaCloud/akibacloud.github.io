@@ -55,7 +55,7 @@ if (document.layers) {
 document.oncontextmenu = new Function("return false")
 
 function disableCtrlKeyCombination(e) {
-	var forbiddenKeys = new Array('a', 'n', 'c', 'x', 'v', 'j', 'u', 'w', 'i');
+	var forbiddenKeys = new Array("a", "n", "c", "x", "v", "j", "u", "w", "i");
 	var key;
 	var isCtrl;
 	if (window.event) {
@@ -77,13 +77,13 @@ function disableCtrlKeyCombination(e) {
 	return true;
 }
 
-$(window).on('keydown', (event) => {
+$(window).on("keydown", (event) => {
 	if (event.keyCode == 123) {
 		return false;
 	} else if (event.ctrlKey && event.shiftKey && event.keyCode == 73) {
-		return false; //Prevent from ctrl+shift+i
+		return false; // Prevent from ctrl+shift+i
 	} else if (event.ctrlKey && event.keyCode == 73) {
-		return false; //Prevent from ctrl+shift+i
+		return false; // Prevent from ctrl+shift+i
 	}
 });
 
@@ -91,13 +91,13 @@ $(document).on("contextmenu", (e) => {
 	e.preventDefault();
 });
 
-$(window).on('keydown', (event) => {
+$(window).on("keydown", (event) => {
 	if (event.keyCode == 123) {
 		return false;
 	} else if (event.ctrlKey && event.shiftKey && event.keyCode == 74) {
-		return false; //Prevent from ctrl+shift+j
+		return false; // Prevent from ctrl+shift+j
 	} else if (event.ctrlKey && event.keyCode == 74) {
-		return false; //Prevent from ctrl+shift+j
+		return false; // Prevent from ctrl+shift+j
 	}
 });
 
@@ -105,13 +105,13 @@ $(document).on("contextmenu", (e) => {
 	e.preventDefault();
 });
 
-$(window).on('keydown', (event) => {
+$(window).on("keydown", (event) => {
 	if (event.keyCode == 123) {
 		return false;
 	} else if (event.ctrlKey && event.shiftKey && event.keyCode == 73) {
-		return false; //Prevent from ctrl+shift+i
+		return false; // Prevent from ctrl+shift+i
 	} else if (event.ctrlKey && event.keyCode == 73) {
-		return false; //Prevent from ctrl+shift+i
+		return false; // Prevent from ctrl+shift+i
 	}
 });
 
@@ -119,13 +119,13 @@ $(document).on("contextmenu", (e) => {
 	e.preventDefault();
 });
 
-$(window).on('keydown', (event) => {
+$(window).on("keydown", (event) => {
 	if (event.keyCode == 123) {
 		return false;
 	} else if (event.ctrlKey && event.keyCode == 70) {
-		return false; //Prevent from ctrl+f
+		return false; // Prevent from ctrl+f
 	} else if (event.ctrlKey && event.keyCode == 70) {
-		return false; //Prevent from ctrl+f
+		return false; // Prevent from ctrl+f
 	}
 });
 
@@ -133,13 +133,13 @@ $(document).on("contextmenu", (e) => {
 	e.preventDefault();
 });
 
-$(window).on('keydown', (event) => {
+$(window).on("keydown", (event) => {
 	if (event.keyCode == 123) {
 		return false;
 	} else if (event.keyCode == 122) {
-		return false; //Prevent from f11
+		return false; // Prevent from f11
 	} else if (event.keyCode == 122) {
-		return false; //Prevent from f11
+		return false; // Prevent from f11
 	}
 });
 
