@@ -56,13 +56,13 @@ a:hover {
 body {
 	margin: 0;
 	font-family: "Signika Negative", sans-serif;
-	background-repeat: no-repeat;
 	background-size: 100% auto;
-	background: url("../assets/yotsugi/y8cPPZ6.png") center center no-repeat;
+	background: url("../assets/yotsugi/simple.png") center / contain no-repeat;
 	/*
 		"../assets/nagato/depressing.jpg",
 		"../assets/yotsugi/beach.png",
-		"../assets/shinobu/861e72cb806da22fc6d1fa354ee412f4.jpg"
+		"../assets/shinobu/861e72cb806da22fc6d1fa354ee412f4.jpg",
+		"../assets/yotsugi/y8cPPZ6.png"
 	*/
 	height: 100vh;
 }
