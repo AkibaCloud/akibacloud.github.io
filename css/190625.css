@@ -58,7 +58,12 @@ body {
 	font-family: "Signika Negative", sans-serif;
 	background-repeat: no-repeat;
 	background-size: 100% auto;
-	background: url("../assets/shinobu/861e72cb806da22fc6d1fa354ee412f4.jpg") center center no-repeat; /* "../assets/nagato/depressing.jpg", "../assets/yotsugi/beach.png"*/
+	background: url("../assets/yotsugi/y8cPPZ6.png") center center no-repeat;
+	/*
+		"../assets/nagato/depressing.jpg",
+		"../assets/yotsugi/beach.png",
+		"../assets/shinobu/861e72cb806da22fc6d1fa354ee412f4.jpg"
+	*/
 	height: 100vh;
 }
 
