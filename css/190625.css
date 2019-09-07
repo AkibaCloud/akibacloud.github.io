@@ -27,6 +27,10 @@
 	margin-top: 20px;
 }
 
+.ignore-font {
+	font-family: "Meiryo";
+}
+
 #t2 {
 	/*bottom: 10vh;*/
 }
