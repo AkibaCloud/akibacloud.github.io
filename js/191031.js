@@ -3,39 +3,51 @@
 */
 
 document.addEventListener("DOMContentLoaded", () => {
+	links();
+	setInterval(() => {
+		let text = $("#text");
+		text.css("display", text.text().length == 0 ? "none" : "block");
+	}, 500);
+
 	// audio init
 	initAudio();
 
-	// list loop
-	$(audio).on("ended", () => {
-		play(++current);
-	});
-
 	// audio controll
 	seekbar();
+	volume();
 	registerButtons();
 });
 
-function initAudio() {
-	var audio = $("audio")[0];
-	audio.muted = false;
-	audio.volume = 0.05;
+function links() {
+	let links = $("#profile a");
+	for (let i = 0; i < links.length; i++) {
+		links.attr("target", "_blank");
+	}
+}
 
-	if (localStorage.getItem("190524") == null) {
-		localStorage.setItem("190524", JSON.stringify(settings));
+function initAudio() {
+	audio = $("audio")[0];
+
+	if (localStorage.getItem("191031") == null) {
+		localStorage.setItem("191031", JSON.stringify(settings));
 	} else {
-		settings = JSON.parse(localStorage.getItem("190524"));
+		settings = JSON.parse(localStorage.getItem("191031"));
 	}
 
 	audio.currentTime = settings["time"];
 	play(current = settings["id"]);
+	audio.volume = settings["volume"];
 	
 	autoSave();
+
+	$(audio).on("ended", () => {
+		play(++current);
+	});
 }
 
 function autoSave() {
-	localStorage.setItem("190524", JSON.stringify(settings));
-	setTimeout(function() { autoSave(); }, 500)
+	localStorage.setItem("191031", JSON.stringify(settings));
+	setTimeout(() => { autoSave(); }, 500)
 }
 
 function registerButtons() {
@@ -68,7 +80,7 @@ function toggle() {
 }
 
 function seekbar() {
-	var seekbar = document.getElementById("seekbar");
+	let seekbar = $("#seekbar")[0];
 	if (audio.readyState > 0){
 		seekbar.max = audio.duration;
 	} else {
@@ -77,13 +89,26 @@ function seekbar() {
 		});
 	}
 
-	// change or input
-	// inputの方が良い。 timepudateとクリックした時のタイミングが重なった時、changeだと無かったことになる(valueが元の位置に戻る)
 	$(seekbar).on("input", () => {
 		audio.currentTime = seekbar.value;
 	});
 	$(audio).on("timeupdate", () => {
 		settings["time"] = seekbar.value = audio.currentTime;
+	});
+};
+
+function volume() {
+	let volBar = $("#volume")[0];
+	if (audio.readyState > 0){
+		volBar.value = audio.volume*100;
+	} else {
+		$(audio).on("loadedmetadata", () => {
+			volBar.value = audio.volume*100;
+		});
+	}
+
+	$(volBar).on("input", () => {
+		settings["volume"] = audio.volume = parseFloat(volBar.value/100);
 	});
 };
 
@@ -94,17 +119,17 @@ function play(number) {
 		number = list.length-1;
 	}
 	settings["id"] = current = number;
-	audio.src = "../assets/audios/" + list[current];
+	audio.src = "assets/audios/" + list[current];
+	$("#text").text("▷ " + list[current].replace(".mp3", ""));
 	return "Playing: " + list[current];
 }
 
-var current = 0, 
+var audio = null, current = 0, 
 	list = [
-		"cYsmix feat Emmy - Tear Rain.mp3", 
-		"From Under Cover [Foreground Eclipse].mp3", 
-		"MISATO - Necro Fantasia.mp3"
+		"KOHH - Paris (Sam Tiba Remix).mp3"
 	],
 	settings = {
 		"time": 0,
-		"id": 0
+		"id": 0,
+		"volume": 0.05
 	};
