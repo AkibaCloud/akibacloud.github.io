@@ -126,7 +126,8 @@ function play(number) {
 
 var audio = null, current = 0, 
 	list = [
-		"KOHH - Paris (Sam Tiba Remix).mp3"
+		"KOHH - Paris (Sam Tiba Remix).mp3",
+		"nursery prod. lentra.mp3"
 	],
 	settings = {
 		"time": 0,
