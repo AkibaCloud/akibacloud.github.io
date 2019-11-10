@@ -42,3 +42,20 @@ String.prototype.clean = function (text) {
 Array.prototype.isEmpty = function() {
 	return this.length == 0;
 }
+
+function readAllBytesAsUInt8Array(path) {
+	var req = new XMLHttpRequest();
+	req.open("GET", path, false);
+	req.overrideMimeType("text/plain; charset=binary-data");
+	req.send(null);
+	if (req.status !== 200) {
+		console.log("error");
+		return null;
+	}
+	var text = req.responseText;
+	var resultArray = new Uint8Array(text.length);
+	for(var i = 0; i < text.length;i++){
+		resultArray[i] = (text[i].charCodeAt() & 255) & 255;
+	}
+	return resultArray.buffer;
+ }

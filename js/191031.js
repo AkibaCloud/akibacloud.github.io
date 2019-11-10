@@ -124,10 +124,24 @@ function play(number) {
 	return "Playing: " + list[current];
 }
 
+function nowPlaying() {
+	let str = "";
+	let id3v1 = ( readAllBytesAsUInt8Array(audio.src) ).slice(-128), judge = id3v1[0] + id3v1[1] + id3v1[2];
+		
+	if (judge == 220) {
+		for (let i = 3; i < 93; i++) {
+			if (i == 33 || i == 63) str += '\n';
+			str += String.fromCharCode(id3v1[i]);
+		}
+	}
+	return str;
+}
+
 var audio = null, current = 0, 
 	list = [
 		"KOHH - Paris (Sam Tiba Remix).mp3",
-		"nursery prod. lentra.mp3"
+		"nursery prod. lentra.mp3",
+		"NAW NAW [prod. shadient].mp3"
 	],
 	settings = {
 		"time": 0,
