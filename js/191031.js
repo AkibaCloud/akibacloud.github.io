@@ -18,11 +18,25 @@ document.addEventListener("DOMContentLoaded", () => {
 	registerButtons();
 });
 
+function getWidth(element) {
+	if (element == null) return 0;
+	return Number( $(element).css("width").replace("px", "") );
+}
+
 function links() {
-	let links = $("#profile a");
-	for (let i = 0; i < links.length; i++) {
-		links.attr("target", "_blank");
-	}
+	let links =  $("#profile a");
+
+	links.sort((a, b) => {
+		return ( getWidth(a) > getWidth(b) ? -1 : 1 );
+	});
+	
+	// for (let i = 0; i < links.length; i++) console.log($(links[i]).text(), getWidth(links[i]));
+
+	links.remove();
+	$("#profile span").append(links);
+
+	links.attr("target", "_blank");
+	links.after("<br>");
 }
 
 function initAudio() {
@@ -56,7 +70,7 @@ function registerButtons() {
 		toggle();
 	})
 	$("#prev").on("click", function() {
-		play(--current);
+		play( (audio.currentTime < audio.duration / 10) ? (--current) : (current) );
 	})
 	$("#next").on("click", function() {
 		play(++current);
@@ -141,7 +155,9 @@ var audio = null, current = 0,
 	list = [
 		"KOHH - Paris (Sam Tiba Remix).mp3",
 		"nursery prod. lentra.mp3",
-		"NAW NAW [prod. shadient].mp3"
+		"NAW NAW [prod. shadient].mp3",
+		"negative - EXECUTE.mp3",
+		"Bad Apple!!.mp3"
 	],
 	settings = {
 		"time": 0,
