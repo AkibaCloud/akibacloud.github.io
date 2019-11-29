@@ -36,6 +36,7 @@ function links() {
 	$("#profile span").append(links);
 
 	links.attr("target", "_blank");
+	links.before("<span> - </span>");
 	links.after("<br>");
 }
 
@@ -157,7 +158,10 @@ var audio = null, current = 0,
 		"nursery prod. lentra.mp3",
 		"NAW NAW [prod. shadient].mp3",
 		"negative - EXECUTE.mp3",
-		"Bad Apple!!.mp3"
+		"Bad Apple!!.mp3",
+		"cYsmix feat Emmy - Tear Rain.mp3",
+		"MISATO - Necro Fantasia.mp3",
+		"From Under Cover [Foreground Eclipse].mp3"
 	],
 	settings = {
 		"time": 0,
