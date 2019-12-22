@@ -43,10 +43,10 @@ function links() {
 function initAudio() {
 	audio = $("audio")[0];
 
-	if (localStorage.getItem("191031") == null) {
-		localStorage.setItem("191031", JSON.stringify(settings));
+	if (localStorage.getItem("191222") == null) {
+		localStorage.setItem("191222", JSON.stringify(settings));
 	} else {
-		settings = JSON.parse(localStorage.getItem("191031"));
+		settings = JSON.parse(localStorage.getItem("191222"));
 	}
 
 	audio.currentTime = settings["time"];
@@ -61,7 +61,7 @@ function initAudio() {
 }
 
 function autoSave() {
-	localStorage.setItem("191031", JSON.stringify(settings));
+	localStorage.setItem("191222", JSON.stringify(settings));
 	setTimeout(() => { autoSave(); }, 500)
 }
 
@@ -154,14 +154,16 @@ function nowPlaying() {
 
 var audio = null, current = 0, 
 	list = [
-		"KOHH - Paris (Sam Tiba Remix).mp3",
-		"nursery prod. lentra.mp3",
-		"NAW NAW [prod. shadient].mp3",
-		"negative - EXECUTE.mp3",
-		// "Bad Apple!!.mp3",
-		// "cYsmix feat Emmy - Tear Rain.mp3",
-		// "MISATO - Necro Fantasia.mp3",
-		"From Under Cover [Foreground Eclipse].mp3"
+		// "KOHH - Paris (Sam Tiba Remix).mp3",
+		// "nursery prod. lentra.mp3",
+		// "NAW NAW [prod. shadient].mp3",
+		// "negative - EXECUTE.mp3",
+		// // "Bad Apple!!.mp3",
+		// // "cYsmix feat Emmy - Tear Rain.mp3",
+		// // "MISATO - Necro Fantasia.mp3",
+		// "From Under Cover [Foreground Eclipse].mp3",
+		"poof!.mp3",
+		"owo.mp3"
 	],
 	settings = {
 		"time": 0,

@@ -2,12 +2,13 @@ body {
 	margin: 0;
 	font-family: "Signika Negative", sans-serif;
 	background-size: 100% auto;
-	background: black url("../assets/k/1550739091000.jpg") center / contain no-repeat;
+	background: #e5d7d4 url("../assets/shinobu/861e72cb806da22fc6d1fa354ee412f4.jpg") center no-repeat;
+	/*background: #e5d7d4 url("../assets/shinobu/861e72cb806da22fc6d1fa354ee412f4.jpg") center / contain no-repeat;*/
 	height: 100vh;
 }
 
 span {
-	color: white;
+	color: black;
 }
 
 a {
@@ -21,6 +22,7 @@ a {
 }
 
 #toggle, #prev, #next {
+	color: #696969;
 	cursor: pointer;
 }
 
@@ -46,6 +48,7 @@ a {
 }
 
 #text {
+	color: white;
 	left: 50%;
 	bottom: 10%;
 	position: absolute;
@@ -78,14 +81,14 @@ input[type=range]::-webkit-slider-runnable-track {
 	height: 7px;
 	cursor: pointer;
 	animate: 0.2s;
-	box-shadow: 0px 0px 25px #272727;
+	/*box-shadow: 0px 0px 25px #272727;*/
 	background: #50555C;
 	border-radius: 14px;
 	border: 0px solid #000000;
 }
 
 input[type=range]::-webkit-slider-thumb {
-	box-shadow: 0px 0px 0px #000000;
+	/*box-shadow: 0px 0px 0px #000000;*/
 	border: 0px solid #000000;
 	height: 7px;
 	width: 15px;
@@ -105,14 +108,14 @@ input[type=range]::-moz-range-track {
 	height: 7px;
 	cursor: pointer;
 	animate: 0.2s;
-	box-shadow: 0px 0px 25px #272727;
+	/*box-shadow: 0px 0px 25px #272727;*/
 	background: #50555C;
 	border-radius: 14px;
 	border: 0px solid #000000;
 }
 
 input[type=range]::-moz-range-thumb {
-	box-shadow: 0px 0px 0px #000000;
+	/*box-shadow: 0px 0px 0px #000000;*/
 	border: 0px solid #000000;
 	height: 7px;
 	width: 15px;
