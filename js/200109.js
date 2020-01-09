@@ -1,7 +1,17 @@
 document.addEventListener("DOMContentLoaded", function () {
 	play( current = Math.floor( Math.random() * list.length ) );
 
-	$(video).on("ended", () => {
+	$(video).on("loadedmetadata", function() {
+		let height = Number( $(this).css("height").replace("px", "") ),
+			width = Number( $(this).css("width").replace("px", "") );
+
+		if (height == width || height >= width) {
+			$(this).css("min-width", "0%");
+		} else {
+			$(this).css("min-width", "90%");
+		}
+	});
+	$(video).on("ended", function() {
 		let val = ( current == (list.length - 1) );
 		play( current = ( val ? 0 : current + 1 ) );
 	});
@@ -16,11 +26,11 @@ function play(number) {
 }
 
 var current = 0, list = [[
-	"https://www.dropbox.com/s/4d8vjhlq1shngqq/dancing.mp4?dl=1", 0.05
+	"https://www.dropbox.com/s/58hicjzw991ptt8/dancing%20%282%29.mp4?dl=1", 0.05
 ], [
 	"https://www.dropbox.com/s/sqrqithy4cdhkxw/dancing-3.mp4?dl=1", 0.2
 ], [
 	"https://www.dropbox.com/s/khr8yz080j7x2ph/tsukinomito.mp4?dl=1", 0.05
 ], [
-	"https://www.dropbox.com/s/9qvedc1a7bm2iz2/Esta%20-%201738.mp4?dl=1", 0.05
+	"https://www.dropbox.com/s/xnnorr6s8kd6wo4/droptop.mp4?dl=1", 0.05
 ]]; 
