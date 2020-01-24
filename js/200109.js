@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
+	replaceListElem();
+	
 	play( current = Math.floor( Math.random() * list.length ) );
 
 	$(video).on("loadedmetadata", function() {
