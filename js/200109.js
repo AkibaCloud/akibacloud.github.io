@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	});
 
 	// $("a").attr("target", "blank");
+	Scroll();
 });
 
 
@@ -27,7 +28,15 @@ function play(number) {
 	video.volume = list[number][1]
 }
 
-var current = 0, list = [[
+function Scroll() {
+	document.title = msg.substring(pos, msg.length) + space + msg.substring(0,pos);
+	pos++;
+	if (pos > msg.length) pos = 0;
+	window.setTimeout("Scroll()", speed);
+}
+
+
+var space = " ", speed = "200", pos = 0, msg = document.title, current = 0, list = [[
 	"https://www.dropbox.com/s/58hicjzw991ptt8/dancing%20%282%29.mp4?dl=1", 0.05
 ], [
 	"https://www.dropbox.com/s/sqrqithy4cdhkxw/dancing-3.mp4?dl=1", 0.2
