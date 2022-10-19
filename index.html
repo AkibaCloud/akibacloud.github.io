@@ -7,13 +7,32 @@
   <script src='assets/js/three.js'></script>
 </head>
 <body>
+  <div id='cube'></div>
+  <div id='list'>
+    <ul>
+      <span>Contact</span>
+      <li>
+        <a href="https://ko-fi.com/sawanese" target="_blank">Ko-Fi</a>
+      </li>
+    </ul>
+    <ul>
+      <span>Projects</span>
+      <li>
+        <a href="https://chrome.google.com/webstore/detail/soundcloud-player/oackhlcggjandamnkggpfhfjbnecefej" target="_blank">SoundCloud Player</a>
+        - 7000 users
+        <img src="assets/img/scplayer.png" width="500">
+      </li>
+    </ul>
+  </div>
   <script>
       const scene = new THREE.Scene();
-      const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+      const width = 300, height = 300;
+      // const width = window.innerWidth, height = window.innerHeight;
+      const camera = new THREE.PerspectiveCamera( 75, width / height, 0.1, 1000 );
 
       const renderer = new THREE.WebGLRenderer();
-      renderer.setSize( window.innerWidth, window.innerHeight );
-      document.body.appendChild( renderer.domElement );
+      renderer.setSize( width, height );
+      document.getElementById('cube').appendChild( renderer.domElement );
 
       const geometry = new THREE.BoxGeometry( 1, 1, 1 );
       const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );

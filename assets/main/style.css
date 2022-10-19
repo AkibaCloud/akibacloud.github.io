@@ -2,4 +2,29 @@ body {
   background-color: #000;
   color: #fff;
   margin: 0;
+  height: 300px;
+  font-family: 'Consolas';
+  width:100%;
+  display: flex;
+}
+
+body > div {
+  margin: 0;
+  width: 300px;
+  height: 300px;
+}
+
+a, a:active {
+  color: #00ff00
+}
+
+a:hover {
+  color: #8eff8e;
+}
+
+#cube {
+  margin: 0;
+}
+
+#list {
 }
