@@ -7,10 +7,11 @@
     body {
       background: #3f3f3f;
       color: #fff;
-      font-family: 'Consolas', 'Tahoma';
+      font-family: 'Consolas';
     }
     span, input, select, button {
       font-size: 30px;
+      /*font-family: 'Consolas', 'MS Gothic';*/
     }
     #msg2 {
       color: #FFDD00; /* Yellow */
@@ -48,27 +49,38 @@
     <button id='btn'>Start Game</button>
     <span id='res'></span>
   </div>
-  <span class='grey'>命数法とは？ (<a href='https://ja.wikipedia.org/wiki/%E5%91%BD%E6%95%B0%E6%B3%95'>日本語</a>, <a href='https://en.wikipedia.org/wiki/Numeral_system'>English</a>)</span>
-  <h5 class='grey'>Build 5 | Last Updated: 5 Nov 2022 | Cheat Mode: <a href='#' id='cheat_mode'>Off</a></h5>
+  <span class='grey'>命数法とは？ (<a target='_blank' href='https://ja.wikipedia.org/wiki/%E5%91%BD%E6%95%B0%E6%B3%95'>日本語</a>, <a target='_blank' href='https://en.wikipedia.org/wiki/Numeral_system'>English</a>)</span>
+  <h5 class='grey'>Build 6 | Last Updated: 5 Nov 2022 | 数字を表示する: <a href='#' id='easy_mode'>On</a> | 選択肢に日本語の数字を追加する: <a href='#' id='cheat_mode'>Off</a></h5>
 
   <script type='text/javascript'>
-    var question = 0, digits = 0, cheat = false, 
+    var question = 0, digits = 0, cheat = false, easy = true,
       listJ = ['十', '百', '千', '万', '十万', '百万', '千万', '億', '十億', '百億', '千億', '兆', '十兆', '百兆', '千兆', '京', '十京', '百京', '千京'], 
       listJ2 = ['一', '二', '三', '四', '五', '六', '七', '八', '九'], 
       listE = ['Ten', 'Hundred', 'Thousand', 'Ten Thousand', 'Hundred Thousand', 'Million', 'Ten Million', 'Hundred Million', 'Billion', 'Ten Billion', 'Hundred Billion', 'Trillion', 'Ten Trillion', 'Hundred Trillion']; 
 
     // Cheat Mode Button 
-    $('#cheat_mode').on('click', function () {
-      if (!location.href.includes('?cheat=1')) {
-        location = location.href + '?cheat=1';
-      } else {
-        location = 'index.html';
-      }
-    });
-    if (location.href.includes('?cheat=1')) {
-      $('#cheat_mode').text('On');
-      cheat = true;
+    if (localStorage.getItem('cheat') != null) {
+      cheat = Bool( localStorage.getItem('cheat') );
     }
+    $('#cheat_mode').on('click', function () {
+      cheat = !cheat;
+      localStorage.setItem('cheat', cheat);
+      $('#cheat_mode').text(cheat ? 'On' : 'Off');
+      location.reload();
+    });
+    $('#cheat_mode').text(cheat ? 'On' : 'Off');
+
+
+    if (localStorage.getItem('easy') != null) {
+      easy = Bool( localStorage.getItem('easy') );
+    }
+    $('#easy_mode').on('click', function () {
+      easy = !easy;
+      localStorage.setItem('easy', easy);
+      $('#easy_mode').text(easy ? 'On' : 'Off');
+      location.reload();
+    });
+    $('#easy_mode').text(easy ? 'On' : 'Off');
 
     // Append Options
     for (var i = 0; i < listE.length; i++) {
@@ -162,9 +174,9 @@
       }
 
       // zzzzzzzzzzzzzzz boring part
-      $('#msg').text(message + ' (');
+      $('#msg').text(easy ? message + ' (' : '');
       $('#msg2').text((question == 1 ? '' : listJ2[question - 1]) + listJ[digits - 1]);
-      $('#msg3').text(') の数詞は？')
+      $('#msg3').text((easy ? ') ' : '') + 'の数詞は？');
 
       $('#btn').text('Submit');
 
@@ -172,16 +184,17 @@
 
       let eList = $('option');
       for (var p = 0; p < eList.length; p++) {
-        $(eList[p]).text(convert(question, p+1) + ' (' + (cheat  ? (question != 1 ? listJ2[question-1] : '') + listJ[p] : '') + ')');
+        $(eList[p]).text(convert(question, p+1) + (cheat ?  ' (' + (question != 1 ? listJ2[question-1] : '') + listJ[p] + ')' : ''));
       }
 
-      console.log('Spoiler:', convert());
+      console.log('Spoiler:', convert(), '/', (question == 1 ? '' : listJ2[question - 1]) + listJ[digits - 1]);
     }
 
     function checkTheAnswer() {
       let val = $('#list').val(), pos = listE.indexOf(val);
 
-      console.log('The amount of zero:', digits, '/ In japanese:', listJ[digits - 1], '/ Answer: No.', (pos + 1), listE[pos]);
+      // Comparing the answer and value
+      console.log('The amount of zero:', digits, '/ Answer: ' + (pos + 1) + ' ' + listE[pos]);
 
       let result = pos + 1 == digits; // true = correct, false = incorrect
       $('#res').text(result ? '正解' : '不正解');
@@ -272,6 +285,10 @@
 
       // console.log(er, val);
       return response;
+    }
+
+    function Bool(string) {
+      return string.toLowerCase() == 'true';
     }
 
     // 一, 十, 百, 千, 万, 十万, 百万, 千万, 億, 十億, 百億, 千億, 兆, 十兆, 百兆, 千兆, 京, 十京, 百京, 千京
