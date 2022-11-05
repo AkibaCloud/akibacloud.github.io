@@ -55,7 +55,7 @@
     var question = 0, digits = 0, cheat = false, 
       listJ = ['十', '百', '千', '万', '十万', '百万', '千万', '億', '十億', '百億', '千億', '兆', '十兆', '百兆', '千兆', '京', '十京', '百京', '千京'], 
       listJ2 = ['一', '二', '三', '四', '五', '六', '七', '八', '九'], 
-      listE = ['Ten', 'Hundred', 'Thousand', 'Ten Thousand', 'Hundred Thousand', 'Million', 'Ten Million', 'Hundred Million', 'Billion', 'Ten Billion', 'Hundred Billion', 'Trillion']; 
+      listE = ['Ten', 'Hundred', 'Thousand', 'Ten Thousand', 'Hundred Thousand', 'Million', 'Ten Million', 'Hundred Million', 'Billion', 'Ten Billion', 'Hundred Billion', 'Trillion', 'Ten Trillion', 'Hundred Trillion']; 
 
     // Cheat Mode Button 
     $('#cheat_mode').on('click', function () {
@@ -146,7 +146,7 @@
       // Generate random number from 1 to 9. This will be the number of its highest position. (highest or initial??)
       question = Math.floor(Math.random() * 9) + 1;
       // Amount of zeros.
-      digits = randomButRanged(3, 15);
+      digits = randomButRanged(3, 12);
 
       // Loop x times, add '0' (as text) behind the message every time.
       let message = question + '', i = digits;
