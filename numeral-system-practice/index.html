@@ -49,7 +49,7 @@
     <span id='res'></span>
   </div>
   <span class='grey'>命数法とは？ (<a href='https://ja.wikipedia.org/wiki/%E5%91%BD%E6%95%B0%E6%B3%95'>日本語</a>, <a href='https://en.wikipedia.org/wiki/Numeral_system'>English</a>)</span>
-  <h5 class='grey'>Build 4 | Last Updated: 5 Nov 2022 | Cheat Mode: <a href='#' id='cheat_mode'>Off</a></h5>
+  <h5 class='grey'>Build 5 | Last Updated: 5 Nov 2022 | Cheat Mode: <a href='#' id='cheat_mode'>Off</a></h5>
 
   <script type='text/javascript'>
     var question = 0, digits = 0, cheat = false, 
@@ -172,7 +172,7 @@
 
       let eList = $('option');
       for (var p = 0; p < eList.length; p++) {
-        $(eList[p]).text(convert(question, p+1) + (cheat ? listJ[p] : ''));
+        $(eList[p]).text(convert(question, p+1) + ' (' + (cheat  ? (question != 1 ? listJ2[question-1] : '') + listJ[p] : '') + ')');
       }
 
       console.log('Spoiler:', convert());
