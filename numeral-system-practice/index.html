@@ -21,7 +21,7 @@
       font-style: italic;
     }
     .small {
-      font-size: 50%;
+      font-size: 23px;
     }
     /* color: #FFA500; Orange */
     a, a:visited {
@@ -46,16 +46,17 @@
     <span id='msg'>hello world</span>
     <span id='msg2'></span>
     <span id='msg3'></span>
+    <span id='msg4' class='grey small'></span>
   </div>
   <div>
     <select id='list'></select>
     <button id='btn'>Start Game</button>
     <span id='res'></span>
   </div>
-  <h5 class='grey'>Build 6 | Last Updated: 5 Nov 2022 | 数字を表示する: <a href='#' id='easy_mode'>On</a> | 選択肢に日本語の数字を追加する: <a href='#' id='cheat_mode'>Off</a></h5>
+  <h5 class='grey'>Build 6 | Last Updated: 5 Nov 2022 | 問の英数字の表示する: <a href='#' id='easy_mode'>On</a> | 選択肢に日本語の数字を追加する: <a href='#' id='cheat_mode'>Off</a> | ゼロの数を表示する: <a href='#' id='show_amount'>Off</a> </h5>
 
   <script type='text/javascript'>
-    var question = 0, digits = 0, cheat = false, easy = true,
+    var question = 0, digits = 0, cheat = false, easy = true, show = false,
       listJ = ['十', '百', '千', '万', '十万', '百万', '千万', '億', '十億', '百億', '千億', '兆', '十兆', '百兆', '千兆', '京', '十京', '百京', '千京'], 
       listJ2 = ['一', '二', '三', '四', '五', '六', '七', '八', '九'], 
       listE = ['Ten', 'Hundred', 'Thousand', 'Ten Thousand', 'Hundred Thousand', 'Million', 'Ten Million', 'Hundred Million', 'Billion', 'Ten Billion', 'Hundred Billion', 'Trillion', 'Ten Trillion', 'Hundred Trillion']; 
@@ -73,6 +74,7 @@
     $('#cheat_mode').text(cheat ? 'On' : 'Off');
 
 
+    // Easy Button
     if (localStorage.getItem('easy') != null) {
       easy = Bool( localStorage.getItem('easy') );
     }
@@ -83,6 +85,19 @@
       location.reload();
     });
     $('#easy_mode').text(easy ? 'On' : 'Off');
+
+
+    // Show Amount Button
+    if (localStorage.getItem('show') != null) {
+      show = Bool( localStorage.getItem('show') );
+    }
+    $('#show_amount').on('click', function () {
+      show = !show;
+      localStorage.setItem('show', show);
+      $('#show_amount').text(show ? 'On' : 'Off');
+      location.reload();
+    });
+    $('#show_amount').text(show ? 'On' : 'Off');
 
     // Append Options
     for (var i = 0; i < listE.length; i++) {
@@ -179,6 +194,7 @@
       $('#msg').text(easy ? message + ' (' : '');
       $('#msg2').text((question == 1 ? '' : listJ2[question - 1]) + listJ[digits - 1]);
       $('#msg3').text((easy ? ') ' : '') + 'の数詞は？');
+      $('#msg4').text(show ? `ゼロの数: ${digits}` : '')
 
       $('#btn').text('Submit');
 
