@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <title>命数法練習ツール</title>
+  <style type='text/css'>
+    body {
+      background: #3f3f3f;
+      color: #fff;
+      font-family: 'Consolas', 'Tahoma';
+    }
+    span, input, select, button {
+      font-size: 30px;
+    }
+    #msg2 {
+      color: #FFDD00; /* Yellow */
+    }
+    .grey {
+      color: #BFBFBF; /* Light Grey */
+      font-style: italic;
+    }
+    /* color: #FFA500; Orange */
+    a, a:visited {
+      color: CYAN; /* Cyan */
+    }
+    div {
+      padding-bottom: 35px;
+    }
+    #list, #list2 {
+      display: none;
+    }
+    #cheat_mode {
+      font-style: italic;
+    }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
+<body>
+  <h1>命数法練習ツール</h1>
+  <div>
+    <!-- Generated random number would start  -->
+    <span id='msg'>hello world</span>
+    <span id='msg2'></span>
+    <span id='msg3'></span>
+  </div>
+  <div>
+    <select id='list'></select>
+    <button id='btn'>Start Game</button>
+    <span id='res'></span>
+  </div>
+  <span class='grey'>命数法とは？ (<a href='https://ja.wikipedia.org/wiki/%E5%91%BD%E6%95%B0%E6%B3%95'>日本語</a>, <a href='https://en.wikipedia.org/wiki/Numeral_system'>English</a>)</span>
+  <h5 class='grey'>Last Updated: 5 Nov 2022 | Cheat Mode: <a href='#' id='cheat_mode'>Off</a></h5>
+
+  <script type='text/javascript'>
+    var question = 0, digits = 0, cheat = false, 
+      listJ = ['十', '百', '千', '万', '十万', '百万', '千万', '億', '十億', '百億', '千億', '兆', '十兆', '百兆', '千兆', '京', '十京', '百京', '千京'], 
+      listJ2 = ['一', '二', '三', '四', '五', '六', '七', '八', '九'], 
+      listE = ['Ten', 'Hundred', 'Thousand', 'Thousand', 'Hundred Thousand', 'Million', 'Ten Million', 'Hundred Million', 'Billion', 'Ten Billion', 'Hundred Billion', 'Trillion']; 
+
+    // Cheat Mode Button 
+    $('#cheat_mode').on('click', function () {
+      if (!location.href.includes('?cheat=1')) {
+        location = location.href + '?cheat=1';
+      } else {
+        location = 'index.html';
+      }
+    });
+    if (location.href.includes('?cheat=1')) {
+      $('#cheat_mode').text('On');
+      cheat = true;
+    }
+
+    // Append Options
+    for (var i = 0; i < listE.length; i++) {
+      let elm = $(`<option value='${listE[i]}'>${listE[i]} ${cheat ? '(' + listJ[i] + ')' : ''}</option>`);
+
+      if ((i + 1) % 3 == 0) {
+        elm.css('text-decoration', 'underline');
+        elm.css('color', 'RED');
+      }
+
+      $('#list').append(elm);
+    }
+
+    // Say hello
+    $('#msg').text( greeting( new Date().getHours() ) );
+
+    // Button On Click Event
+    $('#btn').on('click', function() {
+      let text = $(this).text();
+
+      switch (text) {
+        case 'Start Game': {
+          startGame();
+          break;
+        }
+        case 'Submit': {
+          checkTheAnswer();
+          break;
+        }
+        case 'Next Question': {
+          reset();
+          break;
+        }
+      }
+    });
+
+    function reset() {
+      $('#res').text('');
+      $('option')[0].selected = 'selected';
+      $('#btn').text('Submit');
+      startGame();
+    }
+
+    function greeting(time) {
+      return ( time >= 0 && time < 5 ) ? 'こんばんは' : ( ( time >= 5 && time < 11 ) ? 'おはようございます' : ( time >= 11 && time < 16 ) ? 'こんにちは' : 'こんばんは' );
+    }
+
+    function randomButRanged(min, max) {
+      return Math.floor(Math.random() * (max - min) + min);
+    }
+
+    function spl(str, amount) {
+      let i = str.length % amount, parts = i ? [ str.substr( 0, i ) ] : [];
+      for ( ; i < str.length ; i += amount ) {
+          parts.push( str.substr( i, amount ) );
+      }
+      return parts;
+    }
+
+    function startGame() {
+      // Generate random number from 1 to 9. This will be the number of its highest position. (highest or initial??)
+      question = Math.floor(Math.random() * 9) + 1;
+      // Amount of zeros.
+      digits = randomButRanged(3, 12);
+
+      // Loop x times, add '0' (as text) behind the message every time.
+      let message = question + '', i = digits;
+      while (i != 0) {
+        message = message + '0';
+        // console.log(message);
+        i--;
+      }
+
+      // Split the message, put a comma in every 3 characters.
+      if (spl(message, 3)) {
+        let a = spl(message, 3);
+        message = '';
+
+        for (var n = 0; n < a.length; n++) {
+          if (n == 0) {
+            message = a[n];
+            continue;
+          }
+          message = message + ',' + a[n]; 
+        }
+      }
+
+      // zzzzzzzzzzzzzzz boring part
+      $('#msg').text(message + ' (');
+      $('#msg2').text((question == 1 ? '' : listJ2[question - 1]) + listJ[digits - 1]);
+      $('#msg3').text(') の数詞は？')
+
+      $('#btn').text('Submit');
+
+      $('#list').css('display', 'inline-block');
+
+      convert();
+    }
+
+    function checkTheAnswer() {
+      let val = $('#list').val(), pos = listE.indexOf(val);
+
+      console.log('The amount of zero:', digits, '/ In japanese:', listJ[digits - 1], '/ Answer: No.', (pos + 1), listE[pos]);
+
+      let result = pos + 1 == digits; // true = correct, false = incorrect
+      $('#res').text(result ? '正解' : '不正解');
+      $('#res').css('color', result ? '#18FF18' : 'RED');
+
+      if (result) {
+        $('#btn').text('Next Question');
+      }
+    }
+
+    function convert() {
+      let message = question + '', i = digits;
+      while (i != 0) {
+        message = message + '0';
+        i--;
+      }
+
+      let arr = spl(message, 3);
+      let response = '';
+
+      if (arr == null) return null;
+
+      let z = {
+        1: [
+          'One', 
+          'Two', 
+          'Three', 
+          'Four', 
+          'Five', 
+          'Six', 
+          'Seven', 
+          'Eight', 
+          'Nine'
+        ],
+        2: [
+          'Ten',
+          'Eleven',
+          'Twelve',
+          'Thirteen',
+          'Fourteen',
+          'Fifteen',
+          'Sixteen',
+          'Seventeen',
+          'Eighteen',
+          'Nineteen',
+          'Twenty',
+          'Thirty',
+          'Fourty',
+          'Sixty',
+          'Seventy',
+          'Eighty',
+          'Ninety'
+        ]
+      };
+
+      // z[桁][数字]
+      let val = arr[0], a = Number(val);
+      if (arr[0].length == 1) {
+        response = z[1][a-1];
+      }
+
+      response = response + listE[ digits - 1 ];
+
+      console.log('result: ', response );
+      return response;
+    }
+
+    // 一, 十, 百, 千, 万, 十万, 百万, 千万, 億, 十億, 百億, 千億, 兆, 十兆, 百兆, 千兆, 京, 十京, 百京, 千京
+  </script>
+</body>
+</html>
