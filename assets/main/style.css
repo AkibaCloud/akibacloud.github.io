@@ -3,9 +3,10 @@ body {
   color: #fff;
   margin: 0;
   height: 300px;
+  max-width: 100%;
   font-family: 'Consolas';
-  width:100%;
-  display: flex;
+  width: 100%;
+  display: block;
 }
 
 body > div {
@@ -24,7 +25,4 @@ a:hover {
 
 #cube {
   margin: 0;
-}
-
-#list {
 }
