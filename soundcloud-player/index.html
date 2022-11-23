@@ -39,7 +39,7 @@
       '../'
     ];
     for (var i = 0; i < w.length; i++) {
-      w[i].setAttribute('target', '_blank');
+      if (i != w.length - 1) w[i].setAttribute('target', '_blank');
       w[i].setAttribute('href', z[i]);
     }
   </script>
