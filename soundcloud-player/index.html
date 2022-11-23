@@ -8,6 +8,23 @@
 </head>
 <body>
   <h1># SoundCloud-Player</h1>
-  Install On <a href='https://chrome.google.com/webstore/detail/soundcloud-player/oackhlcggjandamnkggpfhfjbnecefej'>Chrome</a> / <a href='#'>Firefox</a>
+  <span>
+    Install On <a>Chrome</a> / <a>Firefox</a>
+    <br><br>
+    Links [ <a>Wiki Page</a> / <a>Donate</a> / <a>Google Form</a> ]
+  </span>
+  <script type="text/javascript">
+    let w = document.querySelectorAll('a'), z = [
+      'https://chrome.google.com/webstore/detail/soundcloud-player/oackhlcggjandamnkggpfhfjbnecefej',
+      '#',
+      'https://github.com/S4WA/SoundCloud-Player/wiki',
+      'https://ko-fi.com/sawanese',
+      'https://forms.gle/EUhfFyrUan3CdVn26'
+    ];
+    for (var i = 0; i < w.length; i++) {
+      w[i].setAttribute('target', '_blank');
+      w[i].setAttribute('href', z[i]);
+    }
+  </script>
 </body>
 </html>
