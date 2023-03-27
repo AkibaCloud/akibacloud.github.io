@@ -47,11 +47,10 @@
     function submit() {
       let a = Number(input.value),
           k = a == first*second;
-      // console.log(k);
 
-      text(a);
       switch (button.value) {
         case "Answer": {
+          console.log(`${first} x ${second} = ${first*second}`);
           if (!k) {
             b.innerText = "Wrong.";
             break;
@@ -64,12 +63,14 @@
         }
         case "Next": {
           second++;
-          secondEl.innerText = second;
 
-          if (second == 9) {
-            second = 0;
+          if (second > 9) {
+            second = 1;
             first = random();
           }
+
+          firstEl.innerText = first;
+          secondEl.innerText = second;
           button.value = "Answer";
           text()
           break;
