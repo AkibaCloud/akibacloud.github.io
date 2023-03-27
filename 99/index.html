@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>99 Practice</title>
+</head>
+<body>
+  <h1>
+    <span id='first'></span> x <span id='second'></span> = <input type="text" id="a">
+    <br>
+    <span id="message"></span>
+    <br>
+    <input type="button" id="b" onclick="submit()" value='Answer'>
+  </h1>
+  <script type="text/javascript">
+    let y = ["いち", "に", "さん", "し", "ご", "ろく", "しち", "はち", "く"]
+
+    document.getElementById("a").addEventListener("keydown", function(e) {
+      if (e.keyCode == 13) {
+        submit();
+      }
+    });
+
+    let first   = random(), 
+        second  = 1, 
+        message = document.getElementById("message"),
+        firstEl   = document.getElementById("first"),
+        secondEl  = document.getElementById("second"),
+        input   = document.getElementById("a");
+        button  = document.getElementById("b");
+
+    firstEl.innerText = first;
+    secondEl.innerText = second;
+    text();
+
+    // functions
+    function text(a) {
+      message.innerText = `${y[first-1]}${y[second-1]}, が, `;
+      if (a) {
+        message.innerText = `Correct! ${message.innerText} ${a}`;
+      } else {
+        message.innerText += "?";
+      }
+    }
+
+    function submit() {
+      let a = Number(input.value),
+          k = a == first*second;
+      // console.log(k);
+
+      text(a);
+      switch (button.value) {
+        case "Answer": {
+          if (!k) {
+            b.innerText = "Wrong.";
+            break;
+          }
+
+          text(a);
+          button.value = "Next";
+          input.value = "";
+          break;
+        }
+        case "Next": {
+          second++;
+          secondEl.innerText = second;
+
+          if (second == 9) {
+            second = 0;
+            first = random();
+          }
+          button.value = "Answer";
+          text()
+          break;
+        }
+      }
+    }
+
+    function random() {
+      return Math.floor(Math.random() * 9) + 1;
+    }
+  </script>
+</body>
+</html>
