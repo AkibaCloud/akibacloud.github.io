@@ -13,6 +13,8 @@
     <br>
     <input type="button" id="b" onclick="submit()" value='Answer'>
   </h1>
+  <span id="message2"></span>
+
   <script type="text/javascript">
     let y = ["いち", "に", "さん", "し", "ご", "ろく", "しち", "はち", "く"]
 
@@ -22,13 +24,14 @@
       }
     });
 
-    let first   = random(), 
-        second  = 1, 
-        message = document.getElementById("message"),
+    let first     = random(), 
+        second    = 1, 
+        message   = document.getElementById("message"),
+        message2  = document.getElementById("message2"),
         firstEl   = document.getElementById("first"),
         secondEl  = document.getElementById("second"),
-        input   = document.getElementById("a");
-        button  = document.getElementById("b");
+        input     = document.getElementById("a");
+        button    = document.getElementById("b");
 
     firstEl.innerText = first;
     secondEl.innerText = second;
@@ -38,6 +41,7 @@
     function text(a) {
       message.innerText = `${y[first-1]}${y[second-1]}, が, `;
       if (a) {
+        message2.innerHTML += `${message.innerText} ${a}<br>`;
         message.innerText = `Correct! ${message.innerText} ${a}`;
       } else {
         message.innerText += "?";
@@ -67,6 +71,7 @@
           if (second > 9) {
             second = 1;
             first = random();
+            message2.innerHTML = "";
           }
 
           firstEl.innerText = first;
