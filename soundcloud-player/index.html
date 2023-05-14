@@ -10,17 +10,23 @@
       text-decoration: none;
       color: #FFDD00 !important;
     }
+
+    .btn-container {
+      height: 10%;
+      width: 10%;
+    }
   </style>
   <link rel='icon' type='image/x-icon' href='favicon.ico'>
 </head>
 <body>
   <h1># SoundCloud-Player</h1>
   <hr>
-  <span>
+  <span id="links">
     Install On <a>Chrome (Edge, Opera, Brave)</a> / <a>Firefox (Experimental)</a>
     <br><br>
     Links [ <a>Source</a> / <a>Wiki Page</a> / <a>Donate</a> / <a>Google Form</a> ]
   </span>
+  <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Support Me on Ko-fi', '#f45d22', 'B0B3F96YX');kofiwidget2.draw();</script>
 
   <br><hr><br>
 
@@ -41,7 +47,7 @@ However, depending on what you are using or playing, some software or games (suc
   </span><hr>
 
   <script type="text/javascript">
-    let w = document.querySelectorAll('a'), z = [
+    let w = document.querySelectorAll('#links a'), z = [
       'https://chrome.google.com/webstore/detail/soundcloud-player/oackhlcggjandamnkggpfhfjbnecefej',
       'https://addons.mozilla.org/en-US/firefox/addon/soundcloud-player/',
       'https://github.com/S4WA/SoundCloud-Player/',
