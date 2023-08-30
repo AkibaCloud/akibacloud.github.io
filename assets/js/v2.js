@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
       photos = Object.keys(configs);
 
   for (let p in photos) {
-    preloadImage(`assets/img/${photos[p]}`);
+    await preloadImage(`assets/img/${photos[p]}`);
   }
 
   setInterval(function hello() {
