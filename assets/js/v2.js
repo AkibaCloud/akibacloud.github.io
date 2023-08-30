@@ -21,7 +21,7 @@ const configs = {
   },
 };
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', async function() {
   let count = 0,
       gallery = document.querySelector('#gallery'),
       photos = Object.keys(configs);
