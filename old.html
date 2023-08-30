@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>akiba.cloud</title>
+  <link rel='stylesheet' type='text/css' href='assets/main/style.css'>
+  <script src='assets/js/three.js'></script>
+  <link rel='icon' type='image/x-icon' href='assets/img/Screenshot_390.png'>
+</head>
+<body>
+  <div id='cube'></div>
+  <div id='list'>
+    <span class='lol'>Links</span><br>
+    <ul>
+      <li><a href='https://github.com/S4WA' target='_blank'>https://github.com/S4WA</a></li>
+      <li><a href='https://s4wa.hatenadiary.jp/' target='_blank'>https://s4wa.hatenadiary.jp</a></li>
+    </ul>
+    <span class='lol'>Tip</span><br>
+    <ul>
+      <li>
+        <a href='https://ko-fi.com/sawanese' target='_blank'>https://ko-fi.com/sawanese</a>
+      </li>
+    </ul>
+    <span class='lol'>My Projects</span><br>
+    <ul>
+      <li>
+        <a href="./soundcloud-player/">SoundCloud Player</a> (10K users! Thank you so much!)
+        <!-- <img src="assets/img/scplayer.png" width="500"> -->
+      </li>
+      <li>
+        <a href="floppy/">Copy of the "funny bird game"</a>
+      </li>
+    </ul>
+  </div>
+  <script>
+      const scene = new THREE.Scene();
+      const width = 300, height = 300;
+      // const width = window.innerWidth, height = window.innerHeight;
+      const camera = new THREE.PerspectiveCamera( 75, width / height, 0.1, 1000 );
+
+      const renderer = new THREE.WebGLRenderer();
+      renderer.setSize( width, height );
+      document.getElementById('cube').appendChild( renderer.domElement );
+
+      const geometry = new THREE.BoxGeometry( 1, 1, 1 );
+      const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+      const cube = new THREE.Mesh( geometry, material );
+      scene.add( cube );
+
+      camera.position.z = 5;
+
+      function animate() {
+        requestAnimationFrame( animate );
+
+        cube.rotation.x += 0.005;
+        cube.rotation.y += 0.005;
+
+        renderer.render( scene, camera );
+      };
+      
+      animate();
+  </script>
+</body>
+</html>
