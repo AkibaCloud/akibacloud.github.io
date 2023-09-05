@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <title></title>
+  <script type='text/javascript' src='https://www.gstatic.com/charts/loader.js'></script>
+</head>
+<body>
+  <div id='regions_div' style='width: 900px; height: 500px;'></div>
+  <input type='file' accept='.csv'>
+
+  <script type='text/javascript'>
+    google.charts.load('current', {
+      'packages':['geochart'],
+      'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
+    });
+    google.charts.setOnLoadCallback(drawRegionsMap);
+
+    function drawRegionsMap() {
+      let data = google.visualization.arrayToDataTable([
+        ['Country', 'Users'],
+      ]);
+      let chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+      chart.draw(data, {});
+    }
+
+    const input = document.querySelector('input');
+    input.addEventListener('change', async function() {
+      let file = input.files[0], text = await file.text();
+      text = text.split(/\r?\n/);
+
+      let chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+      let ingredients = [], bozo = text[1].split(','), zaza = text[text.length-3].split(',');
+      
+      for (let i = 1; i < bozo.length; i++) {
+        ingredients.push([bozo[i], zaza[i]]);
+      }
+
+      let data = google.visualization.arrayToDataTable(ingredients);
+      chart.draw(data, {});
+    });
+  </script>
+</body>
+</html>
