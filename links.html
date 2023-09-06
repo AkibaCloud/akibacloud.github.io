@@ -7,6 +7,16 @@
   <link rel='stylesheet' type='text/css' href='assets/main/stylev2.css'>
 </head>
 <body>
+  <div>
+    <span>
+      [
+      <a href='./'>HOME</a>
+      <a href='./works.html'>WORKS</a>
+      <a href='./links.html'>LINKS</a>
+      ]
+    </span>
+  </div>
+  <br>
   <ul>
     <li>
       <a href='https://github.com/S4WA'>Github</a>
@@ -19,7 +29,7 @@
     </li>
   </ul>
   <script type='text/javascript'>
-    let bih = document.querySelectorAll('a');
+    let bih = document.querySelectorAll('ul a');
     for (var i = 0; i < bih.length; i++) {
       bih[i].setAttribute('target', '_blank');
     }

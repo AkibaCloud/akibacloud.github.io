@@ -26,10 +26,6 @@ document.addEventListener('DOMContentLoaded', async function() {
       gallery = document.querySelector('#gallery'),
       photos = Object.keys(configs);
 
-  for (let p in photos) {
-    await preloadImage(`assets/img/${photos[p]}`);
-  }
-
   setInterval(function hello() {
     if (count > photos.length-1) count = 0;
 
@@ -44,11 +40,4 @@ document.addEventListener('DOMContentLoaded', async function() {
     ++count;
     return hello;
   }(), 2000);
-});
-
-const preloadImage = src => new Promise((resolve, reject) => {
-  const image = new Image();
-  image.onload = resolve;
-  image.onerror = reject;
-  image.src = src;
 });
