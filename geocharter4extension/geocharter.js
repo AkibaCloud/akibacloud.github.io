@@ -18,12 +18,16 @@ input.addEventListener('change', async function() {
   let file = input.files[0], text = await file.text();
   text = text.split(/\r?\n/);
 
-  let chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
-  let ingredients = [['Country', 'Users']], countries = text[1].split(',');
+  let chart = new google.visualization.GeoChart(document.getElementById('regions_div')),
+      ingredients = [['Country', 'Users']],
+      countries = text[1].split(','),
+      lastLine = text[text.length-3].split(',');
+
+  document.querySelector('#date').innerText = `As of ${lastLine[0]}`;
 
   // For-loop every country
   for (let i = 1; i < countries.length; i++) {
-    let country = countries[i], users = Number( text[text.length-2].split(',')[i] );
+    let country = countries[i], users = Number( lastLine[i] );
     try {
       country = regionNamesInEnglish.of(country);
     } catch (error) {
