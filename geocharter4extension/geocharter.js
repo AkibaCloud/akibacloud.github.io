@@ -13,6 +13,16 @@ function drawRegionsMap() {
   chart.draw(data, {});
 }
 
+function emptyCheck([...array]) {
+  array.splice(0, 1);
+
+  for (let i in array) {
+    array[i] = Number(array[i]);
+  }
+
+  return Math.max(...array) == 0;
+}
+
 const input = document.querySelector('input');
 input.addEventListener('change', async function() {
   let file = input.files[0], text = await file.text();
@@ -21,7 +31,11 @@ input.addEventListener('change', async function() {
   let chart = new google.visualization.GeoChart(document.getElementById('regions_div')),
       ingredients = [['Country', 'Users']],
       countries = text[1].split(','),
-      lastLine = text[text.length-3].split(',');
+      lastLine = text[text.length-2].split(',');
+
+  if (emptyCheck(lastLine)) {
+    lastLine = text[text.length-3].split(',');
+  }
 
   document.querySelector('#date').innerText = `As of ${lastLine[0]}`;
 
