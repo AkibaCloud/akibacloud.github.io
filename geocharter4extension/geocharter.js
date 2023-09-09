@@ -10,6 +10,7 @@ $('input').on('change', async function() {
       file = this.files[0], 
       text = await file.text();
   text = text.split(/\r?\n/);
+  total = 0;
 
   let ingredients = [['Country', 'Users']],
       countries = text[1].split(','),
