@@ -3,7 +3,7 @@ google.charts.load('current', {
 });
 google.charts.setOnLoadCallback(drawRegionsMap);
 
-let chart, data, lastEvent;
+let chart, data, lastEvent, total = 0;
 
 $('input').on('change', async function() {
   let regionNamesInEnglish = new Intl.DisplayNames(['en'], { type: 'region' }),
@@ -19,8 +19,6 @@ $('input').on('change', async function() {
     lastLine = text[text.length-3].split(',');
   }
 
-  $('#date').text(`As of ${lastLine[0]}`);
-
   // For-loop every country
   for (let i = 1; i < countries.length; i++) {
     let country = countries[i], users = Number(lastLine[i]);
@@ -29,7 +27,10 @@ $('input').on('change', async function() {
     } catch (error) {
     }
     ingredients.push([country, users]);
+    total = total + users;
   }
+
+  $('#date').text(`As of ${lastLine[0]}, ${total} users in total.`);
 
   data = google.visualization.arrayToDataTable(ingredients);
   chart.draw(data, {
@@ -76,6 +77,8 @@ function sortCountryList([...array]) {
 }
 
 function renderSortedList([...array]) {
+  $('table').remove();
+
   let arr = sortCountryList(array), table = $('<table>').html('<tr><th>#</th><th>Country</th><th>Users</th></tr>');
 
   for (let i = 1; i < arr.length; i++) {
