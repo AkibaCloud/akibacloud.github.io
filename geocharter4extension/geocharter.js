@@ -27,6 +27,7 @@ $('input').on('change', async function() {
       country = regionNamesInEnglish.of(country);
     } catch (error) {
     }
+    if (users == 0) continue;
     ingredients.push([country, users]);
     total = total + users;
   }
