@@ -1,12 +1,12 @@
 const configs = {
+  'IMG_2291.jpeg': {
+    'css': {
+      'object-position': 'center -29em',
+    }
+  },
   'sawanese-20211003_203440.jpeg': {
     'css': {
       'object-position': 'center -14.5em',
-    }
-  },
-  'IMG_1392.png': {
-    'css': {
-      'object-position': 'center -10em',
     }
   },
   'IMG_2135.png': {
