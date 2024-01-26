@@ -21,11 +21,11 @@
   <input type="file" accept=".heic" multiple>
   <script type="text/javascript">
     const input = document.querySelector("input");
-    input.addEventListener("change", function() {
+    input.addEventListener("change", async function() {
       console.log(input.files)
       for (var i = 0; i < input.files.length; i++) {
         let blob = input.files[i];
-        heic2any({blob: blob, toType: "image/png"}).then(function (resultBlob) {
+        await heic2any({blob: blob, toType: "image/png"}).then(function (resultBlob) {
           saveFile(resultBlob, blob.name.replace(".HEIC", "") + ".png");
         });
       }
