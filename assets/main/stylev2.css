@@ -2,10 +2,6 @@ body {
   font-family: system-ui, '游ゴシック' , '游ゴシック体' , YuGothic , 'Yu Gothic';
 }
 
-body > div {
-  float: left;
-}
-
 a {
   color: #ed6258;
 }
@@ -19,8 +15,6 @@ a:hover {
   background-color: #f3f3f3;
   width: 8em;
   height: 33em;
-  writing-mode: vertical-rl;
-  text-orientation: sideways-right;
 }
 
 #osaka h2 {
