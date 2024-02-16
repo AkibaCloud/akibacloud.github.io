@@ -1,66 +1,152 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset='utf-8'>
-  <title>SoundCloud Player</title>
-  <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Inconsolata'>
-  <link rel='stylesheet' type='text/css' href='../assets/main/style.css'>
-  <style type='text/css'>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SoundCloud Player - Home</title>
+  <link rel='icon' type='image/x-icon' href='favicon.ico'>
+  <style type="text/css">
+    body {
+      font-family: Work Sans, sans-serif;
+      text-align: center;
+      width: 800px;
+      margin: 0 auto;
+    }
+    h1 {
+      font-size: 3.5em;
+      margin-bottom: 0;
+    }
+    h2 {
+      font-size: 1.5em;
+    }
+    .grey {
+      color: #3f3f3f;
+    }
     a {
       text-decoration: none;
-      color: #FFDD00 !important;
+      color: #000;
     }
-
-    .btn-container {
-      height: 10%;
-      width: 10%;
+    .install-parent {
+      display: flex;
+      justify-content: center;
+    }
+    .install-parent > .wrapper {
+      padding: 0 0.3em;
+      display: block;
+    }
+    .install-parent > .wrapper > .install:hover {
+      color: #494949;
+    }
+    .install {
+      display: flex;
+      font-size: 1.35em;
+      border: 0.15rem solid;
+      border-color: #3f3030;
+      padding: 0.1em 0.5em;
+      border-radius: 20px;
+    }
+    .install span {
+      display: block;
+      font-weight: 550;
+    }
+    iframe {
+      padding: 1.5em 0;
+    }
+    .box {
+      width: 100%;
+      padding-bottom: 1.5em;
+    }
+    .box > .wrapper {
+      width: 70%;
+      margin: 0 15%;
+    }
+    #resources {
+      font-weight: bold;
+    }
+    #resources a {
+      color: #e64c00;
+    }
+    #resources a:hover {
+      color: #ff5500
     }
   </style>
-  <link rel='icon' type='image/x-icon' href='favicon.ico'>
+  <script src="https://kit.fontawesome.com/4b442f5405.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <h1># SoundCloud-Player</h1>
-  <hr>
-  <span class="links">
-    Install On <a>Chrome (Edge, Opera, Brave)</a> / <a>Firefox (Experimental)</a>
-    <br><br>
-    Links [ <a>Source</a> / <a>Wiki Page</a> / <a>Donate</a> / <a>Google Form</a> ]
-  </span>
-  <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Support Me on Ko-fi', '#f45d22', 'B0B3F96YX');kofiwidget2.draw();</script>
+  <h1><img src='favicon.ico'> SoundCloud Player</h1>
+  <h2 class="grey">Free & Open-Source!</h2>
 
-  <br><hr><br>
+  <div class="install-parent">
+    <div class="wrapper">
+      <a href="https://chrome.google.com/webstore/detail/soundcloud-player/oackhlcggjandamnkggpfhfjbnecefej" target="_blank" class="install">
+        <span>
+          <i class="fa-brands fa-chrome"></i> Google Chrome
+        </span>
+      </a>
+    </div>
+    <div class="wrapper">
+      <a href="#" target="_blank" class="install">
+        <span>
+          <i class="fa-brands fa-firefox-browser"></i> Firefox
+        </span>
+      </a>
+    </div>
+    <div class="wrapper">
+      <a href="https://github.com/S4WA/SoundCloud-Player" target="_blank" class="install">
+        <span>
+          <i class="fa-brands fa-github"></i> Source Code
+        </span>
+      </a>
+    </div>
+  </div>
 
-  <iframe width="640" height="400" src="https://www.youtube.com/embed/hIJyF2u3-RY" title="Quick Tutorial for SoundCloud Player 1.3.0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-  <br><hr><br>
-  <iframe width="640" height="400" src="https://www.youtube.com/embed/jHYojPtnDBw" title="#soundcloudgaming" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <iframe width="640" height="400" src="https://www.youtube.com/embed/hIJyF2u3-RY" title="Quick Tutorial for SoundCloud Player 1.3.0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-  <br><br>
+  <h2>About SoundCloud Player</h1>
+  <div class="box">
+    <div class="wrapper" style="text-align: left;">
+      <span>
+        Made on May 3, 2019, the SoundCloud Player came out way before Google Chrome added music controls. Now, it's got over 15,000 users. We filled a crucial gap, providing users user-friendly experience for managing SoundCloud tracks.
+      </span>
+    </div>
+  </div>
+  <h2>Resources</h2>
+  <div class="box" id='resources'>
+    <div class="wrapper">
+      [
+      <a href="https://github.com/S4WA/SoundCloud-Player/wiki" target="_blank">
+        Wiki
+      </a>
+      ]
+      [
+      <a href="reportme" target="_blank">
+        Send feedback
+      </a>
+      ]
+      [
+      <a href="https://github.com/S4WA/soundcloud-player/wiki/Update-Logs" target="_blank">
+        Update logs
+      </a>
+      ]
+      [
+      <a href="https://github.com/S4WA/SoundCloud-Player/" target="_blank">
+        Source code
+      </a>
+      ]
+      [
+      <a href="privacy-policy">
+        Privacy policy
+      </a>
+      ]
+    </div>
+  </div>
 
-  <span class="links">
-    <pre style='font-size: 1.2em;'>This is a showcase for the use of the Global shortcut feature.
-You can control the SoundCloud audio by pressing keyboard shortcuts while playing the game.
-However, depending on what you are using or playing, some software or games (such as major games like League of Legends) might block your shortcut inputs.</pre>
-    <hr>
-    [ <a>Privacy Policy</a> ]
-  <br><br>
-    [ <a>Top</a> > SoundCloud-Player ]
-  </span><hr>
+  <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Support Me on Ko-fi', '#878787', 'B0B3F96YX');kofiwidget2.draw();</script>
 
-  <script type="text/javascript">
-    let w = document.querySelectorAll('.links a'), z = [
-      'https://chrome.google.com/webstore/detail/soundcloud-player/oackhlcggjandamnkggpfhfjbnecefej',
-      'https://addons.mozilla.org/en-US/firefox/addon/soundcloud-player/',
-      'https://github.com/S4WA/SoundCloud-Player/',
-      'https://github.com/S4WA/SoundCloud-Player/wiki',
-      'https://ko-fi.com/sawanese',
-      'https://forms.gle/EUhfFyrUan3CdVn26',
-      'privacy-policy',
-      '../'
-    ];
-    for (var i = 0; i < w.length; i++) {
-      if (i != w.length - 1) w[i].setAttribute('target', '_blank');
-      w[i].setAttribute('href', z[i]);
-    }
-  </script>
+  <div style="padding-top: 1em;">
+    <span>
+      Copyright &copy 2024 AkibaCloud
+    </span>
+  </div>
 </body>
 </html>
