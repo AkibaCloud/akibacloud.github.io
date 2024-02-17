@@ -6,3 +6,14 @@ body {
   color: #fff;
   text-align: center;
 }
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+a:hover {
+  color: #8b8b8b;
+  transition: all .3s ease;
+  -webkit-transition: all .3s ease;
+}
