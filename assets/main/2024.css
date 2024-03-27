@@ -17,3 +17,13 @@ a:hover {
   transition: all .3s ease;
   -webkit-transition: all .3s ease;
 }
+
+@media (max-width: 768px) {
+    body {
+        width: 90%;
+    }
+
+    img {
+        width: 50%;
+    }
+}
