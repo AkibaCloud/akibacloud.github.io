@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AkibaCloud</title>
+  <link rel="stylesheet" type="text/css" href="assets/main/2024.css">
+  <link rel='icon' type='image/x-icon' href='assets/img/favicon.ico'>
+  <script src="https://kit.fontawesome.com/4b442f5405.js" crossorigin="anonymous"></script>
+  <style type="text/css">
+    #links {
+      font-size: 1.7em;
+    }
+    #second {
+      border-top: 1px solid;
+      border-bottom: 1px solid;
+      border-color: #fff;
+      margin: 1em auto;
+      padding-top: 1em;
+      width: 300px;
+      font-size: 1.1em;
+    }
+    #second > a {
+      display: block;
+      padding-bottom: 1em;
+    }
+    div.avatar {
+      background-image: url("assets/img/32.jpeg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 12vw;
+      height: 0;
+      padding-top: 12vw; /* 16:9 aspect ratio */
+      margin: 2% 0;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: calc(50vh - 40vmin);
+      border-radius: 50%; 
+    }
+  </style>
+</head>
+<body>
+  <div class="avatar" style=''></div>
+  <h1>Sawa</h1>
+  <div id='links'>
+    <a href="https://github.com/S4WA" alt="GitHub">
+      <i class="fa-brands fa-github"></i>
+    </a>
+    <a href="https://blog.akiba.cloud" alt="Blog">
+      <i class="fa-solid fa-blog"></i>
+    </a>
+    <a href="https://www.youtube.com/@sawanese" alt="YouTube">
+      <i class="fa-brands fa-youtube"></i>
+    </a>
+    <a href="#" id="email" alt="Email" class="ignore">
+      <i class="fa-solid fa-envelope"></i>
+    </a>
+  </div>
+  <div id="second">
+    <a href="about" class="ignore">
+      About me
+    </a>
+    <a href="works" class="ignore">
+      Works
+    </a>
+  </div>
+  <div style="padding-top: 1em;">
+    <img src="https://kauntah-svg.vercel.app/counter.svg" referrerpolicy="origin" /><br><br>
+
+    <span>
+      Copyright &copy 2024 AkibaCloud
+    </span>
+  </div>
+  <script>
+    const z = document.querySelectorAll("a:not(.ignore)");
+    for (var i = 0; i < z.length; i++) {
+      z[i].setAttribute('target', '_blank');
+    }
+
+    document.querySelector("#email").addEventListener("click", () => {
+      let input = document.createElement("input");
+
+      input.style.opacity = "0";
+      input.value = "me@akiba.cloud";
+
+      document.body.appendChild(input);
+
+      input.select();
+
+      document.execCommand('Copy');
+
+      input.remove();
+
+      alert(`Copied my email address. (${input.value})`)
+    });
+  </script>
+</body>
+</html>

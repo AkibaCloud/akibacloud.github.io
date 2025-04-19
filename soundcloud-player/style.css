@@ -1,0 +1,63 @@
+body {
+  font-family: Work Sans, sans-serif;
+  text-align: center;
+  width: 800px;
+  margin: 0 auto;
+}
+h1 {
+  font-size: 3.5em;
+  margin-bottom: 0;
+}
+h2 {
+  font-size: 1.5em;
+}
+.grey {
+  color: #3f3f3f;
+}
+a {
+  text-decoration: none;
+  color: #000;
+}
+.install-parent {
+  display: flex;
+  justify-content: center;
+}
+.install-parent > .wrapper {
+  padding: 0 0.3em;
+  display: block;
+}
+.install-parent > .wrapper > .install:hover {
+  color: #494949;
+}
+.install {
+  display: flex;
+  font-size: 1.35em;
+  border: 0.15rem solid;
+  border-color: #3f3030;
+  padding: 0.1em 0.5em;
+  border-radius: 20px;
+}
+.install span {
+  display: block;
+  font-weight: 550;
+}
+iframe {
+  padding: 1.5em 0;
+}
+.box {
+  width: 100%;
+  padding-bottom: 1.5em;
+}
+.box > .wrapper {
+  width: 70%;
+  margin: 0 15%;
+}
+#resources {
+  font-weight: bold;
+}
+#resources a {
+  color: #e64c00;
+}
+#resources a:hover {
+  color: #ff5500
+}

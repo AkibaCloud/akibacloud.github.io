@@ -1,0 +1,40 @@
+body {
+  background-color: #000;
+  color: #fff;
+  margin: 0;
+  height: 350px;
+  max-width: 100%;
+  font-family: 'Consolas', 'Inconsolata', monospace;
+  width: 100%;
+  display: block;
+}
+
+body > div {
+  margin: 0;
+  width: 350px;
+  height: 350px;
+}
+
+a, a:active {
+  color: #00ff00
+}
+
+a:hover {
+  color: #8eff8e;
+}
+
+#cube {
+  margin: 0;
+}
+
+ul {
+  margin: 1%;
+}
+
+li {
+  word-break: break-all;
+}
+
+.lol {
+  margin-left: 1em;
+}

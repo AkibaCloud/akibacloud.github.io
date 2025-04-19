@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Heic Converter</title>
+  <script src="heic2any.min.js"></script>
+  <style type="text/css">
+    * {
+      font-family: monospace
+    }
+  </style>
+</head>
+<body>
+  <span>This is a HEIC to PNG converter that will be done without the need for communication between the client and the server.<br><br>
+  Choose heic files and your browser will download files automatically as png.<br>
+  Enable 'multiple file download' option to download multiple images.<br>
+  It may take a few minutes to finish tasks, depending on how many photos you have.
+  </span>
+  <br><br>
+  <input type="file" accept=".heic" multiple>
+  <script type="text/javascript">
+    const input = document.querySelector("input");
+    input.addEventListener("change", async function() {
+      console.log(input.files)
+      for (var i = 0; i < input.files.length; i++) {
+        let blob = input.files[i];
+        await heic2any({blob: blob, toType: "image/png"}).then(function (resultBlob) {
+          saveFile(resultBlob, blob.name.replace(".HEIC", "") + ".png");
+        });
+      }
+    });
+
+    function saveFile(blob, filename) {
+      if (window.navigator.msSaveOrOpenBlob) {
+        window.navigator.msSaveOrOpenBlob(blob, filename);
+      } else {
+        var a = document.createElement("a");
+        document.body.appendChild(a);
+        var url = window.URL.createObjectURL(blob);
+        a.href = url;
+        a.download = filename;
+        a.click();
+        setTimeout(function () {
+          window.URL.revokeObjectURL(url);
+          document.body.removeChild(a);
+        }, 0);
+      }
+    }
+  </script>
+</body>
+</html>

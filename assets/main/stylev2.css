@@ -1,0 +1,59 @@
+body {
+  font-family: system-ui, '游ゴシック' , '游ゴシック体' , YuGothic , 'Yu Gothic';
+}
+
+a {
+  color: #ed6258;
+}
+
+a:hover {
+  color: #c7524a;
+}
+
+#osaka {
+  padding-top: 1em;
+  background-color: #f3f3f3;
+  width: 8em;
+  height: 33em;
+}
+
+#osaka h2 {
+  margin: 0 0.4em;
+}
+
+#osaka span {
+  margin-top: 0.25em;
+  font-size: 0.7em;
+}
+
+#tokyo {
+  padding-left: 0.5em;
+  height: 23.5em;
+  width: 30em;
+  font-size: 1.45em;
+}
+
+#tokyo a {
+  font-weight: bold;
+  text-decoration: none;
+}
+
+#announcement {
+  width: 30em;
+  height: 1em;
+  background-color: #3f3f3f;
+}
+
+marquee {
+  color: #fff;
+  font-size: 0.5em;
+  position: absolute;
+  width: inherit;
+  height: inherit;
+}
+
+#gallery {
+  width: 30em;
+  height: 10em;
+  object-fit: cover;
+}

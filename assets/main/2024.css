@@ -1,0 +1,29 @@
+body {
+  font-family: Work Sans, sans-serif;
+  background-color: #181818;
+  width: 800px;
+  margin: 0 auto;
+  color: #fff;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+a:hover {
+  color: #8b8b8b;
+  transition: all .3s ease;
+  -webkit-transition: all .3s ease;
+}
+
+@media (max-width: 768px) {
+    body {
+        width: 90%;
+    }
+
+    img {
+        width: 50%;
+    }
+}
